@@ -1,3 +1,5 @@
+package calculator;
+
 public class MultiplicationNode extends BinaryNode {
     public MultiplicationNode(Node left, Node right) {
         super(left, right);

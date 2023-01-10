@@ -1,3 +1,5 @@
+package calculator;
+
 public class DivisionNode extends BinaryNode {
     public DivisionNode(Node left, Node right) {
         super(left, right);

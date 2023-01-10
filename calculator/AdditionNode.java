@@ -1,3 +1,5 @@
+package calculator;
+
 public class AdditionNode extends BinaryNode {
 
     public AdditionNode(Node left, Node right)
