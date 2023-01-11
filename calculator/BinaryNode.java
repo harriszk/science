@@ -11,11 +11,11 @@ public abstract class BinaryNode implements Node {
     } // end constructor
 
     @Override
-    public int evaluate() {
-        int n1 = this.left.evaluate();
-        int n2 = this.right.evaluate();
+    public double evaluate() {
+        double n1 = this.left.evaluate();
+        double n2 = this.right.evaluate();
         return this.evaluate(n1, n2);
     }
     
-    public abstract int evaluate(int n1, int n2);
+    public abstract double evaluate(double n1, double n2);
 } // end BinaryNode

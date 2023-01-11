@@ -5,18 +5,19 @@ package calculator;
 public class NumberNode implements Node {
     // Numbers are stored in scientific notation.
     // i.e. (coefficient) * 10^(exponenet)
-    private double coefficient;
-    private int exponent;
+    private double number;
     private int significant_digits;
 
-    private int number;
-
-    public NumberNode(int number) {
+    public NumberNode(double number) {
         this.number = number;
     }
 
+    public NumberNode(double coefficient, int exponenet) {
+        this.number = Double.parseDouble(coefficient + "E" + exponenet);
+    }
+
     @Override
-    public int evaluate() {
+    public double evaluate() {
         return number;
     }
     

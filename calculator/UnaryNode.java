@@ -8,7 +8,7 @@ public abstract class UnaryNode implements Node {
     } // end constructor
 
     @Override
-    public int evaluate() {
+    public double evaluate() {
         return this.child.evaluate();
     } // end evaluate
 } // end UnaryNode

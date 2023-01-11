@@ -8,7 +8,7 @@ public class AdditionNode extends BinaryNode {
     } // end cosntructor
 
     @Override
-    public int evaluate(int n1, int n2) {
+    public double evaluate(double n1, double n2) {
         return n1 + n2;
     }
     
