@@ -10,17 +10,24 @@
 #define _DISPLAY_H_
 
 #include <stdlib.h>
+#include <string>
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 
 class Display {
     public:
-        Display(int width, int height);
+        Display(int width, int height, const char * title);
 
         ~Display();
 
-    private:
-        size_t width;
+        void start();
 
-        size_t height;
+        int getWidth();
+
+        int getHeight();
+
+    private:
+        GLFWwindow* window;
 }; // end Display class
 
 #endif

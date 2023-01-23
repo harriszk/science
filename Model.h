@@ -11,12 +11,13 @@
 #ifndef _MODEL_H_
 #define _MODEL_H_
 
+#include "Vector.h"
+#include "Triangle.h"
 #include <string>
 #include <vector>
 
 class Model {
     public:
-
         // Default constructor
         Model();
 
@@ -28,8 +29,8 @@ class Model {
 
     private:
         std::string name;
-        std::vector<int> vertices;
-        std::vector<int> triangles;
+        std::vector<Vector<3>> vertices;
+        std::vector<Triangle> triangles;
 }; // end Model class
 
 #endif

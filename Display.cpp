@@ -1,44 +1,76 @@
 #include "Display.h"
-#include <GLFW/glfw3.h>
 #include <iostream>
 
-Display::Display(int width, int height):
-    width(width),
-    height(height)
+Display::Display(int width, int height, const char * title)
 {
-    GLFWwindow* window;
+    glfwInit();
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    // Initialize the library 
-    if (!glfwInit())
-        return;
+#ifdef __APPLE__
+    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+#endif
 
-    // Create a windowed mode window and its OpenGL context 
-    window = glfwCreateWindow(this->width, this->height, "Hello World", NULL, NULL);
-    if (!window)
-    {
-        glfwTerminate();
-        return;
-    }
-    
-    // Loop until the user closes the window 
-    while (!glfwWindowShouldClose(window))
-    {
-        // Render here 
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
+    //glfwWindowHint(GLFW_RESIZABLE, false);
 
-        // Swap front and back buffers 
-        glfwSwapBuffers(window);
-
-        // Poll for and process events 
-        glfwPollEvents();
-    }
-
-    glfwTerminate();
-
+    this->window = glfwCreateWindow(width, height, title, NULL, NULL);
 } // end constructor
 
 Display::~Display()
 {
+    //glfwDestroyWindow(this->window);
     glfwTerminate();
 } // end destructor
+
+void Display::start()
+{
+    glfwMakeContextCurrent(this->window);
+
+    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+    {
+        std::cout << "Failed to initialize GLAD" << std::endl;
+        return;
+    }
+
+    glViewport(0, 0, getWidth(), getHeight());
+
+    
+
+    // Render loop
+    while(!glfwWindowShouldClose(window))
+    {
+        //std::cout << glfwGetTime() << std::endl;
+        std::cout << getWidth() << " " << getHeight() << std::endl;
+        glfwPollEvents();
+
+        // render
+        // ------
+        glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT);
+
+        glfwSwapBuffers(this->window);
+    }
+
+    
+
+    delete this;
+}
+
+int Display::getWidth()
+{
+    int result;
+
+    glfwGetWindowSize(this->window, &result, nullptr);
+    
+    return result;
+} // end getWidth
+
+int Display::getHeight()
+{
+    int result;
+
+    glfwGetWindowSize(this->window, nullptr, &result);
+
+    return result;
+} // end getHeight
