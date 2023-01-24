@@ -24,7 +24,7 @@ Model::~Model()
 
 } // end destructor
 
-bool Model::addVertex(const Vector<3> & v)
+bool Model::addVertex(const glm::vec3 & v)
 {
     this->vertices.push_back(v);
 
@@ -44,4 +44,9 @@ size_t Model::getNumberOfVertices() const
 size_t Model::getNumberOfTriangles() const
 {
     return this->triangles.size();
+}
+
+std::vector<glm::vec3> Model::getPoints() const
+{
+    return this->vertices;
 }

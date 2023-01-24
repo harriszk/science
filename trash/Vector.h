@@ -63,12 +63,10 @@ class Vector {
          * @param[in]   scalar  The scaling factor 
          */
         void operator * (const float scalar);
+
     private:
         // Pointer to the actual data.
         T * data;
-
-        // Size, or dimension, of the vector.
-        size_t dimension;
 }; // end Vector class
 
 #endif
@@ -78,20 +76,18 @@ class Vector {
 
 template <size_t N, typename T>
 Vector<N, T>::Vector():
-    data(nullptr),
-    dimension(N)
+    data(nullptr)
 {
     this->data = new T[N];
 } // end constructor
 
 template <size_t N, typename T>
 Vector<N, T>::Vector(const Vector &v):
-    data(nullptr),
-    dimension(v.dimension)
+    data(nullptr)
 {
-    this->data = new T[this->dimension];
+    this->data = new T[N];
 
-    for(size_t i = 0; i < this->dimension; i++)
+    for(size_t i = 0; i < N; i++)
     {
         this->data[i] = v.data[i];
     } // end for
@@ -106,7 +102,7 @@ Vector<N, T>::~Vector()
 template <size_t N, typename T>
 T & Vector<N, T>::operator [] (size_t index)
 {
-    if(this->dimension <= index)
+    if(N <= index)
     {
         throw std::out_of_range("Out of range.");
     } // end if
@@ -117,7 +113,7 @@ T & Vector<N, T>::operator [] (size_t index)
 template <size_t N, typename T>
 const T & Vector<N, T>::operator [] (size_t index) const
 {
-    if(this->dimension <= index)
+    if(N <= index)
     {
         throw std::out_of_range("Out of range.");
     } // end if
@@ -130,7 +126,7 @@ T Vector<N, T>::operator * (const Vector & rhs)
 {
     T result = 0.0;
 
-    for(size_t i = 0; i < this->dimension; i++)
+    for(size_t i = 0; i < N; i++)
     {
         result += this->data[i] * rhs.data[i];
     }

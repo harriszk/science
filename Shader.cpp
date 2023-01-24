@@ -45,6 +45,7 @@ Shader::Shader(const std::string &vertexFile, const std::string &fragmentFile) {
         vertexShaderSource = vertexShaderStream.str();
         fragmentShaderSource = fragmentShaderStream.str();
 
+        // Convert to C strings
         const char* vertexShaderCode = vertexShaderSource.c_str();
         const char* fragmentShaderCode = fragmentShaderSource.c_str();
 
