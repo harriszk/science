@@ -19,7 +19,7 @@
 class Model {
     public:
         // Default constructor
-        Model();
+        Model(std::string name);
 
         // Copy constructor
         Model(const Model & model);
@@ -27,6 +27,35 @@ class Model {
         // Destructor
         ~Model();
 
+        /**
+         * 
+         * 
+         * @param[in] v 
+         * @return true 
+         * @return false 
+         */
+        bool addVertex(const Vector<3> & v);
+
+        /**
+         * Gets the name of the model.
+         * 
+         * @return std::string 
+         */
+        std::string getName() const;
+
+        /**
+         * Gets the number of vertices that the compose the model.
+         * 
+         * @return size_t 
+         */
+        size_t getNumberOfVertices() const;
+
+        /**
+         * Gets the number of triangles that the compose the model.
+         * 
+         * @return size_t 
+         */
+        size_t getNumberOfTriangles() const;
     private:
         std::string name;
         std::vector<Vector<3>> vertices;
