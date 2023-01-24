@@ -11,14 +11,7 @@
 #ifndef _VECTOR_H_
 #define _VECTOR_H_
 
-#include <stdlib.h>
-#include <iterator>
 #include <functional>
-#include <algorithm>
-#include <iostream>
-#include <numeric>
-#include <iostream>
-#include <exception>
 
 
 template <size_t N, typename T = float>
@@ -50,6 +43,13 @@ class Vector {
         T & operator [] (size_t index);
 
         /**
+         * @overload
+         * 
+         * The returned element is not modifiable.
+         */
+        const T & operator [] (size_t index) const;
+
+        /**
          * Computes the dot product of the two vectors.
          * 
          * @param[in]   rhs     Right-hand side of the multiplication sign
@@ -73,7 +73,8 @@ class Vector {
 
 #endif
 
-// --- Implementation ---
+
+// -------- Implementation --------
 
 template <size_t N, typename T>
 Vector<N, T>::Vector():
@@ -114,6 +115,17 @@ T & Vector<N, T>::operator [] (size_t index)
 } // end index operator
 
 template <size_t N, typename T>
+const T & Vector<N, T>::operator [] (size_t index) const
+{
+    if(this->dimension <= index)
+    {
+        throw std::out_of_range("Out of range.");
+    } // end if
+
+    return this->data[index];
+} // end index operator
+
+template <size_t N, typename T>
 T Vector<N, T>::operator * (const Vector & rhs)
 {
     T result = 0.0;
@@ -140,3 +152,29 @@ void operator * (const float scalar, Vector<N, T> & v)
 {
     v * scalar;
 } // end multiplication operator (scalar product)
+
+/**
+ * Returns the cross product of two vectors in 3-space. This vector is orthogonal
+ * to the two input vectors. The cross product, using determinant notation, is defined as:
+ * 
+ *         | i   j   k  |
+ * u x v = | u0  u1  u2 | = | u1 u2 | i - | u0 u2 | j + | u0 u1 | k
+ *         | v0  v1  v2 |   | v1 v2 |     | v0 v2 |     | v0 v1 |
+ * 
+ *       = <u1*v2 - u2*v1, -u0*v2 + u2*v0, u0*v1 - u1*v0>
+ * 
+ * @tparam[in]  T   Element type 
+ * @param[in]   u   First vector 
+ * @param[in]   v   Second vector 
+ * @return  Vector<3, T> 
+ */
+template <typename T>
+Vector<3, T> cross(const Vector<3, T> & u, const Vector<3, T> & v)
+{
+    Vector<3, T> r;
+    r[0] = u[1] * v[2] - u[2] * v[1];
+    r[1] = u[2] * v[0] - u[0] * v[2];
+    r[2] = u[0] * v[1] - u[1] * v[0];
+
+    return r;
+} // end cross

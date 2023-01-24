@@ -22,8 +22,12 @@ int main(int argc, char * argv[])
     v[1] = 1;
     v[2] = 4;
 
-    std::cout << u * v << std::endl;
-    std::cout << v * u << std::endl;
+    Vector<3> r = cross(u, v);
+
+    for(int i = 0; i < 3; i++)
+    {
+        std::cout << r[i] << " ";
+    }
 
     return 0;
 }
