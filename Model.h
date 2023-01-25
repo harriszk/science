@@ -11,7 +11,9 @@
 #ifndef _MODEL_H_
 #define _MODEL_H_
 
+#include "Vertex.h"
 #include "Triangle.h"
+#include <glad/glad.h>
 #include <glm/glm.hpp>
 #include <string>
 #include <vector>
@@ -34,7 +36,16 @@ class Model {
          * @return true 
          * @return false 
          */
-        bool addVertex(const glm::vec3 & v);
+        bool addVertex(const Vertex & v);
+
+        /**
+         * 
+         * 
+         * @param[in] t 
+         * @return true 
+         * @return false 
+         */
+        bool addTriangle(const Triangle & t);
 
         /**
          * Gets the name of the model.
@@ -57,10 +68,15 @@ class Model {
          */
         size_t getNumberOfTriangles() const;
 
-        std::vector<glm::vec3> getPoints() const;
+        /**
+         * 
+         * 
+         * @param[in] dt 
+         */
+        void draw(float dt);
     private:
         std::string name;
-        std::vector<glm::vec3> vertices;
+        std::vector<Vertex> vertices;
         std::vector<Triangle> triangles;
 }; // end Model class
 
