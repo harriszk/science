@@ -86,6 +86,11 @@ void Shader::use()
     glUseProgram(this->id);
 } // end use
 
+unsigned int Shader::getID()
+{
+    return this->id;
+}
+
 void Shader::checkCompileErrors(unsigned int shader, std::string type)
 {
     int success;

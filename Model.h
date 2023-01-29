@@ -21,7 +21,7 @@
 class Model {
     public:
         // Default constructor
-        Model(std::string name);
+        Model(const char *name);
 
         // Copy constructor
         Model(const Model & model);
@@ -68,6 +68,8 @@ class Model {
          */
         size_t getNumberOfTriangles() const;
 
+        bool loadTexture(const char * file);
+
         /**
          * 
          * 
@@ -75,9 +77,10 @@ class Model {
          */
         void draw(float dt);
     private:
-        std::string name;
+        const char *name;
         std::vector<Vertex> vertices;
         std::vector<Triangle> triangles;
+        unsigned int texture;
 }; // end Model class
 
 #endif

@@ -28,6 +28,8 @@ class Shader {
         // use/activate the shader
         void use();
 
+        unsigned int getID();
+
         // utility uniform functions
         /*
         void setBool(const std::string &name, bool value) const;  

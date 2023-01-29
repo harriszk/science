@@ -11,9 +11,9 @@
 
 struct Triangle
 {
-    unsigned int v0;
-    unsigned int v1;
-    unsigned int v2;
+    uint32_t v0;
+    uint32_t v1;
+    uint32_t v2;
 }; // end Triangle struct
 
 #endif

@@ -17,6 +17,8 @@ struct Vertex
     float r;
     float g;
     float b;
+    float s;
+    float t;
 }; // end Vertex struct
 
 #endif

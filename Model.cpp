@@ -6,12 +6,17 @@
  * 
  * © 2023 by Zachary Harris (zacharykeatonharris@gmail.com)
  */
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
+
 #include "Model.h"
+#include <iostream>
 
-Model::Model(std::string name):
-    name(name)
+Model::Model(const char *name):
+    name(name),
+    texture(0)
 {
-
+    
 } // end default constructor
 
 Model::Model(const Model & model)
@@ -57,6 +62,37 @@ size_t Model::getNumberOfTriangles() const
     return this->triangles.size();
 }
 
+bool Model::loadTexture(const char * file)
+{
+    glGenTextures(1, &this->texture);
+    glBindTexture(GL_TEXTURE_2D, this->texture);
+
+    // set the texture wrapping/filtering options (on the currently bound texture object)
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    bool response;
+
+    // load and generate the texture
+    int width, height, nrChannels;
+    unsigned char *data = stbi_load(file, &width, &height, &nrChannels, 0);
+    if (data)
+    {
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+        glGenerateMipmap(GL_TEXTURE_2D);
+        response = true;
+    }
+    else
+    {
+        std::cout << "Failed to load texture" << std::endl;
+        response = false;
+    }
+    stbi_image_free(data);
+    return response;
+}
+
 void Model::draw(float dt)
 {
     //this->vertices[0][0] = sin(dt);
@@ -90,18 +126,24 @@ void Model::draw(float dt)
 
     // 3. then set our vertex attributes pointers
     // position attribute
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_TRUE, 6 * sizeof(float), (void*)0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_TRUE, 8 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);  
 
     // color attribute
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
     glEnableVertexAttribArray(1);
 
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+    glEnableVertexAttribArray(2); 
+
+    glBindTexture(GL_TEXTURE_2D, this->texture);
+    
+    
 
     // You can unbind the VAO afterwards so other VAO calls won't accidentally modify this VAO, but this rarely happens. Modifying other
     // VAOs requires a call to glBindVertexArray anyways so we generally don't unbind VAOs (nor VBOs) when it's not directly necessary.
     glBindVertexArray(0); 
 
     glBindVertexArray(VAO);
-    glDrawElements(GL_TRIANGLES, 9, GL_UNSIGNED_INT, 0);
+    glDrawElements(GL_TRIANGLES, this->triangles.size() * 3, GL_UNSIGNED_INT, 0);
 }
