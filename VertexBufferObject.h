@@ -1,5 +1,5 @@
 /**
- * @file Model.h
+ * @file VertexBufferObject.h
  * Created on 01/29/2023
  * 
  * 

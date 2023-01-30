@@ -1,5 +1,5 @@
 /**
- * @file Model.h
+ * @file ElementBufferObject.h
  * Created on 01/29/2023
  * 
  * 

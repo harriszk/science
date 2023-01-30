@@ -1,5 +1,5 @@
 /**
- * @file Model.h
+ * @file VertexArrayObject.h
  * Created on 01/29/2023
  * 
  * 
