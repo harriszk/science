@@ -2,7 +2,7 @@
  * @file Renderer.h
  * Created on 01/29/2023
  * 
- * 
+ * This class is responsible for rendering scenes and images on a display.
  * 
  * © 2023 by Zachary Harris (zacharykeatonharris@gmail.com)
  */
@@ -18,7 +18,7 @@ class Renderer {
          * Default constructor.
          * 
          */
-        Renderer();
+        Renderer(Display &display);
 
         // Destructor.
         ~Renderer();
@@ -37,7 +37,9 @@ class Renderer {
         //Scene *m_scenes;
 
         // The display used to render to.
-        Display m_display;
+        Display &m_display;
+
+        //Camera m_camera;
 }; // end Renderer class
 
 #endif

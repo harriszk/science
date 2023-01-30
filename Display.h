@@ -29,8 +29,10 @@ class Display {
         /**
          * Creates the GLFW window and initializes GLAD.
          * 
+         * @return true     The window was successfully created.
+         * @return false    The window wasn't successfully created.
          */
-        void createWindow();
+        bool createWindow(int width, int height, const char *title);
 
         /**
          * Checks if the window should be closed.

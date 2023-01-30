@@ -1,8 +1,12 @@
-#include <iostream>
+#include "Display.h"
+#include "Renderer.h"
 
 int main(int argc, char * argv[])
 {
-    std::cout << argv[1] << "\n";
+    Display display(800, 600, "Hello World!");
+    Renderer renderer(display);
+
+    renderer.startRendering();
 
     return 0;
 } // end main
