@@ -8,8 +8,8 @@
  * 
  * © 2023 by Zachary Harris (zacharykeatonharris@gmail.com)
  */
-#ifndef _MODEL_H_
-#define _MODEL_H_
+//#ifndef _MODEL_H_
+//#define _MODEL_H_
 
 #include "Vertex.h"
 #include "Triangle.h"
@@ -83,4 +83,4 @@ class Model {
         unsigned int texture;
 }; // end Model class
 
-#endif
+//#endif

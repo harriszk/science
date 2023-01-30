@@ -17,6 +17,7 @@ class Renderer {
         /**
          * Default constructor.
          * 
+         * @param[in] display A reference to a Display object that the renderer will use for rendering.
          */
         Renderer(Display &display);
 

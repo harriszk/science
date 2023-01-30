@@ -18,6 +18,8 @@ Display::Display(int width, int height, const char *title)
         std::cout << "Window was not created!\n";
         return;
     } // end if
+
+    glfwSetFramebufferSizeCallback(m_window, screenSizeCallback);
 } // end default constructor
 
 Display::~Display()
@@ -25,12 +27,20 @@ Display::~Display()
     destroy();
 } // end destructor
 
+void Display::screenSizeCallback(GLFWwindow* window, int width, int height)
+{
+    glViewport(0, 0, width, height);
+    std::cout << "Display has been resized to (" << width << "x" << height << ")\n";
+} // end screenSizeCallback
+
 bool Display::createWindow(int width, int height, const char *title)
 {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+#ifdef __APPLE__
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+#endif
 
     m_window = glfwCreateWindow(width, height, title, nullptr, nullptr);
     if(m_window == nullptr)
@@ -69,8 +79,8 @@ void Display::toggleWindow()
 
 void Display::update()
 {
-    glfwPollEvents();
     glfwSwapBuffers(m_window);
+    glfwPollEvents();
 } // end update
 
 void Display::destroy()

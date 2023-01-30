@@ -22,17 +22,21 @@ Renderer::~Renderer()
 
 void Renderer::startRendering()
 {
+    glEnable(GL_DEPTH_TEST); 
+
     while(!m_display.shouldClose()) 
     {
-        glClearColor(0.0f, 0.6f, 0.6f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
         render();
-        m_display.update();
     } // end while
 } // end startRendering
 
 void Renderer::render()
 {
-    
+    glClearColor(0.0f, 0.6f, 0.6f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    // Compute dt
+    // Render models from the scene
+
+    m_display.update();
 } // end render
