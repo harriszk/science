@@ -11,6 +11,8 @@
 
 #include "Display.h"
 #include "Scene.h"
+#include "Shader.h"
+#include "Model.h"
 
 class Renderer {
     public:
@@ -19,7 +21,7 @@ class Renderer {
          * 
          * @param[in] display A reference to a Display object that the renderer will use for rendering.
          */
-        Renderer(Display &display);
+        Renderer(Display &display, Shader &shader);
 
         // Destructor.
         ~Renderer();
@@ -39,6 +41,10 @@ class Renderer {
 
         // The display used to render to.
         Display &m_display;
+
+        Shader &m_shader;
+
+        Model model;
 
         //Camera m_camera;
 }; // end Renderer class

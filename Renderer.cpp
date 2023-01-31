@@ -7,12 +7,16 @@
  * © 2023 by Zachary Harris (zacharykeatonharris@gmail.com)
  */
 #include "Renderer.h"
-#include <iostream>
 
-Renderer::Renderer(Display &display):
-    m_display(display)
+Renderer::Renderer(Display &display, Shader &shader):
+    m_display(display),
+    m_shader(shader)
 {
+    model.addVertex({-0.5f, -0.5f, 0.0f});
+    model.addVertex({0.5f, -0.5f, 0.0f});
+    model.addVertex({0.0f, 0.5f, 0.0f});
 
+    model.addTriangle({0, 1, 2});
 } // end default constructor
 
 Renderer::~Renderer()
@@ -22,7 +26,8 @@ Renderer::~Renderer()
 
 void Renderer::startRendering()
 {
-    glEnable(GL_DEPTH_TEST); 
+    glEnable(GL_DEPTH_TEST);
+    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
     while(!m_display.shouldClose()) 
     {
@@ -35,8 +40,11 @@ void Renderer::render()
     glClearColor(0.0f, 0.6f, 0.6f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+    m_shader.use();
+
     // Compute dt
     // Render models from the scene
+    model.render();
 
     m_display.update();
 } // end render

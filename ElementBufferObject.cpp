@@ -7,28 +7,33 @@
  * © 2023 by Zachary Harris (zacharykeatonharris@gmail.com)
  */
 #include "ElementBufferObject.h"
+#include <glad/glad.h>
 
 ElementBufferObject::ElementBufferObject()
 {
-
+    glGenBuffers(1, &m_id);
 } // end default constructor
 
 ElementBufferObject::~ElementBufferObject()
 {
-
+    glDeleteBuffers(1, &m_id);
 } // end destructor
 
 void ElementBufferObject::bind()
 {
-
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_id);
 } // end bind
 
 void ElementBufferObject::unbind()
 {
-
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 } // end unbind
 
-void setData(std::vector<Triangle> &triangles)
+void ElementBufferObject::setData(std::vector<Triangle> *triangles)
 {
+    bind();
+    //glBufferData(GL_ELEMENT_ARRAY_BUFFER, size, data, GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, triangles->size() * sizeof(Triangle), &triangles->front(), GL_STATIC_DRAW);
 
+    //unbind();
 } // end setData

@@ -11,6 +11,8 @@
 #ifndef _VERTEX_ARRAY_OBJECT_H_
 #define _VERTEX_ARRAY_OBJECT_H_
 
+#include <cstdint>
+
 class VertexArrayObject {
     public:
         /**

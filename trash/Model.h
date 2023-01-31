@@ -1,5 +1,5 @@
 /**
- * @file Model.h
+ * @file ModelTrash.h
  * Created on 01/20/2023
  * 
  * This class represents a 3D model. A model has a collection of vertices along
@@ -18,16 +18,16 @@
 #include <string>
 #include <vector>
 
-class Model {
+class ModelTrash {
     public:
         // Default constructor
-        Model(const char *name);
+        ModelTrash(const char *name);
 
         // Copy constructor
-        Model(const Model & model);
+        ModelTrash(const ModelTrash & model);
 
         // Destructor
-        ~Model();
+        ~ModelTrash();
 
         /**
          * 
@@ -81,6 +81,6 @@ class Model {
         std::vector<Vertex> vertices;
         std::vector<Triangle> triangles;
         unsigned int texture;
-}; // end Model class
+}; // end ModelTrash class
 
 //#endif

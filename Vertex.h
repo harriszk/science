@@ -14,11 +14,13 @@ struct Vertex
     float x;
     float y;
     float z;
+    /*
     float r;
     float g;
     float b;
     float s;
     float t;
+    */
 }; // end Vertex struct
 
 #endif

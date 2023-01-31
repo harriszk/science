@@ -50,7 +50,8 @@ class VertexBufferObject {
          * 
          * @param[in] vertices A reference to the vertices to set as the data of the vertex buffer object.
          */
-        void setData(std::vector<Vertex> &vertices);
+        //void setData(const void *data, int size);
+        void setData(std::vector<Vertex> *vertices);
     private:
         // The identifier of the vertex buffer object.
         uint32_t m_id;

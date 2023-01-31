@@ -45,7 +45,8 @@ class ElementBufferObject {
          * 
          * @param[in] triangles The list of triangles to be set as the element data for the buffer.
          */
-        void setData(std::vector<Triangle> &triangles);
+        //void setData(const void *data, int size);
+        void setData(std::vector<Triangle> *triangles);
     private:
         // The identifier of the element buffer object.
         uint32_t m_id;

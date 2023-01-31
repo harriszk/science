@@ -116,7 +116,7 @@ int main(int argc, char * argv[])
     //s.use();
     //glUniform4f(vertexColorLocation, v[0], v[1], v[2], 1.0f);
 
-    Model model("Tetrahedron");
+    ModelTrash model("Tetrahedron");
     model.addVertex({0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f});
     model.addVertex({0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f});
     model.addVertex({1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f});
@@ -128,7 +128,7 @@ int main(int argc, char * argv[])
     model.addTriangle({1, 2, 3});
 
     
-    Model model2("Cube");
+    ModelTrash model2("Cube");
     model2.addVertex({-0.5f, -0.5f, 0.5f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f});
     model2.addVertex({-0.5f, 0.5f, 0.5f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f});
     model2.addVertex({0.5f, 0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f});
@@ -153,7 +153,7 @@ int main(int argc, char * argv[])
 
     model2.loadTexture("textures/container.jpeg");
 
-    Model model3("Plane");
+    ModelTrash model3("Plane");
     model3.addVertex({-1.0f, -1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f});
     model3.addVertex({-1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f});
     model3.addVertex({1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f});

@@ -9,6 +9,8 @@
 #ifndef _TRIANGLE_H_
 #define _TRIANGLE_H_
 
+#include <cstdint>
+
 struct Triangle
 {
     uint32_t v0;

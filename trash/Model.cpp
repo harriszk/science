@@ -1,8 +1,8 @@
 /**
- * @file Model.cpp
+ * @file ModelTrash.cpp
  * Created on 01/23/2023
  * 
- * Implemenation of Model class.
+ * Implemenation of ModelTrash class.
  * 
  * © 2023 by Zachary Harris (zacharykeatonharris@gmail.com)
  */
@@ -12,24 +12,24 @@
 #include "Model.h"
 #include <iostream>
 
-Model::Model(const char *name):
+ModelTrash::ModelTrash(const char *name):
     name(name),
     texture(0)
 {
     
 } // end default constructor
 
-Model::Model(const Model & model)
+ModelTrash::ModelTrash(const ModelTrash & model)
 {
 
 } // end copy constructor
 
-Model::~Model()
+ModelTrash::~ModelTrash()
 {
 
 } // end destructor
 
-bool Model::addVertex(const Vertex & v)
+bool ModelTrash::addVertex(const Vertex & v)
 {
     this->vertices.push_back(v);
 
@@ -38,7 +38,7 @@ bool Model::addVertex(const Vertex & v)
     return true;
 } // end addVertex
 
-bool Model::addTriangle(const Triangle & t)
+bool ModelTrash::addTriangle(const Triangle & t)
 {
     this->triangles.push_back(t);
 
@@ -47,22 +47,22 @@ bool Model::addTriangle(const Triangle & t)
     return true;
 } // end addTriangle
 
-std::string Model::getName() const
+std::string ModelTrash::getName() const
 {
     return this->name;
 } // end getName
 
-size_t Model::getNumberOfVertices() const 
+size_t ModelTrash::getNumberOfVertices() const 
 {
     return this->vertices.size();
 } // end getNumberOfVertices
 
-size_t Model::getNumberOfTriangles() const
+size_t ModelTrash::getNumberOfTriangles() const
 {
     return this->triangles.size();
 }
 
-bool Model::loadTexture(const char * file)
+bool ModelTrash::loadTexture(const char * file)
 {
     glGenTextures(1, &this->texture);
     glBindTexture(GL_TEXTURE_2D, this->texture);
@@ -93,7 +93,7 @@ bool Model::loadTexture(const char * file)
     return response;
 }
 
-void Model::draw(float dt)
+void ModelTrash::draw(float dt)
 {
     //this->vertices[0][0] = sin(dt);
     //this->vertices[0][1] = cos(dt)/2;

@@ -42,7 +42,7 @@ bool Display::createWindow(int width, int height, const char *title)
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 #endif
 
-    m_window = glfwCreateWindow(width, height, title, nullptr, nullptr);
+    m_window = glfwCreateWindow(width, height, title, NULL, NULL);
     if(m_window == nullptr)
     {
         std::cout << "Failed to create GLFW window" << std::endl;
