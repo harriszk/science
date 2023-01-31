@@ -7,16 +7,14 @@
  * © 2023 by Zachary Harris (zacharykeatonharris@gmail.com)
  */
 #include "Renderer.h"
+#include <iostream>
 
 Renderer::Renderer(Display &display, Shader &shader):
     m_display(display),
     m_shader(shader)
+    
 {
-    model.addVertex({-0.5f, -0.5f, 0.0f});
-    model.addVertex({0.5f, -0.5f, 0.0f});
-    model.addVertex({0.0f, 0.5f, 0.0f});
 
-    model.addTriangle({0, 1, 2});
 } // end default constructor
 
 Renderer::~Renderer()
@@ -44,7 +42,16 @@ void Renderer::render()
 
     // Compute dt
     // Render models from the scene
-    model.render();
+    auto& models = m_scenes.at(0).getModels();
+    for(auto& model : models)
+    {
+        model.render();
+    }
 
     m_display.update();
 } // end render
+
+void Renderer::addScene(const Scene &scene)
+{
+    m_scenes.push_back(scene);
+} // end addScene

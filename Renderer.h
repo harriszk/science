@@ -35,16 +35,16 @@ class Renderer {
 
         // Renders the scene.
         void render();
+
+        void addScene(const Scene &scene);
     private:
         // Pointer to an array of scenes
-        //Scene *m_scenes;
+        std::vector<Scene> m_scenes;
 
         // The display used to render to.
         Display &m_display;
 
         Shader &m_shader;
-
-        Model model;
 
         //Camera m_camera;
 }; // end Renderer class

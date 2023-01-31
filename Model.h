@@ -30,7 +30,7 @@ class Model : public Renderable {
         Model();
 
         // Desetructor
-        ~Model();
+        virtual ~Model();
 
         /**
          * Adds a vertex to the model.

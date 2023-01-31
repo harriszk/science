@@ -11,6 +11,10 @@
 #ifndef _SCENE_H_
 #define _SCENE_H_
 
+#include "Model.h"
+
+// ** Should this class be responsible for user input? **
+
 class Scene {
     public:
         // Default constructor
@@ -19,8 +23,15 @@ class Scene {
         // Destructor
         ~Scene();
 
-    private:
+        void update(float dt);
 
+        bool addModel(const Model &model);
+
+        bool removeModel(const Model &model);
+
+        std::vector<Model>& getModels();
+    private:
+        std::vector<Model> m_models;
 }; // end Scene class
 
 #endif

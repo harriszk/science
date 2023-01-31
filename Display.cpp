@@ -30,7 +30,7 @@ Display::~Display()
 void Display::screenSizeCallback(GLFWwindow* window, int width, int height)
 {
     glViewport(0, 0, width, height);
-    std::cout << "Display has been resized to (" << width << "x" << height << ")\n";
+    //std::cout << "Display has been resized to (" << width << "x" << height << ")\n";
 } // end screenSizeCallback
 
 bool Display::createWindow(int width, int height, const char *title)
