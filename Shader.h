@@ -38,7 +38,7 @@ class Shader {
         */
     private:
         // Program ID
-        unsigned int id;
+        uint32_t m_id;
 
         // Utility error checking method
         void checkCompileErrors(unsigned int shader, std::string type);

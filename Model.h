@@ -50,6 +50,10 @@ class Model : public Renderable {
          */
         bool addTriangle(const Triangle &triangle);
 
+        std::vector<Vertex> & getVertices();
+
+        std::vector<Triangle> & getTriangles();
+
         /**
          * Renders the model.
          * 
@@ -70,6 +74,10 @@ class Model : public Renderable {
 
         // The element buffer object associated with the model.
         ElementBufferObject m_ebo;
+
+        bool hasChanged;
+
+        void upload();
 }; // end Model class
 
 #endif

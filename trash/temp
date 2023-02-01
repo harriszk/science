@@ -532,3 +532,100 @@ std::vector<Vertex> vertices;
     // ------------------------------------------------------------------------
     //glDeleteVertexArrays(1, &VAO);
     glDeleteBuffers(1, &VBO);
+
+/*
+    std::vector<Vertex> triangle1, triangle2, box;
+    triangle1.push_back({-0.9f, -0.5f, 0.0f});
+    triangle1.push_back({-0.0f, -0.5f, 0.0f});
+    triangle1.push_back({-0.45f, 0.5f, 0.0f});
+    triangle2.push_back({0.0f, -0.5f, 0.0f});
+    triangle2.push_back({0.9f, -0.5f, 0.0f});
+    triangle2.push_back({0.45f, 0.5f, 0.0f});
+    box.push_back({0.5f,  0.5f, 0.0f});
+    box.push_back({0.5f, -0.5f, 0.0f});
+    box.push_back({-0.5f, -0.5f, 0.0f});
+    box.push_back({-0.5f,  0.5f, 0.0f});
+
+    std::vector<Triangle> boxIndices, triangleIndices;
+    boxIndices.push_back({0, 1, 3});
+    boxIndices.push_back({1, 2, 3});
+    triangleIndices.push_back({0, 1, 2});
+
+    VertexArrayObject vao1, vao2;
+    VertexBufferObject vbo1, vbo2;
+    ElementBufferObject ebo1, ebo2;
+
+    vao1.bind();
+
+    vbo1.bind();
+    vbo1.setData(&box);
+
+    ebo1.bind();
+    ebo1.setData(&boxIndices);
+
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+
+    vbo1.unbind();
+    vao1.unbind();
+
+    vao2.bind();
+
+    vbo2.bind();
+    vbo2.setData(&triangle1);
+
+    ebo2.bind();
+    ebo2.setData(&triangleIndices);
+
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+
+    vbo2.unbind();
+    vao2.unbind();
+    */
+
+    /*
+    VertexArrayObject vao1, vao2;
+    VertexBufferObject vbo1, vbo2;
+
+    vao1.bind();
+    vbo1.bind();
+    vbo1.setData(&triangle1);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);	// Vertex attributes stay the same
+    glEnableVertexAttribArray(0);
+
+    vao2.bind();
+    vbo2.bind();
+    vbo2.setData(&triangle2);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (void*)0); // because the vertex data is tightly packed we can also specify 0 as the vertex attribute's stride to let OpenGL figure it out
+    glEnableVertexAttribArray(0);
+    */
+
+    
+    // uncomment this call to draw in wireframe polygons.
+    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+
+    /*
+    while(!display.shouldClose())
+    {
+        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT);
+
+        shader.use();
+
+        //glBindVertexArray(VAOs[0]);
+        //vao1.bind();
+        //glDrawArrays(GL_TRIANGLES, 0, 3);
+        // then we draw the second triangle using the data from the second VAO
+        //glBindVertexArray(VAOs[1]);
+        //vao2.bind();
+        //glDrawArrays(GL_TRIANGLES, 0, 3);
+
+        vao1.bind();
+        glDrawElements(GL_TRIANGLES, boxIndices.size() * 3, GL_UNSIGNED_INT, 0);
+        vao2.bind();
+        glDrawElements(GL_TRIANGLES, triangleIndices.size() * 3, GL_UNSIGNED_INT, 0);
+
+        display.update();
+    }
+    */

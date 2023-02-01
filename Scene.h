@@ -25,13 +25,13 @@ class Scene {
 
         void update(float dt);
 
-        bool addModel(const Model &model);
+        bool addModel(Model *model);
 
         bool removeModel(const Model &model);
 
-        std::vector<Model>& getModels();
+        std::vector<Model *> & getModels();
     private:
-        std::vector<Model> m_models;
+        std::vector<Model *> m_models;
 }; // end Scene class
 
 #endif

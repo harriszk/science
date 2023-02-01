@@ -23,7 +23,7 @@ void Scene::update(float dt)
 
 } // end update
 
-bool Scene::addModel(const Model &model)
+bool Scene::addModel(Model *model)
 {
     m_models.push_back(model);
     return true;
@@ -35,7 +35,7 @@ bool Scene::removeModel(const Model &model)
     return true;
 } // end removeModel
 
-std::vector<Model>& Scene::getModels()
+std::vector<Model *> & Scene::getModels()
 {
     return m_models;
 } // end getModels

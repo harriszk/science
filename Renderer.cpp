@@ -42,13 +42,48 @@ void Renderer::render()
 
     // Compute dt
     // Render models from the scene
-    auto& models = m_scenes.at(0).getModels();
-    for(auto& model : models)
-    {
-        model.render();
+    auto &models = m_scenes.at(0).getModels();
+    for (auto &model : models) {
+        model->render();
     }
 
     m_display.update();
+
+    /*
+    std::vector<Vertex> vertices;
+    std::vector<Triangle> triangles;
+
+    
+    int number_of_points = 0;
+    auto &models = m_scenes.at(0).getModels();
+    for(auto &model : models)
+    {
+        std::vector<Vertex> &tempV = model.getVertices();
+        for(auto vertex : tempV)
+        {
+            vertices.push_back(vertex);
+        }
+
+        std::vector<Triangle> &tempT = model.getTriangles();
+        for(auto triangle : tempT)
+        {
+            triangle.v0 += number_of_points;
+            triangle.v1 += number_of_points;
+            triangle.v2 += number_of_points;
+            triangles.push_back(triangle);
+        }
+        number_of_points = vertices.size();
+    }
+    
+    m_vao.bind();
+    m_vbo.setData(&vertices);
+    m_ebo.setData(&triangles);
+
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+
+    glDrawElements(GL_TRIANGLES, triangles.size() * 3, GL_UNSIGNED_INT, 0);
+    */
 } // end render
 
 void Renderer::addScene(const Scene &scene)

@@ -34,6 +34,4 @@ void VertexBufferObject::setData(std::vector<Vertex> *vertices)
     bind();
     //glBufferData(GL_ARRAY_BUFFER, size, data, GL_STATIC_DRAW);
     glBufferData(GL_ARRAY_BUFFER, vertices->size() * sizeof(Vertex), &vertices->front(), GL_STATIC_DRAW);
-
-    //unbind();
 } // end setData
