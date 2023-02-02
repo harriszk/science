@@ -38,7 +38,7 @@ class Renderer {
 
         void addScene(const Scene &scene);
     private:
-        // Pointer to an array of scenes
+        // Array of scenes
         std::vector<Scene> m_scenes;
 
         // The display used to render to.
@@ -46,6 +46,9 @@ class Renderer {
 
         Shader &m_shader;
 
+        float m_dt;
+
+        float m_lastFrame;
         //Camera m_camera;
 }; // end Renderer class
 

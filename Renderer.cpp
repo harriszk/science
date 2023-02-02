@@ -9,9 +9,15 @@
 #include "Renderer.h"
 #include <iostream>
 
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
 Renderer::Renderer(Display &display, Shader &shader):
     m_display(display),
-    m_shader(shader)
+    m_shader(shader),
+    m_dt(0.0f),
+    m_lastFrame(0.0f)
     
 {
 
@@ -35,17 +41,44 @@ void Renderer::startRendering()
 
 void Renderer::render()
 {
+    float currentFrame = static_cast<float>(glfwGetTime());
+    m_dt = currentFrame - m_lastFrame;
+    m_lastFrame = currentFrame;
+
+
+    m_display.processInput(m_dt);
+
     glClearColor(0.0f, 0.6f, 0.6f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     m_shader.use();
 
+    // create transformations
+    //glm::mat4 model         = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
+    glm::mat4 view          = glm::mat4(1.0f);
+    glm::mat4 projection    = glm::mat4(1.0f);
+    //model = glm::rotate(model, (float)glfwGetTime(), glm::vec3(0.5f, 1.0f, 0.0f));
+    //model = glm::rotate(model, glm::radians(-55.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+    view  = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
+    projection = glm::perspective(glm::radians(45.0f), (float)(m_display.getWidth()) / (float)(m_display.getHeight()), 0.1f, 100.0f);
+
+    // retrieve the matrix uniform locations
+    uint32_t modelLoc = glGetUniformLocation(m_shader.getID(), "model");
+    uint32_t viewLoc  = glGetUniformLocation(m_shader.getID(), "view");
+    uint32_t projectionLoc  = glGetUniformLocation(m_shader.getID(), "projection");
+    // pass them to the shaders
+    //glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+    glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
+    glUniformMatrix4fv(projectionLoc, 1, GL_FALSE, glm::value_ptr(projection));
+    
+
     // Compute dt
     // Render models from the scene
     auto &models = m_scenes.at(0).getModels();
     for (auto &model : models) {
+        glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model->getModelMatrix()));
         model->render();
-    }
+    } // end for
 
     m_display.update();
 

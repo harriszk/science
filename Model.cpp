@@ -10,10 +10,13 @@
 #include <glad/glad.h>
 #include <iostream>
 
-Model::Model():
-    hasChanged(false)
-{
+#include <glm/gtc/matrix_transform.hpp>
 
+Model::Model():
+    m_hasChanged(false),
+    m_modelMatrix(glm::mat4(1.0f))
+{
+    m_modelMatrix = glm::rotate(m_modelMatrix, glm::radians(-55.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 } // end default constructor
 
 Model::~Model()
@@ -24,7 +27,7 @@ Model::~Model()
 bool Model::addVertex(const Vertex &vertex)
 {
     m_vertices.push_back(vertex);
-    hasChanged = true;
+    m_hasChanged = true;
     // TODO: Check if a vertex with same positions is already apart of the model.
 
     return true;
@@ -33,7 +36,7 @@ bool Model::addVertex(const Vertex &vertex)
 bool Model::addTriangle(const Triangle &triangle)
 {
     m_triangles.push_back(triangle);
-    hasChanged = true;
+    m_hasChanged = true;
     // TODO: Check if triangle with same indices is already apart of the model.
 
     return true;
@@ -42,19 +45,24 @@ bool Model::addTriangle(const Triangle &triangle)
 std::vector<Vertex> & Model::getVertices()
 {
     return m_vertices;
-}
+} // enf getVertices
 
 std::vector<Triangle> & Model::getTriangles()
 {
     return m_triangles;
-}
+} // end getTriangles
+
+glm::mat4 Model::getModelMatrix() const
+{
+    return m_modelMatrix;
+} // end getModelMatrix
 
 void Model::render()
 {
-    if(hasChanged)
+    if(m_hasChanged)
     {
         upload();
-        hasChanged = false;
+        m_hasChanged = false;
     }
 
     //glDrawArrays(GL_TRIANGLES, 0, m_vertices.size());
@@ -73,8 +81,11 @@ void Model::upload()
     m_ebo.bind();
     m_ebo.setData(&m_triangles);
 
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
+
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+    glEnableVertexAttribArray(1);
 
     m_vbo.unbind();
     m_vao.unbind();

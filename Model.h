@@ -18,6 +18,8 @@
 #include "Vertex.h"
 #include "Triangle.h"
 
+#include "glm/glm.hpp"
+
 #include <vector>
 
 class Model : public Renderable {
@@ -50,9 +52,26 @@ class Model : public Renderable {
          */
         bool addTriangle(const Triangle &triangle);
 
+        /**
+         * Returns a reference to the collection of vertices that make up the model.
+         * 
+         * @return std::vector<Vertex>& 
+         */
         std::vector<Vertex> & getVertices();
 
+        /**
+         * Returns a reference to the collection of triangles that make up the model.
+         * 
+         * @return std::vector<Triangle>& 
+         */
         std::vector<Triangle> & getTriangles();
+
+        /**
+         * Returns the models transformation matrix.
+         * 
+         * @return glm::mat4 The model matrix of the model, transforming from the models local space to world space.
+         */
+        glm::mat4 getModelMatrix() const;
 
         /**
          * Renders the model.
@@ -75,9 +94,19 @@ class Model : public Renderable {
         // The element buffer object associated with the model.
         ElementBufferObject m_ebo;
 
-        bool hasChanged;
+        // A flag indicating whether the model has changed and need to be reuploaded to the GPU.
+        bool m_hasChanged;
 
+        /**
+         * Uploads the model to the GPU.
+         * This method should be called whenver the model has changed and needs
+         * to be reuploaded.
+         * 
+         */
         void upload();
+
+        // The models transformation matrix. It maps vertices from local space to world space.
+        glm::mat4 m_modelMatrix;
 }; // end Model class
 
 #endif

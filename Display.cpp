@@ -91,3 +91,24 @@ void Display::setTitle(const char *title)
 {
     glfwSetWindowTitle(m_window, title);
 } // end setTitle
+
+int Display::getWidth()
+{
+    int width;
+    glfwGetWindowSize(m_window, &width, nullptr);
+
+    return width;
+} // end getWidth
+
+int Display::getHeight()
+{
+    int height;
+    glfwGetWindowSize(m_window, nullptr, &height);
+    
+    return height;
+} // end getHeight
+
+void Display::processInput(float dt)
+{
+    m_controller.handleInput(m_window, dt);
+} // end processInput

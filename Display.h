@@ -12,6 +12,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
+#include "Controller.h"
 
 class Display {
     public:
@@ -77,12 +78,21 @@ class Display {
          * @param[in] title     The title of the window
          */
         void setTitle(const char *title);
+
+        
+        int getWidth();
+
+        int getHeight();
+
+        void processInput(float dt);
     private:
         // Pointer to the GLFW window.
         GLFWwindow *m_window;
 
         // Boolean indicating if the window is open or not.
         bool m_isOpen;
+
+        Controller m_controller;
 }; // end Display class
 
 #endif
