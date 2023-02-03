@@ -26,12 +26,6 @@ enum Movement {
 
 class Camera {
     public:
-        // Default constructor
-        Camera();
-
-        // Destructor
-        virtual ~Camera();
-
         /**
          * Gets the current position of the camera.
          * 

@@ -8,8 +8,11 @@
  */
 #include "Display.h"
 
-
-Display::Display(int width, int height, const char *title)
+Display::Display(int width, int height, const char *title):
+    m_renderer(nullptr),
+    m_controller(nullptr),
+    m_dt(0.0f),
+    m_lastFrame(0.0f)
 {
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -29,6 +32,10 @@ Display::Display(int width, int height, const char *title)
 Display::~Display()
 {
     destroy();
+    m_window = nullptr;
+    
+    //delete m_controller;
+    m_controller = nullptr;
 } // end destructor
 
 void Display::screenSizeCallback(GLFWwindow* window, int width, int height)
@@ -59,10 +66,30 @@ bool Display::createWindow(int width, int height, const char *title)
     return true;
 } // end createWindow
 
-bool Display::shouldClose()
+void Display::start()
 {
-    return glfwWindowShouldClose(m_window);
-} // end shouldClose
+    if(!m_renderer)
+    {
+        std::cout << "ERROR::DISPLAY::RENDERER: No renderer associated with display!" << std::endl;
+        return;
+    } // end if
+
+    glEnable(GL_DEPTH_TEST);
+    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+
+    while(!glfwWindowShouldClose(m_window))
+    {
+        float currentFrame = static_cast<float>(glfwGetTime());
+        m_dt = currentFrame - m_lastFrame;
+        m_lastFrame = currentFrame;
+
+        processInput();
+
+        m_renderer->render();
+
+        update();
+    } // end while
+} // end start
 
 void Display::toggleWindow()
 {
@@ -92,6 +119,16 @@ void Display::setTitle(const char *title)
     glfwSetWindowTitle(m_window, title);
 } // end setTitle
 
+void Display::setRenderer(Renderer *renderer)
+{
+    m_renderer = renderer;
+} // end setRenderer
+
+void Display::setContorller(Controller *controller)
+{
+    m_controller = controller;
+} // end setController
+
 int Display::getWidth()
 {
     int width;
@@ -108,7 +145,14 @@ int Display::getHeight()
     return height;
 } // end getHeight
 
-void Display::processInput(float dt)
+void Display::processInput()
 {
-    m_controller.handleInput(m_window, dt);
+    if(!m_controller)
+    {
+        std::cout << "ERROR::DISPLAY::CONTROLLER: No controller associated with display!" << std::endl;
+        return;
+    } // end if
+
+    m_controller->processInput(m_window);
+    m_controller->updateCamera(m_dt);
 } // end processInput

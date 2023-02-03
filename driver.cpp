@@ -2,7 +2,7 @@
 #include "Renderer.h"
 #include "Scene.h"
 #include "Model.h"
-
+#include "Shader.h"
 #include "VertexArrayObject.h"
 #include "VertexBufferObject.h"
 #include "ElementBufferObject.h"
@@ -10,20 +10,42 @@
 #include "Triangle.h"
 #include <vector>
 
+#include "FirstPersonController.h"
+#include "FlyCamera.h"
+
 int main(int argc, char * argv[])
 {
+    
+    //FlyCamera camera(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(1.0f, 0.3f, 0.5f));
+    
     Display display(800, 600, "Hello World!");
     Shader shader("shaders/vertexShaderSource.glsl", "shaders/fragmentShaderSource.glsl");
-    Renderer renderer(display, shader);
+    Renderer renderer(shader);
+    FirstPersonController controller;
+    display.setRenderer(&renderer);
+    display.setContorller(&controller);
     Scene scene;
+    renderer.addScene(&scene);
+
     Model model, model2, model3;
     
     //scene.addModel(&model);
     scene.addModel(&model2);
     //scene.addModel(&model3);
-    renderer.addScene(scene);
     
-    /*
+    model2.addVertex({-1.0f, -1.0f, 0.0f});
+    model2.addVertex({-1.0f, 1.0f, 0.0f});
+    model2.addVertex({1.0f, 1.0f, 0.0f});
+    model2.addVertex({1.0f, -1.0f, 0.0f});
+    model2.addTriangle({0, 1, 2});
+    model2.addTriangle({0, 2, 3});
+
+    display.start();
+    
+    return 0;
+} // end main
+
+/*
     model.addVertex({-0.5f, -0.5f, -0.5f, 0.75f, 0.0f, 0.0f}); // 0
     model.addVertex({-0.5f, 0.5f, -0.5f, 0.0f, 0.75f, 0.0f});  // 1
     model.addVertex({0.5f, 0.5f, -0.5f, 0.75f, 0.0f, 0.0f});   // 2
@@ -77,15 +99,3 @@ int main(int argc, char * argv[])
     //model.addTriangle({6, 5, 1});
     //model.addTriangle({6, 1, 2});
     */
-
-    model2.addVertex({-1.0f, -1.0f, 0.0f});
-    model2.addVertex({-1.0f, 1.0f, 0.0f});
-    model2.addVertex({1.0f, 1.0f, 0.0f});
-    model2.addVertex({1.0f, -1.0f, 0.0f});
-    model2.addTriangle({0, 1, 2});
-    model2.addTriangle({0, 2, 3});
-    
-    renderer.startRendering();
-    
-    return 0;
-} // end main

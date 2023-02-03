@@ -28,7 +28,7 @@ class Shader {
         // use/activate the shader
         void use();
 
-        unsigned int getID();
+        uint32_t getID();
 
         // utility uniform functions
         /*

@@ -9,9 +9,8 @@
 #ifndef _RENDERER_H_
 #define _RENDERER_H_
 
-#include "Display.h"
-#include "Scene.h"
 #include "Shader.h"
+#include "Scene.h"
 #include "Model.h"
 
 class Renderer {
@@ -19,37 +18,22 @@ class Renderer {
         /**
          * Default constructor.
          * 
-         * @param[in] display A reference to a Display object that the renderer will use for rendering.
+         * @param[in] shader 
          */
-        Renderer(Display &display, Shader &shader);
+        Renderer(Shader &shader);
 
         // Destructor.
         ~Renderer();
 
-        /**
-         * Starts the rendering loop. Continuously draws the scene
-         * until the window is closed.
-         * 
-         */
-        void startRendering();
-
         // Renders the scene.
         void render();
 
-        void addScene(const Scene &scene);
+        void addScene(Scene *scene);
     private:
         // Array of scenes
-        std::vector<Scene> m_scenes;
-
-        // The display used to render to.
-        Display &m_display;
+        std::vector<Scene*> m_scenes;
 
         Shader &m_shader;
-
-        float m_dt;
-
-        float m_lastFrame;
-        //Camera m_camera;
 }; // end Renderer class
 
 #endif

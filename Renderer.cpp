@@ -13,12 +13,8 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-Renderer::Renderer(Display &display, Shader &shader):
-    m_display(display),
-    m_shader(shader),
-    m_dt(0.0f),
-    m_lastFrame(0.0f)
-    
+Renderer::Renderer(Shader &shader):
+    m_shader(shader)
 {
 
 } // end default constructor
@@ -28,26 +24,8 @@ Renderer::~Renderer()
 
 } // end destructor
 
-void Renderer::startRendering()
-{
-    glEnable(GL_DEPTH_TEST);
-    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-
-    while(!m_display.shouldClose()) 
-    {
-        render();
-    } // end while
-} // end startRendering
-
 void Renderer::render()
 {
-    float currentFrame = static_cast<float>(glfwGetTime());
-    m_dt = currentFrame - m_lastFrame;
-    m_lastFrame = currentFrame;
-
-
-    m_display.processInput(m_dt);
-
     glClearColor(0.0f, 0.6f, 0.6f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -60,7 +38,7 @@ void Renderer::render()
     //model = glm::rotate(model, (float)glfwGetTime(), glm::vec3(0.5f, 1.0f, 0.0f));
     //model = glm::rotate(model, glm::radians(-55.0f), glm::vec3(1.0f, 0.0f, 0.0f));
     view  = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
-    projection = glm::perspective(glm::radians(45.0f), (float)(m_display.getWidth()) / (float)(m_display.getHeight()), 0.1f, 100.0f);
+    projection = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 0.1f, 100.0f);
 
     // retrieve the matrix uniform locations
     uint32_t modelLoc = glGetUniformLocation(m_shader.getID(), "model");
@@ -71,16 +49,12 @@ void Renderer::render()
     glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
     glUniformMatrix4fv(projectionLoc, 1, GL_FALSE, glm::value_ptr(projection));
     
-
-    // Compute dt
     // Render models from the scene
-    auto &models = m_scenes.at(0).getModels();
+    auto &models = m_scenes.at(0)->getModels();
     for (auto &model : models) {
         glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model->getModelMatrix()));
         model->render();
     } // end for
-
-    m_display.update();
 
     /*
     std::vector<Vertex> vertices;
@@ -119,7 +93,7 @@ void Renderer::render()
     */
 } // end render
 
-void Renderer::addScene(const Scene &scene)
+void Renderer::addScene(Scene *scene)
 {
     m_scenes.push_back(scene);
 } // end addScene

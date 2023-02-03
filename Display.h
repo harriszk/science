@@ -13,6 +13,7 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include "Controller.h"
+#include "Renderer.h"
 
 class Display {
     public:
@@ -46,12 +47,10 @@ class Display {
         bool createWindow(int width, int height, const char *title);
 
         /**
-         * Checks if the window should be closed.
          * 
-         * @return true         The window should be closed
-         * @return false        The window should not be closed
+         * 
          */
-        bool shouldClose();
+        void start();
 
         /**
          * Toggles the visibility of the window.
@@ -79,20 +78,29 @@ class Display {
          */
         void setTitle(const char *title);
 
+        void setRenderer(Renderer *renderer);
+
+        void setContorller(Controller *controller);
         
         int getWidth();
 
         int getHeight();
 
-        void processInput(float dt);
+        void processInput();
     private:
         // Pointer to the GLFW window.
         GLFWwindow *m_window;
 
+        Renderer *m_renderer;
+
+        Controller *m_controller;
+
         // Boolean indicating if the window is open or not.
         bool m_isOpen;
 
-        Controller m_controller;
+        float m_dt;
+
+        float m_lastFrame;
 }; // end Display class
 
 #endif
