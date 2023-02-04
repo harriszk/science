@@ -25,7 +25,11 @@ class Controller {
          * 
          * @param[in] window Pointer to the GLFW window being used.
          */
-        virtual void processInput(GLFWwindow *window) = 0;
+        virtual void processKeyboardInput(GLFWwindow *window) = 0;
+
+        virtual void processMouseMovement(float x, float y) = 0;
+
+        virtual void processMouseScroll(float dy) = 0;
 
         /**
          * Update the camera based on user input/the current state.

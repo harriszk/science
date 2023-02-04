@@ -35,6 +35,22 @@ bool Scene::removeModel(const Model &model)
     return true;
 } // end removeModel
 
+void Scene::setCamera(Camera *camera)
+{
+    m_camera = camera;
+} // end setCamera
+
+glm::mat4 Scene::getViewMatrix()
+{
+    if(!m_camera)
+    {
+        // No camera!
+        return glm::mat4(1.0f);
+    } // end if
+
+    return m_camera->getViewMatrix();
+} // end getViewMatrix
+
 std::vector<Model *> & Scene::getModels()
 {
     return m_models;

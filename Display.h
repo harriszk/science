@@ -30,15 +30,6 @@ class Display {
         ~Display();
 
         /**
-         * 
-         * 
-         * @param[in] window 
-         * @param[in] width 
-         * @param[in] height 
-         */
-        static void screenSizeCallback(GLFWwindow* window, int width, int height);
-
-        /**
          * Creates the GLFW window and initializes GLAD.
          * 
          * @return true     The window was successfully created.
@@ -87,6 +78,19 @@ class Display {
         int getHeight();
 
         void processInput();
+
+        /**
+         * 
+         * 
+         * @param[in] window 
+         * @param[in] width 
+         * @param[in] height 
+         */
+        static void screenSizeCallback(GLFWwindow* window, int width, int height);
+
+        static void mouseCallback(GLFWwindow* window, double xposIn, double yposIn);
+
+        static void scrollCallback(GLFWwindow* window, double xoffset, double yoffset);
     private:
         // Pointer to the GLFW window.
         GLFWwindow *m_window;

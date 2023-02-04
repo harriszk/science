@@ -12,6 +12,7 @@
 #define _SCENE_H_
 
 #include "Model.h"
+#include "Camera.h"
 
 // ** Should this class be responsible for user input? **
 
@@ -29,9 +30,15 @@ class Scene {
 
         bool removeModel(const Model &model);
 
+        void setCamera(Camera *camera);
+
+        glm::mat4 getViewMatrix();
+
         std::vector<Model *> & getModels();
     private:
         std::vector<Model *> m_models;
+
+        Camera *m_camera;
 }; // end Scene class
 
 #endif

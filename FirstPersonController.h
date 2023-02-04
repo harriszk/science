@@ -13,15 +13,26 @@
 
 class FirstPersonController : public Controller {
     public:
-        FirstPersonController();
+        FirstPersonController(Camera *camera);
 
         virtual ~FirstPersonController();
 
-        void processInput(GLFWwindow *window) override;
+        void processKeyboardInput(GLFWwindow *window) override;
+
+        void processMouseMovement(float x, float y) override;
+
+        void processMouseScroll(float dy) override;
 
         //Camera *camera, 
         void updateCamera(float dt) override;
     private:
+        Camera *m_camera;
+
+        float m_lastX;
+
+        float m_lastY;
+
+        bool m_firstMouse;
 }; // end FirstPersonController class
 
 #endif

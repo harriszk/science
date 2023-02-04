@@ -15,6 +15,8 @@
 
 #include "glm/glm.hpp"
 
+#include <glm/gtc/matrix_transform.hpp>
+
 enum Movement {
     FORWARD,
     BACKWARD,
@@ -52,7 +54,7 @@ class Camera {
          * 
          * @param[in] dt The change in time, in seconds, since the last update.
          */
-        virtual void update(float dt) = 0;
+        virtual void update() = 0;
 
         /**
          * Processes input from any keyboard-like input system. Input parameters are 

@@ -32,7 +32,7 @@ class FlyCamera : public Camera {
 
     glm::mat4 getProjectionMatrix() const override;
 
-    void update(float dt) override;
+    void update() override;
 
     void processKeyboard(Movement direction, float dt) override;
 
