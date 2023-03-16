@@ -26,6 +26,16 @@ class Renderable2D : public Renderable {
             m_degreesRotated = angle;
         } // end setRotation
 
+        virtual float getRotation()
+        {
+            return m_degreesRotated;
+        } // end getRotation
+
+        virtual glm::vec2 getPosition()
+        {
+            return m_position;
+        } // end getPosition
+
     protected:
         glm::vec2 m_position;
 

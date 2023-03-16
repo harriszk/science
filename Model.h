@@ -59,6 +59,8 @@ class Model : public Renderable {
          */
         std::vector<Triangle> & getTriangles();
 
+        void loadModel(const char *filename);
+
         /**
          * Renders the model.
          * 

@@ -8,8 +8,6 @@
  */
 #include "Circle.h"
 
-float i = 0.1;
-
 Circle::Circle(float radius):
     m_radius(radius)
 {
@@ -53,7 +51,6 @@ Circle::~Circle()
 
 void Circle::render()
 {
-    m_degreesRotated += i;
     updateModelMatrix();
     m_vao.bind();
     glDrawElements(GL_TRIANGLES, m_triangles.size() * 3, GL_UNSIGNED_INT, 0);

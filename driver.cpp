@@ -19,11 +19,11 @@
 
 int main(int argc, char * argv[])
 {
-    //FlyCamera camera(glm::vec3(0.0f, 0.0f, -1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
-    //FirstPersonController controller(&camera);
+    FlyCamera camera(glm::vec3(0.0f, 0.0f, -1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+    FirstPersonController controller(&camera);
 
-    Camera2D camera;
-    Controller2D controller(&camera);
+    //Camera2D camera;
+    //Controller2D controller(&camera);
 
     Display display(800, 600, "Hello World!");
     Shader shader("shaders/vertexShaderSource.glsl", "shaders/fragmentShaderSource.glsl");
@@ -34,11 +34,15 @@ int main(int argc, char * argv[])
     scene.setCamera(&camera);
     renderer.addScene(&scene);
 
-    //Rectangle rect(0.5f, 0.25f);
+    Model model;
+    scene.addRenderable(&model);
+    model.loadModel("/Users/zachary/Desktop/Science/models/teapot.obj");
+
+    //Rectangle rect(1.5f, 2.25f);
     //scene.addRenderable(&rect);
 
-    Circle circle(0.1f);
-    scene.addRenderable(&circle);
+    //Circle circle(2.5f);
+    //scene.addRenderable(&circle);
 
     // Use either a start method or have which ever component is using
     // the display update it.
@@ -46,8 +50,16 @@ int main(int argc, char * argv[])
     
     glEnable(GL_DEPTH_TEST);
 
+    float lastFrame, dt;
+
     while(!display.shouldClose())
     {
+        float currentFrame = static_cast<float>(glfwGetTime());
+        dt = currentFrame - lastFrame;
+        lastFrame = currentFrame;
+
+        //rect.setRotation((30.0f * dt) + rect.getRotation());
+
         display.paintFrame();
     } // end while
 

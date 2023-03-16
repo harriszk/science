@@ -30,6 +30,8 @@ Display::Display(int width, int height, const char *title):
         std::cout << "Window was not created!\n";
         return;
     } // end if
+
+    m_isOpen = true;
 } // end default constructor
 
 Display::~Display()
@@ -54,7 +56,7 @@ bool Display::createWindow(int width, int height, const char *title)
     glfwMakeContextCurrent(m_window);
     glfwSetFramebufferSizeCallback(m_window, screenSizeCallback);
 
-    //glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+    glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
     if(!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
@@ -92,15 +94,18 @@ void Display::start()
 
 void Display::paintFrame()
 {
-    float currentFrame = static_cast<float>(glfwGetTime());
-    m_dt = currentFrame - m_lastFrame;
-    m_lastFrame = currentFrame;
+    if(m_isOpen)
+    {
+        float currentFrame = static_cast<float>(glfwGetTime());
+        m_dt = currentFrame - m_lastFrame;
+        m_lastFrame = currentFrame;
 
-    processInput();
+        processInput();
 
-    m_renderer->render();
+        m_renderer->render();
 
-    update();
+        update();
+    } // end if
 } // end paintFrame
 
 bool Display::shouldClose()

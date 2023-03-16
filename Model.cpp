@@ -10,6 +10,10 @@
 #include <glad/glad.h>
 #include <iostream>
 
+#include <string>
+#include <fstream>
+#include <sstream>
+
 #include <glm/gtc/matrix_transform.hpp>
 
 Model::Model():
@@ -52,6 +56,52 @@ std::vector<Triangle> & Model::getTriangles()
     return m_triangles;
 } // end getTriangles
 
+void Model::loadModel(const char *filename)
+{
+    std::ifstream in;
+    in.open(filename, std::ifstream::in);
+
+    if(in.fail()) 
+    {
+        return;
+    }
+
+    std::string line;
+
+    while (!in.eof()) 
+    {
+        std::getline(in, line);
+        std::istringstream iss(line.c_str());
+        char trash;
+
+        if(!line.compare(0, 2, "v ")) {
+            iss >> trash;
+            Vertex v;
+
+            iss >> v.x;
+            iss >> v.y;
+            iss >> v.z;
+
+            m_vertices.push_back(v);
+        } else if(!line.compare(0, 2, "f ")) {
+            iss >> trash;
+            Triangle f;
+            
+            iss >> f.v0;
+            iss >> f.v1;
+            iss >> f.v2;
+
+            f.v0--;
+            f.v1--;
+            f.v2--;
+
+            m_triangles.push_back(f);
+        }
+    } // end while
+
+    m_hasChanged = true;
+} // end loadModel
+
 void Model::render()
 {
     if(m_hasChanged)
@@ -60,11 +110,13 @@ void Model::render()
         m_hasChanged = false;
     }
 
+    /*
     for(int i = 0; i < m_vertices.size(); i++)
     {
         std::cout << m_vertices[i].x << " " << m_vertices[i].y << " " << m_vertices[i].z << "\n"; 
     }
     std::cout << "\n";
+    */
 
     //glDrawArrays(GL_TRIANGLES, 0, m_vertices.size());
     //std::cout << "Drawing elements...\n";
