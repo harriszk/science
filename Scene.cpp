@@ -23,17 +23,17 @@ void Scene::update(float dt)
 
 } // end update
 
-bool Scene::addModel(Model *model)
+bool Scene::addRenderable(Renderable *renderable)
 {
-    m_models.push_back(model);
+    m_renderables.push_back(renderable);
     return true;
-} // end addModel
+} // end addRenderable
 
-bool Scene::removeModel(const Model &model)
+bool Scene::removeRenderable(const Renderable &renderable)
 {
     //m_models.erase(std::remove(m_models.begin(), m_models.end(), model), m_models.end());
     return true;
-} // end removeModel
+} // end removeRenderable
 
 void Scene::setCamera(Camera *camera)
 {
@@ -51,7 +51,7 @@ glm::mat4 Scene::getViewMatrix()
     return m_camera->getViewMatrix();
 } // end getViewMatrix
 
-std::vector<Model *> & Scene::getModels()
+std::vector<Renderable *> & Scene::getRenderables()
 {
-    return m_models;
-} // end getModels
+    return m_renderables;
+} // end getRenderables

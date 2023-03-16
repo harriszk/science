@@ -43,6 +43,10 @@ class Display {
          */
         void start();
 
+        void paintFrame();
+
+        bool shouldClose();
+
         /**
          * Toggles the visibility of the window.
          * 
@@ -87,10 +91,6 @@ class Display {
          * @param[in] height 
          */
         static void screenSizeCallback(GLFWwindow* window, int width, int height);
-
-        static void mouseCallback(GLFWwindow* window, double xposIn, double yposIn);
-
-        static void scrollCallback(GLFWwindow* window, double xoffset, double yoffset);
     private:
         // Pointer to the GLFW window.
         GLFWwindow *m_window;
@@ -105,6 +105,10 @@ class Display {
         float m_dt;
 
         float m_lastFrame;
+
+        double m_xpos;
+
+        double m_ypos;
 }; // end Display class
 
 #endif

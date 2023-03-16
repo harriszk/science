@@ -52,10 +52,10 @@ void Renderer::render()
     glUniformMatrix4fv(projectionLoc, 1, GL_FALSE, glm::value_ptr(projection));
     
     // Render models from the scene
-    auto &models = m_scenes.at(0)->getModels();
-    for (auto &model : models) {
-        glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model->getModelMatrix()));
-        model->render();
+    auto &renderables = m_scenes.at(0)->getRenderables();
+    for (auto &renderable : renderables) {
+        glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(renderable->getModelMatrix()));
+        renderable->render();
     } // end for
 
     /*

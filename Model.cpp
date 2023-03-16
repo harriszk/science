@@ -13,9 +13,9 @@
 #include <glm/gtc/matrix_transform.hpp>
 
 Model::Model():
-    m_hasChanged(false),
-    m_modelMatrix(glm::mat4(1.0f))
+    m_hasChanged(false)
 {
+    m_modelMatrix = glm::mat4(1.0f);
     //m_modelMatrix = glm::rotate(m_modelMatrix, glm::radians(-55.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 } // end default constructor
 
@@ -52,11 +52,6 @@ std::vector<Triangle> & Model::getTriangles()
     return m_triangles;
 } // end getTriangles
 
-glm::mat4 Model::getModelMatrix() const
-{
-    return m_modelMatrix;
-} // end getModelMatrix
-
 void Model::render()
 {
     if(m_hasChanged)
@@ -64,6 +59,12 @@ void Model::render()
         upload();
         m_hasChanged = false;
     }
+
+    for(int i = 0; i < m_vertices.size(); i++)
+    {
+        std::cout << m_vertices[i].x << " " << m_vertices[i].y << " " << m_vertices[i].z << "\n"; 
+    }
+    std::cout << "\n";
 
     //glDrawArrays(GL_TRIANGLES, 0, m_vertices.size());
     //std::cout << "Drawing elements...\n";

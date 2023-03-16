@@ -7,15 +7,15 @@
  * © 2023 by Zachary Harris (zacharykeatonharris@gmail.com)
  */
 #include "Display.h"
-
-static float xpos = 400;
-static float ypos = 300;
+#include <cmath>
 
 Display::Display(int width, int height, const char *title):
     m_renderer(nullptr),
     m_controller(nullptr),
     m_dt(0.0f),
-    m_lastFrame(0.0f)
+    m_lastFrame(0.0f),
+    m_xpos(0.0f),
+    m_ypos(0.0f)
 {
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -53,10 +53,8 @@ bool Display::createWindow(int width, int height, const char *title)
 
     glfwMakeContextCurrent(m_window);
     glfwSetFramebufferSizeCallback(m_window, screenSizeCallback);
-    glfwSetCursorPosCallback(m_window, mouseCallback);
-    glfwSetScrollCallback(m_window, scrollCallback);
 
-    glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+    //glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
     if(!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
@@ -76,7 +74,7 @@ void Display::start()
     } // end if
 
     glEnable(GL_DEPTH_TEST);
-    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
     while(!glfwWindowShouldClose(m_window))
     {
@@ -91,6 +89,24 @@ void Display::start()
         update();
     } // end while
 } // end start
+
+void Display::paintFrame()
+{
+    float currentFrame = static_cast<float>(glfwGetTime());
+    m_dt = currentFrame - m_lastFrame;
+    m_lastFrame = currentFrame;
+
+    processInput();
+
+    m_renderer->render();
+
+    update();
+} // end paintFrame
+
+bool Display::shouldClose()
+{
+    return glfwWindowShouldClose(m_window);
+} // end shouldColse
 
 void Display::toggleWindow()
 {
@@ -151,7 +167,24 @@ void Display::processInput()
     if(glfwGetKey(m_window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
     {
         glfwSetWindowShouldClose(m_window, true);
+        /*
+        if(m_mouseHidden) {
+            glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+        } else {
+            glfwSetInputMode(m_window, GLFW_CURSOR, );
+        } // end if
+        */
     } // end if
+
+    if(glfwGetKey(m_window, GLFW_KEY_1) == GLFW_PRESS)
+    {
+        glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    }
+
+    if(glfwGetKey(m_window, GLFW_KEY_2) == GLFW_PRESS)
+    {
+        glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+    }
 
     if(!m_controller)
     {
@@ -159,23 +192,17 @@ void Display::processInput()
         return;
     } // end if
 
-    std::cout << "x: " << xpos << " - y: " << ypos << std::endl;
-
     m_controller->processKeyboardInput(m_window);
-    m_controller->processMouseMovement(xpos - 400, ypos - 300);
+
+    glfwGetCursorPos(m_window, &m_xpos, &m_ypos);
+
+    m_xpos = fmod(m_xpos, 3600.0);
+
+    //std::cout << "x: " << m_xpos << " - y: " << m_ypos << std::endl;
+
+    m_controller->processMouseMovement(m_xpos, m_ypos);
     m_controller->updateCamera(m_dt);
 } // end processInput
-
-void Display::mouseCallback(GLFWwindow* window, double xposIn, double yposIn)
-{
-    xpos = static_cast<float>(xposIn);
-    ypos = static_cast<float>(yposIn);
-} // end mouseCallback
-
-void Display::scrollCallback(GLFWwindow* window, double xoffset, double yoffset)
-{
-    std::cout << "SCROLL" << std::endl;
-} // end scrollCallback
 
 void Display::screenSizeCallback(GLFWwindow* window, int width, int height)
 {

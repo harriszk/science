@@ -11,7 +11,7 @@
 #ifndef _SCENE_H_
 #define _SCENE_H_
 
-#include "Model.h"
+#include "Renderable.h"
 #include "Camera.h"
 
 // ** Should this class be responsible for user input? **
@@ -26,17 +26,17 @@ class Scene {
 
         void update(float dt);
 
-        bool addModel(Model *model);
+        bool addRenderable(Renderable *renderable);
 
-        bool removeModel(const Model &model);
+        bool removeRenderable(const Renderable &renderable);
 
         void setCamera(Camera *camera);
 
         glm::mat4 getViewMatrix();
 
-        std::vector<Model *> & getModels();
+        std::vector<Renderable *> & getRenderables();
     private:
-        std::vector<Model *> m_models;
+        std::vector<Renderable *> m_renderables;
 
         Camera *m_camera;
 }; // end Scene class

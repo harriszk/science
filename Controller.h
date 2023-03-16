@@ -51,6 +51,10 @@ class Controller {
 
         // Flag to indicate to move the camera right
         bool m_right = false;
+
+        bool m_up = false;
+
+        bool m_down = false;
 }; // end Controller class
 
 #endif

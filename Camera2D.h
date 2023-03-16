@@ -1,30 +1,27 @@
 /**
- * @file FlyCamera.h
- * Created on 02/02/2023
+ * @file 2DCamera.h
+ * Created on 03/15/2023
  * 
  * 
  * 
  * © 2023 by Zachary Harris (zacharykeatonharris@gmail.com)
  */
-#ifndef _FLY_CAMERA_H_
-#define _FLY_CAMERA_H_
+#ifndef _2D_CAMERA_H_
+#define _2D_CAMERA_H_
 
 #include "Camera.h"
 
-class FlyCamera : public Camera {
+class Camera2D : public Camera {
     public:
         /**
          * Constructor.
-         * 
-         * @param[in] position The initial position of the camera.
-         * @param[in] direction The initial direction the camera is facing.
          */
-        FlyCamera(const glm::vec3 &position, const glm::vec3 &direction);
+        Camera2D();
 
         /**
          * Destructor.
          */
-        virtual ~FlyCamera();
+        virtual ~Camera2D();
 
         glm::vec3 getPosition() const override;
 
@@ -39,6 +36,6 @@ class FlyCamera : public Camera {
         void processMouseMovement(float dx, float dy) override;
 
         void processMouseScroll(float dy) override;
-}; // end FlyCamera class
+}; // end Camera2D class
 
 #endif

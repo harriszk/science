@@ -8,6 +8,8 @@
  */
 #include "FlyCamera.h"
 
+#include <iostream>
+
 FlyCamera::FlyCamera(const glm::vec3 &position, const glm::vec3 &direction)
 {
     m_position = position;
@@ -15,7 +17,7 @@ FlyCamera::FlyCamera(const glm::vec3 &position, const glm::vec3 &direction)
     //m_front = direction;
     m_up = glm::vec3(0.0f, 1.0f, 0.0f);
     m_worldUp = glm::vec3(0.0f, 1.0f, 0.0f);
-    m_yaw = -90.0f;
+    m_yaw = 45.0f;
     m_pitch = 0.0f;
     m_movementSpeed = 2.5f;
     m_sensitivity = 0.1f;
@@ -54,6 +56,15 @@ void FlyCamera::update()
     // also re-calculate the Right and Up vector
     m_right = glm::normalize(glm::cross(m_front, m_worldUp));  // normalize the vectors, because their length gets closer to 0 the more you look up or down which results in slower movement.
     m_up = glm::normalize(glm::cross(m_right, m_front));
+
+    /*
+    std::cout << "Front: " << m_front.x << " " << m_front.y << " " << m_front.z << "\n";
+    std::cout << "Position: " << m_position.x << " " << m_position.y << " " << m_position.z << "\n";
+    std::cout << "Up: " << m_up.x << " " << m_up.y << " " << m_up.z << "\n";
+    std::cout << "World Up: " << m_worldUp.x << " " << m_worldUp.y << " " << m_worldUp.z << "\n";
+    std::cout << "Yaw: " << m_yaw << "\n";
+    std::cout << "Pitch: " << m_pitch << "\n\n";
+    */
 } // end update
 
 void FlyCamera::processKeyboard(Movement direction, float dt)
