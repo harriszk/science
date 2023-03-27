@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/Users/zachary/Desktop/Science/build",
+  "command": "/usr/bin/clang++  -I/Users/zachary/Desktop/Science/include/render/third-parties/include, -I/Users/zachary/Desktop/Science/include/render -isystem /usr/local/include -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -std=c++11 -o CMakeFiles/Science.dir/main.cpp.o -c /Users/zachary/Desktop/Science/main.cpp",
+  "file": "/Users/zachary/Desktop/Science/main.cpp"
+}
+]

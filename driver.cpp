@@ -1,22 +1,22 @@
-#include "Display.h"
-#include "Renderer.h"
-#include "Scene.h"
-#include "Model.h"
-#include "Shader.h"
-#include "VertexArrayObject.h"
-#include "VertexBufferObject.h"
-#include "ElementBufferObject.h"
-#include "Vertex.h"
-#include "Triangle.h"
+#include "include/render/Display.h"
+#include "include/render/Renderer.h"
+#include "include/render/Scene.h"
+#include "include/render/Model.h"
+#include "include/render/Shader.h"
+#include "include/render/VertexArrayObject.h"
+#include "include/render/VertexBufferObject.h"
+#include "include/render/ElementBufferObject.h"
+#include "include/render/Vertex.h"
+#include "include/render/Triangle.h"
 #include <vector>
 
-#include "FirstPersonController.h"
-#include "FlyCamera.h"
-#include "Camera2D.h"
-#include "Controller2D.h"
-#include "Rectangle.h"
-#include "Circle.h"
-#include "Line.h"
+#include "include/render/FirstPersonController.h"
+#include "include/render/FlyCamera.h"
+#include "include/render/Camera2D.h"
+#include "include/render/Controller2D.h"
+#include "include/render/Rectangle.h"
+#include "include/render/Circle.h"
+#include "include/render/Line.h"
 
 int main(int argc, char * argv[])
 {
@@ -27,7 +27,7 @@ int main(int argc, char * argv[])
     Controller2D controller(&camera);
 
     Display display(800, 600, "Hello World!");
-    Shader shader("shaders/vertexShaderSource.glsl", "shaders/fragmentShaderSource.glsl");
+    Shader shader("src/render/shaders/vertexShaderSource.glsl", "src/render/shaders/fragmentShaderSource.glsl");
     Renderer renderer(shader);
     display.setRenderer(&renderer);
     display.setContorller(&controller);

@@ -1,0 +1,5 @@
+/Users/zachary/Desktop/Science/build/CMakeFiles/Science.dir
+/Users/zachary/Desktop/Science/build/CMakeFiles/package.dir
+/Users/zachary/Desktop/Science/build/CMakeFiles/package_source.dir
+/Users/zachary/Desktop/Science/build/CMakeFiles/edit_cache.dir
+/Users/zachary/Desktop/Science/build/CMakeFiles/rebuild_cache.dir

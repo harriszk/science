@@ -1,0 +1,36 @@
+cmake_minimum_required(VERSION 3.0)
+
+project(MyProject)
+
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+find_package(OpenGL REQUIRED)
+find_package(glfw3 REQUIRED)
+
+add_executable(Science
+    main.cpp
+)
+
+target_include_directories(Science PUBLIC
+    ${PROJECT_SOURCE_DIR}/include/render/third-parties/include,
+    ${PROJECT_SOURCE_DIR}/include/render
+)
+
+target_link_directories(Science PUBLIC
+    ${PROJECT_SOURCE_DIR}/include/render/third-parties/lib
+)
+
+target_link_libraries(Science PUBLIC
+    glfw
+    ${OPENGL_LIBRARIES}
+    "-framework Cocoa"
+    "-framework IOKit"
+    "-framework CoreVideo"
+    "-framework CoreFoundation"
+)
+
+set(CPACK_PROJECT_NAME ${PROJECT_NAME})
+set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
+include(CPack)
