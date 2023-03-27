@@ -29,11 +29,19 @@ class Renderer {
         void render();
 
         void addScene(Scene *scene);
+
+        void setWidth(int width);
+
+        void setHeight(int height);
     private:
         // Array of scenes
         std::vector<Scene*> m_scenes;
 
         Shader &m_shader;
+
+        int m_width;
+
+        int m_height;
 }; // end Renderer class
 
 #endif

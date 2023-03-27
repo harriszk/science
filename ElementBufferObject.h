@@ -10,7 +10,6 @@
 #define _ELEMENT_BUFFER_OBJECT_H_
 
 #include "Triangle.h"
-#include "Line.h"
 #include <vector>
 
 class ElementBufferObject {
@@ -49,7 +48,7 @@ class ElementBufferObject {
         //void setData(const void *data, int size);
         void setData(std::vector<Triangle> *triangles);
 
-        void setData(std::vector<Line> *lines);
+        //void setData(std::vector<Line> *lines);
     private:
         // The identifier of the element buffer object.
         uint32_t m_id;

@@ -16,14 +16,15 @@
 #include "Controller2D.h"
 #include "Rectangle.h"
 #include "Circle.h"
+#include "Line.h"
 
 int main(int argc, char * argv[])
 {
-    FlyCamera camera(glm::vec3(0.0f, 0.0f, -1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
-    FirstPersonController controller(&camera);
+    //FlyCamera camera(glm::vec3(0.0f, 0.0f, -1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+    //FirstPersonController controller(&camera);
 
-    //Camera2D camera;
-    //Controller2D controller(&camera);
+    Camera2D camera;
+    Controller2D controller(&camera);
 
     Display display(800, 600, "Hello World!");
     Shader shader("shaders/vertexShaderSource.glsl", "shaders/fragmentShaderSource.glsl");
@@ -34,12 +35,41 @@ int main(int argc, char * argv[])
     scene.setCamera(&camera);
     renderer.addScene(&scene);
 
-    Model model;
-    scene.addRenderable(&model);
-    model.loadModel("/Users/zachary/Desktop/Science/models/teapot.obj");
+    //Model model;
+    //scene.addRenderable(&model);
+    //model.loadModel("/Users/zachary/Desktop/Science/models/teapot.obj");
+    /*
+    model.addVertex({-0.5f, -0.5f, -0.5f, 0.0f, 0.0f, 0.0f}); // 0
+    model.addVertex({-0.5f, 0.5f, -0.5f, 0.0f, 0.0f, 0.0f});  // 1
+    model.addVertex({0.5f, 0.5f, -0.5f, 0.0f, 0.0f, 0.0f});   // 2
+    model.addVertex({0.5f, -0.5f, -0.5f, 0.0f, 0.0f, 0.0f});  // 3
+    model.addVertex({-0.5f, -0.5f, 0.5f, 0.0f, 0.0f, 0.0f});  // 4
+    model.addVertex({-0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 0.0f});   // 5
+    model.addVertex({0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 0.0f});    // 6
+    model.addVertex({0.5f, -0.5f, 0.5f, 0.0f, 0.0f, 0.0f});   // 7
+    model.addTriangle({0,1,2});
+    model.addTriangle({0,2,3});
+    model.addTriangle({0,1,5});
+    model.addTriangle({0,5,4});
+    model.addTriangle({1,2,6});
+    model.addTriangle({1,6,5});
+    model.addTriangle({3,2,6});
+    model.addTriangle({3,6,7});
+    model.addTriangle({0,3,7});
+    model.addTriangle({0,7,4});
+    model.addTriangle({5,6,7});
+    model.addTriangle({5,7,4});
+    */
 
-    //Rectangle rect(1.5f, 2.25f);
-    //scene.addRenderable(&rect);
+    Line x_axis({-100.0f, 0.0f}, {100.0f, 0.0f});
+    Line y_axis({0.0f, -100.0f}, {0.0f, 100.0f});
+    Line z_axis({0.0f, 0.0f, -100.0f}, {0.0f, 0.0f, 100.0f});
+    scene.addRenderable(&x_axis);
+    scene.addRenderable(&y_axis);
+    scene.addRenderable(&z_axis);
+
+    Rectangle rect(1.5f, 2.25f);
+    scene.addRenderable(&rect);
 
     //Circle circle(2.5f);
     //scene.addRenderable(&circle);

@@ -12,7 +12,7 @@ Circle::Circle(float radius):
     m_radius(radius)
 {
     updateModelMatrix();
-    uint32_t segments = 256;
+    uint32_t segments = 32;
     float x, y;
     float segmentAngle = 2.0f * glm::pi<float>() / segments;
 

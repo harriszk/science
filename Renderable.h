@@ -14,7 +14,6 @@
 #include "ElementBufferObject.h"
 #include "Vertex.h"
 #include "Triangle.h"
-#include "Line.h"
 #include "glm/glm.hpp"
 #include <glm/gtc/matrix_transform.hpp>
 #include <glad/glad.h>
@@ -44,7 +43,7 @@ class Renderable {
         std::vector<Triangle> m_triangles;
 
         // The collection of lines that make up the renderable object.
-        std::vector<Line> m_lines;
+        //std::vector<Line> m_lines;
 
         // The vertex array object associated with the renderable object.
         VertexArrayObject m_vao;

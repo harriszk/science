@@ -9,12 +9,19 @@
 #ifndef _LINE_H_
 #define _LINE_H_
 
+#include "Renderable.h"
 #include <cstdint>
 
-struct Line
-{
-    uint32_t start;
-    uint32_t end;
-}; // end Line struct
+class Line : public Renderable {
+    public:
+        Line(const Vertex &p1, const Vertex &p2);
+
+        ~Line();
+
+        void render() override;
+
+    private:
+
+}; // end Line class
 
 #endif

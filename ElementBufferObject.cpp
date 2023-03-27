@@ -36,8 +36,10 @@ void ElementBufferObject::setData(std::vector<Triangle> *triangles)
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, triangles->size() * sizeof(Triangle), &triangles->front(), GL_STATIC_DRAW);
 } // end setData
 
+/*
 void ElementBufferObject::setData(std::vector<Line> *lines)
 {
     bind();
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, lines->size() * sizeof(Line), &lines->front(), GL_STATIC_DRAW);
 } // end setData
+*/

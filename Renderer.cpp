@@ -14,7 +14,9 @@
 #include <glm/gtc/type_ptr.hpp>
 
 Renderer::Renderer(Shader &shader):
-    m_shader(shader)
+    m_shader(shader),
+    m_width(800),
+    m_height(600)
 {
 
 } // end default constructor
@@ -38,7 +40,7 @@ void Renderer::render()
     //model = glm::rotate(model, (float)glfwGetTime(), glm::vec3(0.5f, 1.0f, 0.0f));
     //model = glm::rotate(model, glm::radians(-55.0f), glm::vec3(1.0f, 0.0f, 0.0f));
     //view  = glm::translate(view, glm::vec3(0.0f, 0.0f, -5.0f));
-    projection = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 0.1f, 100.0f);
+    projection = glm::perspective(glm::radians(45.0f), float(m_width) / float(m_height), 0.1f, 100.0f);
 
     glm::mat4 view = m_scenes.at(0)->getViewMatrix();
 
@@ -99,3 +101,13 @@ void Renderer::addScene(Scene *scene)
 {
     m_scenes.push_back(scene);
 } // end addScene
+
+void Renderer::setWidth(int width)
+{
+    m_width = width;
+} // end setWidth
+
+void Renderer::setHeight(int height)
+{
+    m_height = height;
+} // end setHeight
