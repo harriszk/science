@@ -4,7 +4,7 @@
 # compile C with /usr/bin/clang
 C_DEFINES = 
 
-C_INCLUDES = -I/Users/zachary/Desktop/Science/include/render/third-parties/include/glad
+C_INCLUDES = -I/Users/zachary/Desktop/Science/include
 
 C_FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk
 
