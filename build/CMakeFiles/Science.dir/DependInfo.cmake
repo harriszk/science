@@ -13,6 +13,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/zachary/Desktop/Science/src/render/Camera2D.cpp" "CMakeFiles/Science.dir/src/render/Camera2D.cpp.o" "gcc" "CMakeFiles/Science.dir/src/render/Camera2D.cpp.o.d"
   "/Users/zachary/Desktop/Science/src/render/Circle.cpp" "CMakeFiles/Science.dir/src/render/Circle.cpp.o" "gcc" "CMakeFiles/Science.dir/src/render/Circle.cpp.o.d"
   "/Users/zachary/Desktop/Science/src/render/Controller2D.cpp" "CMakeFiles/Science.dir/src/render/Controller2D.cpp.o" "gcc" "CMakeFiles/Science.dir/src/render/Controller2D.cpp.o.d"
+  "/Users/zachary/Desktop/Science/src/render/CoordinateSystem2D.cpp" "CMakeFiles/Science.dir/src/render/CoordinateSystem2D.cpp.o" "gcc" "CMakeFiles/Science.dir/src/render/CoordinateSystem2D.cpp.o.d"
   "/Users/zachary/Desktop/Science/src/render/Display.cpp" "CMakeFiles/Science.dir/src/render/Display.cpp.o" "gcc" "CMakeFiles/Science.dir/src/render/Display.cpp.o.d"
   "/Users/zachary/Desktop/Science/src/render/ElementBufferObject.cpp" "CMakeFiles/Science.dir/src/render/ElementBufferObject.cpp.o" "gcc" "CMakeFiles/Science.dir/src/render/ElementBufferObject.cpp.o.d"
   "/Users/zachary/Desktop/Science/src/render/FirstPersonController.cpp" "CMakeFiles/Science.dir/src/render/FirstPersonController.cpp.o" "gcc" "CMakeFiles/Science.dir/src/render/FirstPersonController.cpp.o.d"

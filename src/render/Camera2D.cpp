@@ -12,7 +12,7 @@
 
 Camera2D::Camera2D()
 {
-    m_position = glm::vec3(0.0f, 0.0f, 10.0f);
+    m_position = glm::vec3(0.0f, 0.0f, 5.0f);
     m_front = glm::vec3(0.0f, 0.0f, -1.0f);
     //m_front = direction;
     m_up = glm::vec3(0.0f, 1.0f, 0.0f);
@@ -42,7 +42,7 @@ glm::mat4 Camera2D::getViewMatrix() const
 
 glm::mat4 Camera2D::getProjectionMatrix() const
 {
-
+    return glm::mat4(1.0f);
 }
 
 void Camera2D::update()

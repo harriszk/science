@@ -30,7 +30,8 @@ add_executable(Science
     src/render/Scene.cpp
     src/render/Shader.cpp
     src/render/VertexArrayObject.cpp
-    src/render/VertexBufferObject.cpp)
+    src/render/VertexBufferObject.cpp
+    src/render/CoordinateSystem2D.cpp)
 
 find_library(OPENGL_LIBRARY OpenGL)
 find_library(COCOA_LIBRARY Cocoa)

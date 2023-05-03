@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Science.dir/src/render/Circle.cpp.o.d"
   "CMakeFiles/Science.dir/src/render/Controller2D.cpp.o"
   "CMakeFiles/Science.dir/src/render/Controller2D.cpp.o.d"
+  "CMakeFiles/Science.dir/src/render/CoordinateSystem2D.cpp.o"
+  "CMakeFiles/Science.dir/src/render/CoordinateSystem2D.cpp.o.d"
   "CMakeFiles/Science.dir/src/render/Display.cpp.o"
   "CMakeFiles/Science.dir/src/render/Display.cpp.o.d"
   "CMakeFiles/Science.dir/src/render/ElementBufferObject.cpp.o"

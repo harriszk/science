@@ -17,6 +17,7 @@
 #include "include/render/Rectangle.h"
 #include "include/render/Circle.h"
 #include "include/render/Line.h"
+#include "include/render/CoordinateSystem2D.h"
 
 int main(int argc, char * argv[])
 {
@@ -27,7 +28,7 @@ int main(int argc, char * argv[])
     Controller2D controller(&camera);
 
     Display display(800, 600, "Hello World!");
-    Shader shader("src/render/shaders/vertexShaderSource.glsl", "src/render/shaders/fragmentShaderSource.glsl");
+    Shader shader("/Users/zachary/Desktop/Science/src/render/shaders/vertexShaderSource.glsl", "/Users/zachary/Desktop/Science/src/render/shaders/fragmentShaderSource.glsl");
     Renderer renderer(shader);
     display.setRenderer(&renderer);
     display.setContorller(&controller);
@@ -37,7 +38,7 @@ int main(int argc, char * argv[])
 
     //Model model;
     //scene.addRenderable(&model);
-    //model.loadModel("/Users/zachary/Desktop/Science/models/teapot.obj");
+    //model.loadModel("/Users/zachary/Desktop/Science/src/render/models/teapot.obj");
     /*
     model.addVertex({-0.5f, -0.5f, -0.5f, 0.0f, 0.0f, 0.0f}); // 0
     model.addVertex({-0.5f, 0.5f, -0.5f, 0.0f, 0.0f, 0.0f});  // 1
@@ -61,12 +62,8 @@ int main(int argc, char * argv[])
     model.addTriangle({5,7,4});
     */
 
-    Line x_axis({-100.0f, 0.0f}, {100.0f, 0.0f});
-    Line y_axis({0.0f, -100.0f}, {0.0f, 100.0f});
-    Line z_axis({0.0f, 0.0f, -100.0f}, {0.0f, 0.0f, 100.0f});
-    scene.addRenderable(&x_axis);
-    scene.addRenderable(&y_axis);
-    scene.addRenderable(&z_axis);
+    CoordinateSystem2D cs(-5, 5, -5, 5);
+    scene.addRenderable(&cs);
 
     Rectangle rect(1.5f, 2.25f);
     scene.addRenderable(&rect);

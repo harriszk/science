@@ -1,87 +1,92 @@
 [
 {
   "directory": "/Users/zachary/Desktop/Science/build",
-  "command": "/usr/bin/clang++  -I/Users/zachary/Desktop/Science/include/render/third-parties/include -isystem /usr/local/include -fdiagnostics-color=always -Wall -g -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -std=gnu++11 -o CMakeFiles/Science.dir/driver.cpp.o -c /Users/zachary/Desktop/Science/driver.cpp",
+  "command": "/usr/bin/clang++  -I/Users/zachary/Desktop/Science/include/render/third-parties/include -isystem /usr/local/include -fdiagnostics-color=always -Wall -g -g -std=gnu++11 -o CMakeFiles/Science.dir/driver.cpp.o -c /Users/zachary/Desktop/Science/driver.cpp",
   "file": "/Users/zachary/Desktop/Science/driver.cpp"
 },
 {
   "directory": "/Users/zachary/Desktop/Science/build",
-  "command": "/usr/bin/clang++  -I/Users/zachary/Desktop/Science/include/render/third-parties/include -isystem /usr/local/include -fdiagnostics-color=always -Wall -g -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -std=gnu++11 -o CMakeFiles/Science.dir/src/render/Camera2D.cpp.o -c /Users/zachary/Desktop/Science/src/render/Camera2D.cpp",
+  "command": "/usr/bin/clang++  -I/Users/zachary/Desktop/Science/include/render/third-parties/include -isystem /usr/local/include -fdiagnostics-color=always -Wall -g -g -std=gnu++11 -o CMakeFiles/Science.dir/src/render/Camera2D.cpp.o -c /Users/zachary/Desktop/Science/src/render/Camera2D.cpp",
   "file": "/Users/zachary/Desktop/Science/src/render/Camera2D.cpp"
 },
 {
   "directory": "/Users/zachary/Desktop/Science/build",
-  "command": "/usr/bin/clang++  -I/Users/zachary/Desktop/Science/include/render/third-parties/include -isystem /usr/local/include -fdiagnostics-color=always -Wall -g -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -std=gnu++11 -o CMakeFiles/Science.dir/src/render/Circle.cpp.o -c /Users/zachary/Desktop/Science/src/render/Circle.cpp",
+  "command": "/usr/bin/clang++  -I/Users/zachary/Desktop/Science/include/render/third-parties/include -isystem /usr/local/include -fdiagnostics-color=always -Wall -g -g -std=gnu++11 -o CMakeFiles/Science.dir/src/render/Circle.cpp.o -c /Users/zachary/Desktop/Science/src/render/Circle.cpp",
   "file": "/Users/zachary/Desktop/Science/src/render/Circle.cpp"
 },
 {
   "directory": "/Users/zachary/Desktop/Science/build",
-  "command": "/usr/bin/clang++  -I/Users/zachary/Desktop/Science/include/render/third-parties/include -isystem /usr/local/include -fdiagnostics-color=always -Wall -g -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -std=gnu++11 -o CMakeFiles/Science.dir/src/render/Controller2D.cpp.o -c /Users/zachary/Desktop/Science/src/render/Controller2D.cpp",
+  "command": "/usr/bin/clang++  -I/Users/zachary/Desktop/Science/include/render/third-parties/include -isystem /usr/local/include -fdiagnostics-color=always -Wall -g -g -std=gnu++11 -o CMakeFiles/Science.dir/src/render/Controller2D.cpp.o -c /Users/zachary/Desktop/Science/src/render/Controller2D.cpp",
   "file": "/Users/zachary/Desktop/Science/src/render/Controller2D.cpp"
 },
 {
   "directory": "/Users/zachary/Desktop/Science/build",
-  "command": "/usr/bin/clang++  -I/Users/zachary/Desktop/Science/include/render/third-parties/include -isystem /usr/local/include -fdiagnostics-color=always -Wall -g -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -std=gnu++11 -o CMakeFiles/Science.dir/src/render/Display.cpp.o -c /Users/zachary/Desktop/Science/src/render/Display.cpp",
+  "command": "/usr/bin/clang++  -I/Users/zachary/Desktop/Science/include/render/third-parties/include -isystem /usr/local/include -fdiagnostics-color=always -Wall -g -g -std=gnu++11 -o CMakeFiles/Science.dir/src/render/Display.cpp.o -c /Users/zachary/Desktop/Science/src/render/Display.cpp",
   "file": "/Users/zachary/Desktop/Science/src/render/Display.cpp"
 },
 {
   "directory": "/Users/zachary/Desktop/Science/build",
-  "command": "/usr/bin/clang++  -I/Users/zachary/Desktop/Science/include/render/third-parties/include -isystem /usr/local/include -fdiagnostics-color=always -Wall -g -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -std=gnu++11 -o CMakeFiles/Science.dir/src/render/ElementBufferObject.cpp.o -c /Users/zachary/Desktop/Science/src/render/ElementBufferObject.cpp",
+  "command": "/usr/bin/clang++  -I/Users/zachary/Desktop/Science/include/render/third-parties/include -isystem /usr/local/include -fdiagnostics-color=always -Wall -g -g -std=gnu++11 -o CMakeFiles/Science.dir/src/render/ElementBufferObject.cpp.o -c /Users/zachary/Desktop/Science/src/render/ElementBufferObject.cpp",
   "file": "/Users/zachary/Desktop/Science/src/render/ElementBufferObject.cpp"
 },
 {
   "directory": "/Users/zachary/Desktop/Science/build",
-  "command": "/usr/bin/clang++  -I/Users/zachary/Desktop/Science/include/render/third-parties/include -isystem /usr/local/include -fdiagnostics-color=always -Wall -g -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -std=gnu++11 -o CMakeFiles/Science.dir/src/render/FirstPersonController.cpp.o -c /Users/zachary/Desktop/Science/src/render/FirstPersonController.cpp",
+  "command": "/usr/bin/clang++  -I/Users/zachary/Desktop/Science/include/render/third-parties/include -isystem /usr/local/include -fdiagnostics-color=always -Wall -g -g -std=gnu++11 -o CMakeFiles/Science.dir/src/render/FirstPersonController.cpp.o -c /Users/zachary/Desktop/Science/src/render/FirstPersonController.cpp",
   "file": "/Users/zachary/Desktop/Science/src/render/FirstPersonController.cpp"
 },
 {
   "directory": "/Users/zachary/Desktop/Science/build",
-  "command": "/usr/bin/clang++  -I/Users/zachary/Desktop/Science/include/render/third-parties/include -isystem /usr/local/include -fdiagnostics-color=always -Wall -g -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -std=gnu++11 -o CMakeFiles/Science.dir/src/render/FlyCamera.cpp.o -c /Users/zachary/Desktop/Science/src/render/FlyCamera.cpp",
+  "command": "/usr/bin/clang++  -I/Users/zachary/Desktop/Science/include/render/third-parties/include -isystem /usr/local/include -fdiagnostics-color=always -Wall -g -g -std=gnu++11 -o CMakeFiles/Science.dir/src/render/FlyCamera.cpp.o -c /Users/zachary/Desktop/Science/src/render/FlyCamera.cpp",
   "file": "/Users/zachary/Desktop/Science/src/render/FlyCamera.cpp"
 },
 {
   "directory": "/Users/zachary/Desktop/Science/build",
-  "command": "/usr/bin/clang  -I/Users/zachary/Desktop/Science/include/render/third-parties/include -isystem /usr/local/include -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -o CMakeFiles/Science.dir/src/render/glad.c.o -c /Users/zachary/Desktop/Science/src/render/glad.c",
+  "command": "/usr/bin/clang  -I/Users/zachary/Desktop/Science/include/render/third-parties/include -isystem /usr/local/include -g -o CMakeFiles/Science.dir/src/render/glad.c.o -c /Users/zachary/Desktop/Science/src/render/glad.c",
   "file": "/Users/zachary/Desktop/Science/src/render/glad.c"
 },
 {
   "directory": "/Users/zachary/Desktop/Science/build",
-  "command": "/usr/bin/clang++  -I/Users/zachary/Desktop/Science/include/render/third-parties/include -isystem /usr/local/include -fdiagnostics-color=always -Wall -g -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -std=gnu++11 -o CMakeFiles/Science.dir/src/render/Line.cpp.o -c /Users/zachary/Desktop/Science/src/render/Line.cpp",
+  "command": "/usr/bin/clang++  -I/Users/zachary/Desktop/Science/include/render/third-parties/include -isystem /usr/local/include -fdiagnostics-color=always -Wall -g -g -std=gnu++11 -o CMakeFiles/Science.dir/src/render/Line.cpp.o -c /Users/zachary/Desktop/Science/src/render/Line.cpp",
   "file": "/Users/zachary/Desktop/Science/src/render/Line.cpp"
 },
 {
   "directory": "/Users/zachary/Desktop/Science/build",
-  "command": "/usr/bin/clang++  -I/Users/zachary/Desktop/Science/include/render/third-parties/include -isystem /usr/local/include -fdiagnostics-color=always -Wall -g -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -std=gnu++11 -o CMakeFiles/Science.dir/src/render/Model.cpp.o -c /Users/zachary/Desktop/Science/src/render/Model.cpp",
+  "command": "/usr/bin/clang++  -I/Users/zachary/Desktop/Science/include/render/third-parties/include -isystem /usr/local/include -fdiagnostics-color=always -Wall -g -g -std=gnu++11 -o CMakeFiles/Science.dir/src/render/Model.cpp.o -c /Users/zachary/Desktop/Science/src/render/Model.cpp",
   "file": "/Users/zachary/Desktop/Science/src/render/Model.cpp"
 },
 {
   "directory": "/Users/zachary/Desktop/Science/build",
-  "command": "/usr/bin/clang++  -I/Users/zachary/Desktop/Science/include/render/third-parties/include -isystem /usr/local/include -fdiagnostics-color=always -Wall -g -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -std=gnu++11 -o CMakeFiles/Science.dir/src/render/Rectangle.cpp.o -c /Users/zachary/Desktop/Science/src/render/Rectangle.cpp",
+  "command": "/usr/bin/clang++  -I/Users/zachary/Desktop/Science/include/render/third-parties/include -isystem /usr/local/include -fdiagnostics-color=always -Wall -g -g -std=gnu++11 -o CMakeFiles/Science.dir/src/render/Rectangle.cpp.o -c /Users/zachary/Desktop/Science/src/render/Rectangle.cpp",
   "file": "/Users/zachary/Desktop/Science/src/render/Rectangle.cpp"
 },
 {
   "directory": "/Users/zachary/Desktop/Science/build",
-  "command": "/usr/bin/clang++  -I/Users/zachary/Desktop/Science/include/render/third-parties/include -isystem /usr/local/include -fdiagnostics-color=always -Wall -g -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -std=gnu++11 -o CMakeFiles/Science.dir/src/render/Renderer.cpp.o -c /Users/zachary/Desktop/Science/src/render/Renderer.cpp",
+  "command": "/usr/bin/clang++  -I/Users/zachary/Desktop/Science/include/render/third-parties/include -isystem /usr/local/include -fdiagnostics-color=always -Wall -g -g -std=gnu++11 -o CMakeFiles/Science.dir/src/render/Renderer.cpp.o -c /Users/zachary/Desktop/Science/src/render/Renderer.cpp",
   "file": "/Users/zachary/Desktop/Science/src/render/Renderer.cpp"
 },
 {
   "directory": "/Users/zachary/Desktop/Science/build",
-  "command": "/usr/bin/clang++  -I/Users/zachary/Desktop/Science/include/render/third-parties/include -isystem /usr/local/include -fdiagnostics-color=always -Wall -g -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -std=gnu++11 -o CMakeFiles/Science.dir/src/render/Scene.cpp.o -c /Users/zachary/Desktop/Science/src/render/Scene.cpp",
+  "command": "/usr/bin/clang++  -I/Users/zachary/Desktop/Science/include/render/third-parties/include -isystem /usr/local/include -fdiagnostics-color=always -Wall -g -g -std=gnu++11 -o CMakeFiles/Science.dir/src/render/Scene.cpp.o -c /Users/zachary/Desktop/Science/src/render/Scene.cpp",
   "file": "/Users/zachary/Desktop/Science/src/render/Scene.cpp"
 },
 {
   "directory": "/Users/zachary/Desktop/Science/build",
-  "command": "/usr/bin/clang++  -I/Users/zachary/Desktop/Science/include/render/third-parties/include -isystem /usr/local/include -fdiagnostics-color=always -Wall -g -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -std=gnu++11 -o CMakeFiles/Science.dir/src/render/Shader.cpp.o -c /Users/zachary/Desktop/Science/src/render/Shader.cpp",
+  "command": "/usr/bin/clang++  -I/Users/zachary/Desktop/Science/include/render/third-parties/include -isystem /usr/local/include -fdiagnostics-color=always -Wall -g -g -std=gnu++11 -o CMakeFiles/Science.dir/src/render/Shader.cpp.o -c /Users/zachary/Desktop/Science/src/render/Shader.cpp",
   "file": "/Users/zachary/Desktop/Science/src/render/Shader.cpp"
 },
 {
   "directory": "/Users/zachary/Desktop/Science/build",
-  "command": "/usr/bin/clang++  -I/Users/zachary/Desktop/Science/include/render/third-parties/include -isystem /usr/local/include -fdiagnostics-color=always -Wall -g -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -std=gnu++11 -o CMakeFiles/Science.dir/src/render/VertexArrayObject.cpp.o -c /Users/zachary/Desktop/Science/src/render/VertexArrayObject.cpp",
+  "command": "/usr/bin/clang++  -I/Users/zachary/Desktop/Science/include/render/third-parties/include -isystem /usr/local/include -fdiagnostics-color=always -Wall -g -g -std=gnu++11 -o CMakeFiles/Science.dir/src/render/VertexArrayObject.cpp.o -c /Users/zachary/Desktop/Science/src/render/VertexArrayObject.cpp",
   "file": "/Users/zachary/Desktop/Science/src/render/VertexArrayObject.cpp"
 },
 {
   "directory": "/Users/zachary/Desktop/Science/build",
-  "command": "/usr/bin/clang++  -I/Users/zachary/Desktop/Science/include/render/third-parties/include -isystem /usr/local/include -fdiagnostics-color=always -Wall -g -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -std=gnu++11 -o CMakeFiles/Science.dir/src/render/VertexBufferObject.cpp.o -c /Users/zachary/Desktop/Science/src/render/VertexBufferObject.cpp",
+  "command": "/usr/bin/clang++  -I/Users/zachary/Desktop/Science/include/render/third-parties/include -isystem /usr/local/include -fdiagnostics-color=always -Wall -g -g -std=gnu++11 -o CMakeFiles/Science.dir/src/render/VertexBufferObject.cpp.o -c /Users/zachary/Desktop/Science/src/render/VertexBufferObject.cpp",
   "file": "/Users/zachary/Desktop/Science/src/render/VertexBufferObject.cpp"
+},
+{
+  "directory": "/Users/zachary/Desktop/Science/build",
+  "command": "/usr/bin/clang++  -I/Users/zachary/Desktop/Science/include/render/third-parties/include -isystem /usr/local/include -fdiagnostics-color=always -Wall -g -g -std=gnu++11 -o CMakeFiles/Science.dir/src/render/CoordinateSystem2D.cpp.o -c /Users/zachary/Desktop/Science/src/render/CoordinateSystem2D.cpp",
+  "file": "/Users/zachary/Desktop/Science/src/render/CoordinateSystem2D.cpp"
 }
 ]

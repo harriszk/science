@@ -7,11 +7,11 @@ C_DEFINES =
 
 C_INCLUDES = -I/Users/zachary/Desktop/Science/include/render/third-parties/include -isystem /usr/local/include
 
-C_FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk
+C_FLAGS = -g
 
 CXX_DEFINES = 
 
 CXX_INCLUDES = -I/Users/zachary/Desktop/Science/include/render/third-parties/include -isystem /usr/local/include
 
-CXX_FLAGS = -fdiagnostics-color=always -Wall -g -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -std=gnu++11
+CXX_FLAGS = -fdiagnostics-color=always -Wall -g -g -std=gnu++11
 

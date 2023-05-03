@@ -619,6 +619,30 @@ src/render/Controller2D.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Science.dir/build.make CMakeFiles/Science.dir/src/render/Controller2D.cpp.s
 .PHONY : src/render/Controller2D.cpp.s
 
+src/render/CoordinateSystem2D.o: src/render/CoordinateSystem2D.cpp.o
+.PHONY : src/render/CoordinateSystem2D.o
+
+# target to build an object file
+src/render/CoordinateSystem2D.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Science.dir/build.make CMakeFiles/Science.dir/src/render/CoordinateSystem2D.cpp.o
+.PHONY : src/render/CoordinateSystem2D.cpp.o
+
+src/render/CoordinateSystem2D.i: src/render/CoordinateSystem2D.cpp.i
+.PHONY : src/render/CoordinateSystem2D.i
+
+# target to preprocess a source file
+src/render/CoordinateSystem2D.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Science.dir/build.make CMakeFiles/Science.dir/src/render/CoordinateSystem2D.cpp.i
+.PHONY : src/render/CoordinateSystem2D.cpp.i
+
+src/render/CoordinateSystem2D.s: src/render/CoordinateSystem2D.cpp.s
+.PHONY : src/render/CoordinateSystem2D.s
+
+# target to generate assembly for a file
+src/render/CoordinateSystem2D.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Science.dir/build.make CMakeFiles/Science.dir/src/render/CoordinateSystem2D.cpp.s
+.PHONY : src/render/CoordinateSystem2D.cpp.s
+
 src/render/Display.o: src/render/Display.cpp.o
 .PHONY : src/render/Display.o
 
@@ -983,6 +1007,9 @@ help:
 	@echo "... src/render/Controller2D.o"
 	@echo "... src/render/Controller2D.i"
 	@echo "... src/render/Controller2D.s"
+	@echo "... src/render/CoordinateSystem2D.o"
+	@echo "... src/render/CoordinateSystem2D.i"
+	@echo "... src/render/CoordinateSystem2D.s"
 	@echo "... src/render/Display.o"
 	@echo "... src/render/Display.i"
 	@echo "... src/render/Display.s"

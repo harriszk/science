@@ -63,6 +63,7 @@ void Model::loadModel(const char *filename)
 
     if(in.fail()) 
     {
+        std::cerr << "ERROR::MODEL::FILE_NOT_SUCCESFULLY_READ: " << filename << std::endl;
         return;
     }
 
