@@ -19,15 +19,42 @@
 #include "include/render/Line.h"
 #include "include/render/CoordinateSystem2D.h"
 
+#include "rapidjson/document.h"
+#include "rapidjson/writer.h"
+#include "rapidjson/stringbuffer.h"
+#include <iostream>
+
+using namespace rapidjson;
+
 int main(int argc, char * argv[])
 {
+    // 1. Parse a JSON string into DOM.
+    const char* json = "{\"project\":\"rapidjson\",\"stars\":20}";
+    Document d;
+    d.Parse(json);
+
+    // 2. Modify it by DOM.
+    Value& s = d["stars"];
+    s.SetInt(s.GetInt() + 1);
+
+    // 3. Stringify the DOM
+    StringBuffer buffer;
+    Writer<StringBuffer> writer(buffer);
+    d.Accept(writer);
+
+    // Output {"project":"rapidjson","stars":11}
+    std::cout << buffer.GetString() << std::endl;
+    return 0;
+
+
+    /*
     //FlyCamera camera(glm::vec3(0.0f, 0.0f, -1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
     //FirstPersonController controller(&camera);
 
     Camera2D camera;
     Controller2D controller(&camera);
 
-    Display display(800, 600, "Hello World!");
+    Display display(1000, 1000, "Hello World!");
     Shader shader("/Users/zachary/Desktop/Science/src/render/shaders/vertexShaderSource.glsl", "/Users/zachary/Desktop/Science/src/render/shaders/fragmentShaderSource.glsl");
     Renderer renderer(shader);
     display.setRenderer(&renderer);
@@ -60,12 +87,12 @@ int main(int argc, char * argv[])
     model.addTriangle({0,7,4});
     model.addTriangle({5,6,7});
     model.addTriangle({5,7,4});
-    */
+    
 
     CoordinateSystem2D cs(-5, 5, -5, 5);
     scene.addRenderable(&cs);
 
-    Rectangle rect(1.5f, 2.25f);
+    Rectangle rect(1.5f, 1.25f);
     scene.addRenderable(&rect);
 
     //Circle circle(2.5f);
@@ -91,6 +118,7 @@ int main(int argc, char * argv[])
     } // end while
 
     return 0;
+    */
 } // end main
 
 /*

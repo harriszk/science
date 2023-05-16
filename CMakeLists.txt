@@ -10,7 +10,8 @@ find_package(glfw3 REQUIRED)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_FLAGS "-fdiagnostics-color=always -Wall -g")
 
-include_directories(${PROJECT_SOURCE_DIR}/include/render/third-parties/include)
+include_directories(${PROJECT_SOURCE_DIR}/include/render/third-parties/include
+    ${PROJECT_SOURCE_DIR}/include/physics/third-parties/include)
 link_directories(${workspaceFolder}/include/render/third-parties/lib)
 
 add_executable(Science 
