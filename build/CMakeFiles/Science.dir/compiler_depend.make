@@ -932,7 +932,38 @@ CMakeFiles/Science.dir/driver.cpp.o: /Users/zachary/Desktop/Science/driver.cpp \
   /Users/zachary/Desktop/Science/include/render/Renderable2D.h \
   /Users/zachary/Desktop/Science/include/render/Circle.h \
   /Users/zachary/Desktop/Science/include/render/Line.h \
-  /Users/zachary/Desktop/Science/include/render/CoordinateSystem2D.h
+  /Users/zachary/Desktop/Science/include/render/CoordinateSystem2D.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/document.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/reader.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/allocators.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/rapidjson.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/inttypes.h \
+  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/14.0.3/include/inttypes.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/inttypes.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/xlocale/_inttypes.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/internal/meta.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/rapidjson.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/stream.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/encodings.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/encodedstream.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/memorystream.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/internal/clzll.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/internal/stack.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/allocators.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/internal/swap.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/internal/strtod.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/internal/ieee754.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/internal/biginteger.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/internal/diyfp.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/internal/pow10.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/error/error.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/rapidjson.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/internal/strfunc.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/stream.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/writer.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/internal/dtoa.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/internal/itoa.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/stringbuffer.h
 
 CMakeFiles/Science.dir/src/render/Camera2D.cpp.o: /Users/zachary/Desktop/Science/src/render/Camera2D.cpp \
   /Users/zachary/Desktop/Science/include/render/Camera2D.h \
@@ -13836,8 +13867,6 @@ CMakeFiles/Science.dir/src/render/glad.c.o: /Users/zachary/Desktop/Science/src/r
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/secure/_strings.h:
 
-/Users/zachary/Desktop/Science/src/render/glad.c:
-
 /Users/zachary/Desktop/Science/src/render/VertexBufferObject.cpp:
 
 /Users/zachary/Desktop/Science/include/render/third-parties/include/glm/ext/vector_int1.hpp:
@@ -13886,8 +13915,6 @@ CMakeFiles/Science.dir/src/render/glad.c.o: /Users/zachary/Desktop/Science/src/r
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/iomanip:
 
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/path.h:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/filesystem_error.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/perms.h:
@@ -13913,6 +13940,48 @@ CMakeFiles/Science.dir/src/render/glad.c.o: /Users/zachary/Desktop/Science/src/r
 /Users/zachary/Desktop/Science/src/render/Circle.cpp:
 
 /Users/zachary/Desktop/Science/src/render/Camera2D.cpp:
+
+/Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/stringbuffer.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/path.h:
+
+/Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/internal/itoa.h:
+
+/Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/internal/dtoa.h:
+
+/Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/error/error.h:
+
+/Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/internal/pow10.h:
+
+/Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/internal/diyfp.h:
+
+/Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/internal/swap.h:
+
+/Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/internal/stack.h:
+
+/Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/encodings.h:
+
+/Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/stream.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/xlocale/_inttypes.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/inttypes.h:
+
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/14.0.3/include/inttypes.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/inttypes.h:
+
+/Users/zachary/Desktop/Science/src/render/glad.c:
+
+/Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/rapidjson.h:
+
+/Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/allocators.h:
+
+/Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/reader.h:
+
+/Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/document.h:
+
+/Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/internal/ieee754.h:
 
 /Users/zachary/Desktop/Science/include/render/Rectangle.h:
 
@@ -13991,6 +14060,8 @@ CMakeFiles/Science.dir/src/render/glad.c.o: /Users/zachary/Desktop/Science/src/r
 /Users/zachary/Desktop/Science/include/render/third-parties/include/glm/ext/matrix_double4x4.hpp:
 
 /Users/zachary/Desktop/Science/include/render/third-parties/include/glm/ext/matrix_float4x3_precision.hpp:
+
+/Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/internal/strfunc.h:
 
 /Users/zachary/Desktop/Science/include/render/third-parties/include/glm/ext/matrix_double4x3_precision.hpp:
 
@@ -14215,6 +14286,8 @@ CMakeFiles/Science.dir/src/render/glad.c.o: /Users/zachary/Desktop/Science/src/r
 /Users/zachary/Desktop/Science/include/render/third-parties/include/glm/ext/vector_int4_sized.hpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__bit_reference:
+
+/Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/internal/strtod.h:
 
 /Users/zachary/Desktop/Science/include/render/third-parties/include/glm/fwd.hpp:
 
@@ -14560,6 +14633,8 @@ CMakeFiles/Science.dir/src/render/glad.c.o: /Users/zachary/Desktop/Science/src/r
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/find_end.h:
 
+/Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/writer.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__debug:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/xlocale/_wctype.h:
@@ -14641,6 +14716,8 @@ CMakeFiles/Science.dir/src/render/glad.c.o: /Users/zachary/Desktop/Science/src/r
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/indirectly_comparable.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/front_insert_iterator.h:
+
+/Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/internal/meta.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/partial_sort.h:
 
@@ -14813,6 +14890,8 @@ CMakeFiles/Science.dir/src/render/glad.c.o: /Users/zachary/Desktop/Science/src/r
 /Users/zachary/Desktop/Science/include/render/third-parties/include/glm/ext/quaternion_float.hpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/weak_result_type.h:
+
+/Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/internal/biginteger.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/is_standard_layout.h:
 
@@ -15404,6 +15483,8 @@ CMakeFiles/Science.dir/src/render/glad.c.o: /Users/zachary/Desktop/Science/src/r
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/is_sorted_until.h:
 
+/Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/internal/clzll.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__locale:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/add_const.h:
@@ -15544,6 +15625,8 @@ CMakeFiles/Science.dir/src/render/glad.c.o: /Users/zachary/Desktop/Science/src/r
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/is_polymorphic.h:
 
+/Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/memorystream.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/ranges_remove_if.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__concepts/arithmetic.h:
@@ -15565,6 +15648,8 @@ CMakeFiles/Science.dir/src/render/glad.c.o: /Users/zachary/Desktop/Science/src/r
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/machine/_types.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_types/_uint8_t.h:
+
+/Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/encodedstream.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/ranges_replace_copy.h:
 
