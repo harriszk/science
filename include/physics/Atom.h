@@ -15,8 +15,7 @@
 
 class Atom {
     public:
-        // Default constructor
-        Atom();
+        friend class PeriodicTable;
 
         // Destructor
         ~Atom();
@@ -49,6 +48,9 @@ class Atom {
          */
         double getAtomicMass();
     private:
+        // Default constructor
+        Atom(std::string name, std::string symbol, int atomicNumber, double atomicMass);
+
         // The name of the atom.
         std::string m_name;
 

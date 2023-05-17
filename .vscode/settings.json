@@ -67,7 +67,8 @@
         "__tree": "cpp",
         "__verbose_abort": "cpp",
         "bit": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "regex": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

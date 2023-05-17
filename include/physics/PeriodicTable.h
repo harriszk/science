@@ -52,6 +52,9 @@ class PeriodicTable {
         // Disable copy construtor
         PeriodicTable(const PeriodicTable&) = delete;
 
+        // Destructor
+        ~PeriodicTable();
+
         // Disable assignment operator
         PeriodicTable& operator=(const PeriodicTable&) = delete;
 
@@ -69,7 +72,7 @@ class PeriodicTable {
         void loadElement(int atomicNumber);
 
         // Storage for the elements
-        std::vector<Atom> m_elements;
+        std::vector<Atom*> m_elements;
 }; // end PeriodicTable class
 
 #endif

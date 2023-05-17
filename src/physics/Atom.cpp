@@ -8,7 +8,11 @@
  */
 #include "../../include/physics/Atom.h"
 
-Atom::Atom()
+Atom::Atom(std::string name, std::string symbol, int atomicNumber, double atomicMass):
+    m_name(std::move(name)),
+    m_symbol(std::move(symbol)),
+    m_atomicNumber(atomicNumber),
+    m_atomicMass(atomicMass)
 {
 
 } // end default constructor
@@ -18,22 +22,22 @@ Atom::~Atom()
 
 } // end destructor
 
-std::string getName()
+std::string Atom::getName()
 {
-
+    return m_name;
 } // end getName
 
-std::string getSymbol()
+std::string Atom::getSymbol()
 {
-
+    return m_symbol;
 } // end getSymbol
 
-int getAtomicNumber()
+int Atom::getAtomicNumber()
 {
-
+    return m_atomicNumber;
 } // end getAtomicNumber
 
-double getAtomicMass()
+double Atom::getAtomicMass()
 {
-
+    return m_atomicMass;
 } // end getAtomicMass

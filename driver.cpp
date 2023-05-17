@@ -20,8 +20,10 @@
 #include "include/render/CoordinateSystem2D.h"
 
 #include "rapidjson/document.h"
-#include "rapidjson/writer.h"
-#include "rapidjson/stringbuffer.h"
+//#include "rapidjson/writer.h"
+//#include "rapidjson/stringbuffer.h"
+#include "rapidjson/filereadstream.h"
+#include <cstdio>
 #include <iostream>
 
 #include "include/physics/PeriodicTable.h"
@@ -47,8 +49,24 @@ int main(int argc, char * argv[])
     std::cout << buffer.GetString() << std::endl;
     */
 
+    /*
+    const char json[] = "{ \"hello\" : \"world\" }";
+    rapidjson::StringStream s(json);
+    
+    rapidjson::Document d;
+    d.ParseStream(s);
+
+    std::cout << d["hello"].GetString() << "\n";
+    */
+
     PeriodicTable& periodicTable = PeriodicTable::getInstance();
-    periodicTable.getElement(8);
+
+    for(int i = 1; i < 119; i++)
+    {
+        periodicTable.getElement(i);
+    }
+    
+
     return 0;
 
 } // end main

@@ -677,6 +677,33 @@ CMakeFiles/Science.dir/src/physics/PeriodicTable.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/pointer_to_binary_function.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/pointer_to_unary_function.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/unary_negate.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/document.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/reader.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/allocators.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/rapidjson.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/inttypes.h \
+  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/14.0.3/include/inttypes.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/inttypes.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/internal/meta.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/internal/../rapidjson.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/stream.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/encodings.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/encodedstream.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/memorystream.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/internal/clzll.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/internal/stack.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/internal/../allocators.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/internal/swap.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/internal/strtod.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/internal/ieee754.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/internal/biginteger.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/internal/diyfp.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/internal/pow10.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/error/error.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/error/../rapidjson.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/internal/strfunc.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/internal/../stream.h \
+  /Users/zachary/Desktop/Science/include/physics/third-parties/include/rapidjson/filereadstream.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/ios \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__locale \
@@ -692,6 +719,7 @@ CMakeFiles/Science.dir/src/physics/PeriodicTable.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_xlocale.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/xlocale/_ctype.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/xlocale/__wctype.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/xlocale/_inttypes.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/xlocale/_stdio.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/xlocale/_stdlib.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/xlocale/_string.h \
