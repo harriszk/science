@@ -32,7 +32,9 @@ add_executable(Science
     src/render/Shader.cpp
     src/render/VertexArrayObject.cpp
     src/render/VertexBufferObject.cpp
-    src/render/CoordinateSystem2D.cpp)
+    src/render/CoordinateSystem2D.cpp
+    src/physics/PeriodicTable.cpp
+    src/physics/Atom.cpp)
 
 find_library(OPENGL_LIBRARY OpenGL)
 find_library(COCOA_LIBRARY Cocoa)

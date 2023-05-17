@@ -88,5 +88,15 @@
   "directory": "/Users/zachary/Desktop/Science/build",
   "command": "/usr/bin/clang++  -I/Users/zachary/Desktop/Science/include/render/third-parties/include -I/Users/zachary/Desktop/Science/include/physics/third-parties/include -isystem /usr/local/include -fdiagnostics-color=always -Wall -g -g -std=gnu++11 -o CMakeFiles/Science.dir/src/render/CoordinateSystem2D.cpp.o -c /Users/zachary/Desktop/Science/src/render/CoordinateSystem2D.cpp",
   "file": "/Users/zachary/Desktop/Science/src/render/CoordinateSystem2D.cpp"
+},
+{
+  "directory": "/Users/zachary/Desktop/Science/build",
+  "command": "/usr/bin/clang++  -I/Users/zachary/Desktop/Science/include/render/third-parties/include -I/Users/zachary/Desktop/Science/include/physics/third-parties/include -isystem /usr/local/include -fdiagnostics-color=always -Wall -g -g -std=gnu++11 -o CMakeFiles/Science.dir/src/physics/PeriodicTable.cpp.o -c /Users/zachary/Desktop/Science/src/physics/PeriodicTable.cpp",
+  "file": "/Users/zachary/Desktop/Science/src/physics/PeriodicTable.cpp"
+},
+{
+  "directory": "/Users/zachary/Desktop/Science/build",
+  "command": "/usr/bin/clang++  -I/Users/zachary/Desktop/Science/include/render/third-parties/include -I/Users/zachary/Desktop/Science/include/physics/third-parties/include -isystem /usr/local/include -fdiagnostics-color=always -Wall -g -g -std=gnu++11 -o CMakeFiles/Science.dir/src/physics/Atom.cpp.o -c /Users/zachary/Desktop/Science/src/physics/Atom.cpp",
+  "file": "/Users/zachary/Desktop/Science/src/physics/Atom.cpp"
 }
 ]

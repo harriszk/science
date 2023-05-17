@@ -1,6 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Science.dir/driver.cpp.o"
   "CMakeFiles/Science.dir/driver.cpp.o.d"
+  "CMakeFiles/Science.dir/src/physics/Atom.cpp.o"
+  "CMakeFiles/Science.dir/src/physics/Atom.cpp.o.d"
+  "CMakeFiles/Science.dir/src/physics/PeriodicTable.cpp.o"
+  "CMakeFiles/Science.dir/src/physics/PeriodicTable.cpp.o.d"
   "CMakeFiles/Science.dir/src/render/Camera2D.cpp.o"
   "CMakeFiles/Science.dir/src/render/Camera2D.cpp.o.d"
   "CMakeFiles/Science.dir/src/render/Circle.cpp.o"

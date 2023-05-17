@@ -10,6 +10,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/zachary/Desktop/Science/src/render/glad.c" "CMakeFiles/Science.dir/src/render/glad.c.o" "gcc" "CMakeFiles/Science.dir/src/render/glad.c.o.d"
   "/Users/zachary/Desktop/Science/driver.cpp" "CMakeFiles/Science.dir/driver.cpp.o" "gcc" "CMakeFiles/Science.dir/driver.cpp.o.d"
+  "/Users/zachary/Desktop/Science/src/physics/Atom.cpp" "CMakeFiles/Science.dir/src/physics/Atom.cpp.o" "gcc" "CMakeFiles/Science.dir/src/physics/Atom.cpp.o.d"
+  "/Users/zachary/Desktop/Science/src/physics/PeriodicTable.cpp" "CMakeFiles/Science.dir/src/physics/PeriodicTable.cpp.o" "gcc" "CMakeFiles/Science.dir/src/physics/PeriodicTable.cpp.o.d"
   "/Users/zachary/Desktop/Science/src/render/Camera2D.cpp" "CMakeFiles/Science.dir/src/render/Camera2D.cpp.o" "gcc" "CMakeFiles/Science.dir/src/render/Camera2D.cpp.o.d"
   "/Users/zachary/Desktop/Science/src/render/Circle.cpp" "CMakeFiles/Science.dir/src/render/Circle.cpp.o" "gcc" "CMakeFiles/Science.dir/src/render/Circle.cpp.o.d"
   "/Users/zachary/Desktop/Science/src/render/Controller2D.cpp" "CMakeFiles/Science.dir/src/render/Controller2D.cpp.o" "gcc" "CMakeFiles/Science.dir/src/render/Controller2D.cpp.o.d"

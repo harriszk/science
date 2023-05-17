@@ -547,6 +547,54 @@ driver.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Science.dir/build.make CMakeFiles/Science.dir/driver.cpp.s
 .PHONY : driver.cpp.s
 
+src/physics/Atom.o: src/physics/Atom.cpp.o
+.PHONY : src/physics/Atom.o
+
+# target to build an object file
+src/physics/Atom.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Science.dir/build.make CMakeFiles/Science.dir/src/physics/Atom.cpp.o
+.PHONY : src/physics/Atom.cpp.o
+
+src/physics/Atom.i: src/physics/Atom.cpp.i
+.PHONY : src/physics/Atom.i
+
+# target to preprocess a source file
+src/physics/Atom.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Science.dir/build.make CMakeFiles/Science.dir/src/physics/Atom.cpp.i
+.PHONY : src/physics/Atom.cpp.i
+
+src/physics/Atom.s: src/physics/Atom.cpp.s
+.PHONY : src/physics/Atom.s
+
+# target to generate assembly for a file
+src/physics/Atom.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Science.dir/build.make CMakeFiles/Science.dir/src/physics/Atom.cpp.s
+.PHONY : src/physics/Atom.cpp.s
+
+src/physics/PeriodicTable.o: src/physics/PeriodicTable.cpp.o
+.PHONY : src/physics/PeriodicTable.o
+
+# target to build an object file
+src/physics/PeriodicTable.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Science.dir/build.make CMakeFiles/Science.dir/src/physics/PeriodicTable.cpp.o
+.PHONY : src/physics/PeriodicTable.cpp.o
+
+src/physics/PeriodicTable.i: src/physics/PeriodicTable.cpp.i
+.PHONY : src/physics/PeriodicTable.i
+
+# target to preprocess a source file
+src/physics/PeriodicTable.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Science.dir/build.make CMakeFiles/Science.dir/src/physics/PeriodicTable.cpp.i
+.PHONY : src/physics/PeriodicTable.cpp.i
+
+src/physics/PeriodicTable.s: src/physics/PeriodicTable.cpp.s
+.PHONY : src/physics/PeriodicTable.s
+
+# target to generate assembly for a file
+src/physics/PeriodicTable.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Science.dir/build.make CMakeFiles/Science.dir/src/physics/PeriodicTable.cpp.s
+.PHONY : src/physics/PeriodicTable.cpp.s
+
 src/render/Camera2D.o: src/render/Camera2D.cpp.o
 .PHONY : src/render/Camera2D.o
 
@@ -998,6 +1046,12 @@ help:
 	@echo "... driver.o"
 	@echo "... driver.i"
 	@echo "... driver.s"
+	@echo "... src/physics/Atom.o"
+	@echo "... src/physics/Atom.i"
+	@echo "... src/physics/Atom.s"
+	@echo "... src/physics/PeriodicTable.o"
+	@echo "... src/physics/PeriodicTable.i"
+	@echo "... src/physics/PeriodicTable.s"
 	@echo "... src/render/Camera2D.o"
 	@echo "... src/render/Camera2D.i"
 	@echo "... src/render/Camera2D.s"
