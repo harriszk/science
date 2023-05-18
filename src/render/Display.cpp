@@ -56,7 +56,7 @@ bool Display::createWindow(int width, int height, const char *title)
     glfwMakeContextCurrent(m_window);
     glfwSetFramebufferSizeCallback(m_window, screenSizeCallback);
 
-    glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+    //glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
     if(!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {

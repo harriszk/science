@@ -25,7 +25,7 @@ PeriodicTable::~PeriodicTable()
     for (auto atom : this->m_elements)
     {
         delete atom;
-    }
+    } // end for
 } // end destructor
 
 PeriodicTable& PeriodicTable::getInstance()
@@ -34,16 +34,20 @@ PeriodicTable& PeriodicTable::getInstance()
     return instance;
 } // end getInstance
 
-void PeriodicTable::getElement(int atomicNumber)
+Atom& PeriodicTable::getElement(int atomicNumber)
 {
-    std::cout << this->m_elements.at(atomicNumber - 1)->getName() << " " << this->m_elements.at(atomicNumber - 1)->getSymbol() << "\n";
+    //std::cout << this->m_elements.at(atomicNumber - 1)->getName() << " " << this->m_elements.at(atomicNumber - 1)->getSymbol() << "\n";
 
-    return;
+    return *(this->m_elements.at(atomicNumber - 1));
 } // end getElement
 
 void PeriodicTable::loadAllElements()
 {
-    FILE* filePointer = fopen("../src/physics/JSON/PeriodicTable.json", "r"); // non-Windows use "r"
+    #ifdef _WIN32
+        FILE* filePointer = fopen("../src/physics/JSON/PeriodicTable.json", "rb");
+    #else
+        FILE* filePointer = fopen("../src/physics/JSON/PeriodicTable.json", "r");
+    #endif
  
     char readBuffer[65536];
     rapidjson::FileReadStream inputStream(filePointer, readBuffer, sizeof(readBuffer));
@@ -55,24 +59,15 @@ void PeriodicTable::loadAllElements()
 
     for(int index = 0; index < NUMBER_OF_ELEMNTS; index++)
     {
-        Atom* atom = new Atom(
-            document["elements"][index]["name"].GetString(),
-            document["elements"][index]["symbol"].GetString(),
-            index + 1,
-            document["elements"][index]["atomic_mass"].GetDouble()
-        );
+        Atom* atom = new Atom();
+
+        atom->setName(document["elements"][index]["name"].GetString());
+        atom->setSymbol(document["elements"][index]["symbol"].GetString());
+        atom->setAtomicNumber(index + 1);
+        atom->setAtomicMass(document["elements"][index]["atomic_mass"].GetDouble());
 
         this->m_elements.push_back(atom);
     } // end for
-
-    // Name
-    //d["elements"][atomicNumber]["name"].GetString()
-    // Symbol
-    //d["elements"][atomicNumber]["symbol"].GetString()
-    // Atomic Number
-    //index + 1
-    // Atomic Mass
-    // d["elements"][atomicNumber]["atomic_mass"].GetDouble()
 } // end loadAllElements
 
 void PeriodicTable::loadElement(int atomicNumber)

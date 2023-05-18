@@ -49,7 +49,38 @@ class Atom {
         double getAtomicMass();
     private:
         // Default constructor
+        Atom();
+
+        // Initializing constructor
         Atom(std::string name, std::string symbol, int atomicNumber, double atomicMass);
+
+        /**
+         * Set the name of the atom.
+         * 
+         * @param[in] name 
+         */
+        void setName(std::string name);
+
+        /**
+         * Set the symbol of the atom.
+         * 
+         * @param[in] symbol 
+         */
+        void setSymbol(std::string symbol);
+
+        /**
+         * Set the atomic number of the atom.
+         * 
+         * @param[in] number 
+         */
+        void setAtomicNumber(int number);
+
+        /**
+         * Set the atomic mass of the atom.
+         * 
+         * @param[in] mass 
+         */
+        void setAtomicMass(double mass);
 
         // The name of the atom.
         std::string m_name;

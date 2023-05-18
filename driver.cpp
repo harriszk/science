@@ -30,45 +30,43 @@
 
 int main(int argc, char * argv[])
 {
-    /*
-    // 1. Parse a JSON string into DOM.
-    const char* json = "{\"project\":\"rapidjson\",\"stars\":20}";
-    rapidjson::Document d;
-    d.Parse(json);
-
-    // 2. Modify it by DOM.
-    rapidjson::Value& s = d["stars"];
-    s.SetInt(s.GetInt() + 1);
-
-    // 3. Stringify the DOM
-    rapidjson::StringBuffer buffer;
-    rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
-    d.Accept(writer);
-
-    // Output {"project":"rapidjson","stars":11}
-    std::cout << buffer.GetString() << std::endl;
-    */
-
-    /*
-    const char json[] = "{ \"hello\" : \"world\" }";
-    rapidjson::StringStream s(json);
-    
-    rapidjson::Document d;
-    d.ParseStream(s);
-
-    std::cout << d["hello"].GetString() << "\n";
-    */
-
     PeriodicTable& periodicTable = PeriodicTable::getInstance();
 
-    for(int i = 1; i < 119; i++)
-    {
-        periodicTable.getElement(i);
-    }
+    Atom& hydrogen = periodicTable.getElement(1);
     
+    std::cout << hydrogen.getName() << " " << hydrogen.getSymbol() << "\n";
+
+    Camera2D camera;
+    Controller2D controller(&camera);
+
+    Display display(1000, 1000, "Hello World!");
+    Shader shader("/Users/zachary/Desktop/Science/src/render/shaders/vertexShaderSource.glsl", "/Users/zachary/Desktop/Science/src/render/shaders/fragmentShaderSource.glsl");
+    Renderer renderer(shader);
+    display.setRenderer(&renderer);
+    display.setContorller(&controller);
+    Scene scene;
+    scene.setCamera(&camera);
+    renderer.addScene(&scene);
+
+    Rectangle rect(1.5f, 1.25f);
+    scene.addRenderable(&rect);
+
+    glEnable(GL_DEPTH_TEST);
+
+    float lastFrame, dt;
+
+    while(!display.shouldClose())
+    {
+        float currentFrame = static_cast<float>(glfwGetTime());
+        dt = currentFrame - lastFrame;
+        lastFrame = currentFrame;
+
+        //rect.setRotation((30.0f * dt) + rect.getRotation());
+
+        display.paintFrame();
+    } // end while
 
     return 0;
-
 } // end main
 
 // ------------------ RENDER ENGINE TESTING ------------------

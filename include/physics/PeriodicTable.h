@@ -42,8 +42,8 @@ class PeriodicTable {
          * @param[in] atomicNumber The atomic number of the element.
          * @return Atom& Reference to the Atom associated with the atomic number.
          */
-        //Atom& getElement(int atomicNumber);
-        void getElement(int atomicNumber);
+        Atom& getElement(int atomicNumber);
+        //void getElement(int atomicNumber);
 
     private:
         // Default constructor
