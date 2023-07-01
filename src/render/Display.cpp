@@ -36,33 +36,17 @@ Display::Display(int width, int height, const char *title):
         return;
     } // end if
 
-    // Setup Dear ImGui context
+    m_isOpen = true;
+
+    // Initialize ImGui
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
-    ImGuiIO& io = ImGui::GetIO(); (void)io;
-    io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
-    io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
-    io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;         // Enable Docking
-    io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;       // Enable Multi-Viewport / Platform Windows
+    ImGuiIO& io = ImGui::GetIO();
+    (void)io;
 
-    // Setup Dear ImGui style
-    ImGui::StyleColorsDark();
-
-    // When viewports are enabled we tweak WindowRounding/WindowBg so platform windows can look identical to regular ones.
-    ImGuiStyle& style = ImGui::GetStyle();
-    if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
-    {
-        style.WindowRounding = 0.0f;
-        style.Colors[ImGuiCol_WindowBg].w = 1.0f;
-    }
-
-    const char* glsl_version = "#version 150";
-
-    // Setup Platform/Renderer backends
-    ImGui_ImplGlfw_InitForOpenGL(this->m_window, true);
-    ImGui_ImplOpenGL3_Init(glsl_version);
-
-    m_isOpen = true;
+    // Initialize ImGui backend for GLFW and OpenGL
+    ImGui_ImplGlfw_InitForOpenGL(m_window, true);
+    ImGui_ImplOpenGL3_Init("#version 330");
 } // end default constructor
 
 Display::~Display()
@@ -109,38 +93,13 @@ void Display::start()
     glEnable(GL_DEPTH_TEST);
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
-    bool show_demo_window = true;
-    ImGuiIO& io = ImGui::GetIO(); (void)io;
-
     while(!glfwWindowShouldClose(m_window))
     {
-        // Start the Dear ImGui frame
-        ImGui_ImplOpenGL3_NewFrame();
-        ImGui_ImplGlfw_NewFrame();
-        ImGui::NewFrame();
-
-        ImGui::ShowDemoWindow(&show_demo_window);
-
         float currentFrame = static_cast<float>(glfwGetTime());
         m_dt = currentFrame - m_lastFrame;
         m_lastFrame = currentFrame;
 
         processInput();
-
-        ImGui::Render();
-        m_renderer->render();
-        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-
-        // Update and Render additional Platform Windows
-        // (Platform functions may change the current OpenGL context, so we save/restore it to make it easier to paste this code elsewhere.
-        //  For this specific demo app we could also call glfwMakeContextCurrent(window) directly)
-        if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
-        {
-            GLFWwindow* backup_current_context = glfwGetCurrentContext();
-            ImGui::UpdatePlatformWindows();
-            ImGui::RenderPlatformWindowsDefault();
-            glfwMakeContextCurrent(backup_current_context);
-        }
 
         update();
     } // end while
@@ -153,13 +112,52 @@ void Display::paintFrame()
 
     if(m_isOpen)
     {
+        // Start a new ImGui frame
+        ImGui_ImplOpenGL3_NewFrame();
+        ImGui_ImplGlfw_NewFrame();
+        ImGui::NewFrame();
+
+        ImGui::ShowDemoWindow();
+
         float currentFrame = static_cast<float>(glfwGetTime());
         m_dt = currentFrame - m_lastFrame;
         m_lastFrame = currentFrame;
 
-        processInput();
+        //processInput();
+
+        
+
+        // ImGui UI logic and rendering goes here
+        ImGui::Begin("Simulation Menu");
+        // Add ImGui components for your simulation controls, dropdown menus, etc.
+
+        if (ImGui::BeginMainMenuBar())
+        {
+            if (ImGui::BeginMenu("File"))
+            {
+                ImGui::EndMenu();
+            }
+            if (ImGui::BeginMenu("Edit"))
+            {
+                if (ImGui::MenuItem("Undo", "CTRL+Z")) {}
+                if (ImGui::MenuItem("Redo", "CTRL+Y", false, false)) {}  // Disabled item
+                ImGui::Separator();
+                if (ImGui::MenuItem("Cut", "CTRL+X")) {}
+                if (ImGui::MenuItem("Copy", "CTRL+C")) {}
+                if (ImGui::MenuItem("Paste", "CTRL+V")) {}
+                ImGui::EndMenu();
+            }
+            ImGui::EndMainMenuBar();
+        }
+
+        ImGui::End();
+
+        
 
         m_renderer->render();
+        // Render ImGui
+        ImGui::Render();
+        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
         update();
     } // end if
@@ -189,6 +187,7 @@ void Display::update()
 
 void Display::destroy()
 {
+    // Shutdown ImGui
     ImGui_ImplOpenGL3_Shutdown();
     ImGui_ImplGlfw_Shutdown();
     ImGui::DestroyContext();
@@ -264,7 +263,7 @@ void Display::processInput()
 
     m_xpos = fmod(m_xpos, 3600.0);
 
-    std::cout << "x: " << m_xpos << " - y: " << m_ypos << std::endl;
+    //std::cout << "x: " << m_xpos << " - y: " << m_ypos << std::endl;
 
     m_controller->processMouseMovement(m_xpos, m_ypos);
     m_controller->updateCamera(m_dt);

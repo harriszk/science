@@ -12,10 +12,16 @@ set(CMAKE_CXX_FLAGS "-fdiagnostics-color=always -Wall -g")
 
 include_directories(${PROJECT_SOURCE_DIR}/include/render/third-parties/include
     ${PROJECT_SOURCE_DIR}/include/physics/third-parties/include)
-link_directories(${workspaceFolder}/include/render/third-parties/lib)
 
 add_executable(Science 
     driver.cpp 
+    include/render/third-parties/include/imgui/imgui.cpp
+    include/render/third-parties/include/imgui/imgui_widgets.cpp
+    include/render/third-parties/include/imgui/imgui_tables.cpp
+    include/render/third-parties/include/imgui/imgui_impl_opengl3.cpp
+    include/render/third-parties/include/imgui/imgui_impl_glfw.cpp
+    include/render/third-parties/include/imgui/imgui_draw.cpp
+    include/render/third-parties/include/imgui/imgui_demo.cpp
     src/render/Camera2D.cpp
     src/render/Circle.cpp
     src/render/Controller2D.cpp
@@ -36,13 +42,7 @@ add_executable(Science
     src/physics/PeriodicTable.cpp
     src/physics/Atom.cpp
     src/physics/Particle.cpp
-    src/render/third-parties/imgui/imgui.cpp
-    src/render/third-parties/imgui/imgui_widgets.cpp
-    src/render/third-parties/imgui/imgui_tables.cpp
-    src/render/third-parties/imgui/imgui_impl_opengl3.cpp
-    src/render/third-parties/imgui/imgui_impl_glfw.cpp
-    src/render/third-parties/imgui/imgui_draw.cpp
-    src/render/third-parties/imgui/imgui_demo.cpp)
+    )
 
 find_library(OPENGL_LIBRARY OpenGL)
 find_library(COCOA_LIBRARY Cocoa)

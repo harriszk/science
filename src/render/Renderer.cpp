@@ -28,7 +28,7 @@ Renderer::~Renderer()
 
 void Renderer::render()
 {
-    glClearColor(0.0f, 0.6f, 0.6f, 1.0f);
+    glClearColor(173.0f/255.0f, 216.0f/255.0f, 230.0f/255.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     m_shader.use();

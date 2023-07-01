@@ -39,18 +39,19 @@ int main(int argc, char * argv[])
     //FirstPersonController controller(&camera);
 
     Camera2D camera;
-    Controller2D controller(&camera);
 
     Display display(1000, 1000, "Hello World!");
     Shader shader("../src/render/shaders/vertexShaderSource.glsl", "../src/render/shaders/fragmentShaderSource.glsl");
     Renderer renderer(shader);
     display.setRenderer(&renderer);
-    display.setContorller(&controller);
     Scene scene;
     scene.setCamera(&camera);
     renderer.addScene(&scene);
 
-    
+    while(!display.shouldClose())
+    {
+        display.paintFrame();
+    } // end while
 
     //Model model;
     //scene.addRenderable(&model);
@@ -108,7 +109,7 @@ int main(int argc, char * argv[])
 
     return 0;
     */
-    
+    /*
     Model model, model2, model3;
 
     scene.addRenderable(&model);
@@ -147,7 +148,7 @@ int main(int argc, char * argv[])
     model3.addTriangle({0,2,3});
 
     display.start();
-    
+    */
     
     
 
