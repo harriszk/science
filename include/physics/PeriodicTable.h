@@ -40,6 +40,7 @@ class PeriodicTable {
          * Get the Atom associated with the given atomic number.
          * 
          * @param[in] atomicNumber The atomic number of the element.
+         * 
          * @return Atom& Reference to the Atom associated with the atomic number.
          */
         Atom& getElement(int atomicNumber);
@@ -71,7 +72,7 @@ class PeriodicTable {
          */
         void loadElement(int atomicNumber);
 
-        // Storage for the elements
+        // Storage for the periodic table elements.
         std::vector<Atom*> m_elements;
 }; // end PeriodicTable class
 

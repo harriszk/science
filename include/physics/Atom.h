@@ -21,28 +21,28 @@ class Atom {
         ~Atom();
 
         /**
-         * Get the name of the atom.
+         * Gets the name of the atom.
          * 
          * @return std::string The name of the atom.
          */
         std::string getName();
 
         /**
-         * Get the symbol of the atom.
+         * Gets the symbol of the atom.
          * 
          * @return std::string The symbol of the atom.
          */
         std::string getSymbol();
 
         /**
-         * Get the atmoic number of the atom.
+         * Gets the atmoic number of the atom.
          * 
          * @return int The atomic number of the atom.
          */
         int getAtomicNumber();
 
         /**
-         * Get the atomic mass of the atom.
+         * Gets the atomic mass of the atom.
          * 
          * @return double The atomic mass of the atom.
          */
@@ -55,30 +55,30 @@ class Atom {
         Atom(std::string name, std::string symbol, int atomicNumber, double atomicMass);
 
         /**
-         * Set the name of the atom.
+         * Sets the name of the atom.
          * 
-         * @param[in] name 
+         * @param[in] name Name of the atom.
          */
         void setName(std::string name);
 
         /**
-         * Set the symbol of the atom.
+         * Sets the symbol of the atom.
          * 
-         * @param[in] symbol 
+         * @param[in] symbol Symbol of the atom.
          */
         void setSymbol(std::string symbol);
 
         /**
-         * Set the atomic number of the atom.
+         * Sets the atomic number of the atom.
          * 
-         * @param[in] number 
+         * @param[in] number Atomic number of the atom.
          */
         void setAtomicNumber(int number);
 
         /**
-         * Set the atomic mass of the atom.
+         * Sets the atomic mass of the atom.
          * 
-         * @param[in] mass 
+         * @param[in] mass Atomic mass of the atom.
          */
         void setAtomicMass(double mass);
 

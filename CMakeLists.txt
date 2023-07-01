@@ -34,7 +34,15 @@ add_executable(Science
     src/render/VertexBufferObject.cpp
     src/render/CoordinateSystem2D.cpp
     src/physics/PeriodicTable.cpp
-    src/physics/Atom.cpp)
+    src/physics/Atom.cpp
+    src/physics/Particle.cpp
+    src/render/third-parties/imgui/imgui.cpp
+    src/render/third-parties/imgui/imgui_widgets.cpp
+    src/render/third-parties/imgui/imgui_tables.cpp
+    src/render/third-parties/imgui/imgui_impl_opengl3.cpp
+    src/render/third-parties/imgui/imgui_impl_glfw.cpp
+    src/render/third-parties/imgui/imgui_draw.cpp
+    src/render/third-parties/imgui/imgui_demo.cpp)
 
 find_library(OPENGL_LIBRARY OpenGL)
 find_library(COCOA_LIBRARY Cocoa)

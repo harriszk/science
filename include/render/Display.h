@@ -32,6 +32,10 @@ class Display {
         /**
          * Creates the GLFW window and initializes GLAD.
          * 
+         * @param[in] width     The width of the window
+         * @param[in] height    The height of the window
+         * @param[in] title     The title of the window
+         * 
          * @return true     The window was successfully created.
          * @return false    The window wasn't successfully created.
          */
@@ -43,8 +47,18 @@ class Display {
          */
         void start();
 
+        /**
+         * 
+         * 
+         */
         void paintFrame();
 
+        /**
+         * 
+         * 
+         * @return true 
+         * @return false 
+         */
         bool shouldClose();
 
         /**
@@ -73,14 +87,38 @@ class Display {
          */
         void setTitle(const char *title);
 
+        /**
+         * 
+         * 
+         * @param[in] renderer 
+         */
         void setRenderer(Renderer *renderer);
 
+        /**
+         * 
+         * 
+         * @param[in] controller 
+         */
         void setContorller(Controller *controller);
         
+        /**
+         * 
+         * 
+         * @return int 
+         */
         int getWidth();
 
+        /**
+         * Get the Height object
+         * 
+         * @return int 
+         */
         int getHeight();
 
+        /**
+         * 
+         * 
+         */
         void processInput();
 
         /**
@@ -95,19 +133,25 @@ class Display {
         // Pointer to the GLFW window.
         GLFWwindow *m_window;
 
+        // 
         Renderer *m_renderer;
 
+        // 
         Controller *m_controller;
 
         // Boolean indicating if the window is open or not.
         bool m_isOpen;
 
+        // The change in time since the last frame.
         float m_dt;
 
+        // Time since the last frame
         float m_lastFrame;
 
+        // The verical position of the cursor.
         double m_xpos;
 
+        // The horizontal position of the cursor.
         double m_ypos;
 }; // end Display class
 
