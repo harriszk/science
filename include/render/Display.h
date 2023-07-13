@@ -153,6 +153,11 @@ class Display {
 
         // The horizontal position of the cursor.
         double m_ypos;
+
+
+        GLuint m_FBO;
+        GLuint m_RBO;
+        GLuint m_texture_id;
 }; // end Display class
 
 #endif
