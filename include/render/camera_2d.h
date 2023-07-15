@@ -7,7 +7,7 @@
 #ifndef _CAMERA_2D_H_
 #define _CAMERA_2D_H_
 
-#include "Camera.h"
+#include "camera.h"
 
 class Camera2D : public Camera {
   public:

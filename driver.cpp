@@ -1,23 +1,23 @@
-#include "include/render/Display.h"
-#include "include/render/Renderer.h"
-#include "include/render/Scene.h"
-#include "include/render/Model.h"
-#include "include/render/Shader.h"
-#include "include/render/VertexArrayObject.h"
-#include "include/render/VertexBufferObject.h"
-#include "include/render/ElementBufferObject.h"
-#include "include/render/Vertex.h"
-#include "include/render/Triangle.h"
+#include "render/display.h"
+#include "render/renderer.h"
+#include "render/scene.h"
+#include "render/model.h"
+#include "render/shader.h"
+#include "render/vertex_array_object.h"
+#include "render/vertex_buffer_object.h"
+#include "render/element_buffer_object.h"
+#include "render/vertex.h"
+#include "render/triangle.h"
 #include <vector>
 
-#include "include/render/FirstPersonController.h"
-#include "include/render/FlyCamera.h"
-#include "include/render/Camera2D.h"
-#include "include/render/Controller2D.h"
-#include "include/render/Rectangle.h"
-#include "include/render/Circle.h"
-#include "include/render/Line.h"
-#include "include/render/CoordinateSystem2D.h"
+#include "render/first_person_controller.h"
+#include "render/fly_camera.h"
+#include "render/camera_2d.h"
+#include "render/controller_2d.h"
+#include "render/rectangle.h"
+#include "render/circle.h"
+#include "render/line.h"
+#include "render/coordinate_system_2d.h"
 
 #include "rapidjson/document.h"
 //#include "rapidjson/writer.h"
@@ -26,12 +26,12 @@
 #include <cstdio>
 #include <iostream>
 
-#include "include/physics/periodic_table.h"
-#include "include/physics/particle.h"
+#include "physics/periodic_table.h"
+#include "physics/particle.h"
 
-#include "include/render/third-parties/include/imgui/imgui.h"
-#include "include/render/third-parties/include/imgui/imgui_impl_glfw.h"
-#include "include/render/third-parties/include/imgui/imgui_impl_opengl3.h"
+#include "render/third-parties/include/imgui/imgui.h"
+#include "render/third-parties/include/imgui/imgui_impl_glfw.h"
+#include "render/third-parties/include/imgui/imgui_impl_opengl3.h"
 
 int main(int argc, char * argv[])
 {
@@ -43,49 +43,49 @@ int main(int argc, char * argv[])
     Controller2D controller(&camera);
     //FirstPersonController controller(&camera);
 
-    Display display(1000, 1000, "Hello World!");
+    Display display(950, 800, "Hello World!");
     Shader shader("../src/render/shaders/vertexShaderSource.glsl", "../src/render/shaders/fragmentShaderSource.glsl");
     Renderer renderer(shader);
-    display.setRenderer(&renderer);
-    display.setContorller(&controller);
+    display.set_renderer(&renderer);
+    display.set_controller(&controller);
     Scene scene;
-    scene.setCamera(&camera);
-    renderer.addScene(&scene);
+    scene.set_camera(&camera);
+    renderer.AddScene(&scene);
 
     //Model model;
-    //scene.addRenderable(&model);
+    //scene.AddRenderable(&model);
     //model.loadModel("../src/render/models/teapot.obj");
     /*
-    model.addVertex({-0.5f, -0.5f, -0.5f, 0.0f, 0.0f, 0.0f}); // 0
-    model.addVertex({-0.5f, 0.5f, -0.5f, 0.0f, 0.0f, 0.0f});  // 1
-    model.addVertex({0.5f, 0.5f, -0.5f, 0.0f, 0.0f, 0.0f});   // 2
-    model.addVertex({0.5f, -0.5f, -0.5f, 0.0f, 0.0f, 0.0f});  // 3
-    model.addVertex({-0.5f, -0.5f, 0.5f, 0.0f, 0.0f, 0.0f});  // 4
-    model.addVertex({-0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 0.0f});   // 5
-    model.addVertex({0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 0.0f});    // 6
-    model.addVertex({0.5f, -0.5f, 0.5f, 0.0f, 0.0f, 0.0f});   // 7
-    model.addTriangle({0,1,2});
-    model.addTriangle({0,2,3});
-    model.addTriangle({0,1,5});
-    model.addTriangle({0,5,4});
-    model.addTriangle({1,2,6});
-    model.addTriangle({1,6,5});
-    model.addTriangle({3,2,6});
-    model.addTriangle({3,6,7});
-    model.addTriangle({0,3,7});
-    model.addTriangle({0,7,4});
-    model.addTriangle({5,6,7});
-    model.addTriangle({5,7,4});
+    model.AddVertex({-0.5f, -0.5f, -0.5f, 0.0f, 0.0f, 0.0f}); // 0
+    model.AddVertex({-0.5f, 0.5f, -0.5f, 0.0f, 0.0f, 0.0f});  // 1
+    model.AddVertex({0.5f, 0.5f, -0.5f, 0.0f, 0.0f, 0.0f});   // 2
+    model.AddVertex({0.5f, -0.5f, -0.5f, 0.0f, 0.0f, 0.0f});  // 3
+    model.AddVertex({-0.5f, -0.5f, 0.5f, 0.0f, 0.0f, 0.0f});  // 4
+    model.AddVertex({-0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 0.0f});   // 5
+    model.AddVertex({0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 0.0f});    // 6
+    model.AddVertex({0.5f, -0.5f, 0.5f, 0.0f, 0.0f, 0.0f});   // 7
+    model.AddTriangle({0,1,2});
+    model.AddTriangle({0,2,3});
+    model.AddTriangle({0,1,5});
+    model.AddTriangle({0,5,4});
+    model.AddTriangle({1,2,6});
+    model.AddTriangle({1,6,5});
+    model.AddTriangle({3,2,6});
+    model.AddTriangle({3,6,7});
+    model.AddTriangle({0,3,7});
+    model.AddTriangle({0,7,4});
+    model.AddTriangle({5,6,7});
+    model.AddTriangle({5,7,4});
 
 
     CoordinateSystem2D cs(-5, 5, -5, 5);
-    scene.addRenderable(&cs);
+    scene.AddRenderable(&cs);
 
     Rectangle rect(1.5f, 1.25f);
-    scene.addRenderable(&rect);
+    scene.AddRenderable(&rect);
 
     //Circle circle(2.5f);
-    //scene.addRenderable(&circle);
+    //scene.AddRenderable(&circle);
 
     // Use either a start method or have which ever component is using
     // the display update it.
@@ -111,47 +111,47 @@ int main(int argc, char * argv[])
     
     Model model, model2, model3;
 
-    scene.addRenderable(&model);
-    scene.addRenderable(&model2);
-    scene.addRenderable(&model3);
+    scene.AddRenderable(&model);
+    scene.AddRenderable(&model2);
+    scene.AddRenderable(&model3);
 
-    model.addVertex({-0.5f, -0.5f, -0.5f, 0.75f, 0.0f, 0.0f}); // 0
-    model.addVertex({-0.5f, 0.5f, -0.5f, 0.0f, 0.75f, 0.0f});  // 1
-    model.addVertex({0.5f, 0.5f, -0.5f, 0.75f, 0.0f, 0.0f});   // 2
-    model.addVertex({0.5f, -0.5f, -0.5f, 0.0f, 0.75f, 0.0f});  // 3
-    model.addVertex({-0.5f, -0.5f, 0.5f, 0.0f, 0.75f, 0.0f});  // 4
-    model.addVertex({-0.5f, 0.5f, 0.5f, 0.75f, 0.0f, 0.0f});   // 5
-    model.addVertex({0.5f, 0.5f, 0.5f, 0.0f, 0.75f, 0.0f});    // 6
-    model.addVertex({0.5f, -0.5f, 0.5f, 0.75f, 0.0f, 0.0f});   // 7
-    model.addTriangle({4,0,7});
-    model.addTriangle({4,5,7});
-    model.addTriangle({4,5,0});
-    model.addTriangle({2,6,3});
-    model.addTriangle({2,6,1});
-    model.addTriangle({2,1,3});
-    model.addTriangle({5,0,7});
-    model.addTriangle({6,1,3});
+    model.AddVertex({-0.5f, -0.5f, -0.5f, 0.75f, 0.0f, 0.0f}); // 0
+    model.AddVertex({-0.5f, 0.5f, -0.5f, 0.0f, 0.75f, 0.0f});  // 1
+    model.AddVertex({0.5f, 0.5f, -0.5f, 0.75f, 0.0f, 0.0f});   // 2
+    model.AddVertex({0.5f, -0.5f, -0.5f, 0.0f, 0.75f, 0.0f});  // 3
+    model.AddVertex({-0.5f, -0.5f, 0.5f, 0.0f, 0.75f, 0.0f});  // 4
+    model.AddVertex({-0.5f, 0.5f, 0.5f, 0.75f, 0.0f, 0.0f});   // 5
+    model.AddVertex({0.5f, 0.5f, 0.5f, 0.0f, 0.75f, 0.0f});    // 6
+    model.AddVertex({0.5f, -0.5f, 0.5f, 0.75f, 0.0f, 0.0f});   // 7
+    model.AddTriangle({4,0,7});
+    model.AddTriangle({4,5,7});
+    model.AddTriangle({4,5,0});
+    model.AddTriangle({2,6,3});
+    model.AddTriangle({2,6,1});
+    model.AddTriangle({2,1,3});
+    model.AddTriangle({5,0,7});
+    model.AddTriangle({6,1,3});
 
-    model2.addVertex({1.0f, -1.0f, 0.0f});
-    model2.addVertex({1.0f, 1.0f, 0.0f});
-    model2.addVertex({3.0f, 1.0f, 0.0f});
-    model2.addVertex({3.0f, -1.0f, 0.0f});
-    model2.addTriangle({0, 1, 2});
-    model2.addTriangle({0, 2, 3});
+    model2.AddVertex({1.0f, -1.0f, 0.0f});
+    model2.AddVertex({1.0f, 1.0f, 0.0f});
+    model2.AddVertex({3.0f, 1.0f, 0.0f});
+    model2.AddVertex({3.0f, -1.0f, 0.0f});
+    model2.AddTriangle({0, 1, 2});
+    model2.AddTriangle({0, 2, 3});
 
-    model3.addVertex({-1.0f, -1.0f, 0.0f, 1.0f, 1.0f, 1.0f}); // 0
-    model3.addVertex({-1.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f});  // 1
-    model3.addVertex({1.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f});   // 2
-    model3.addVertex({1.0f, -1.0f, 0.0f, 1.0f, 1.0f, 1.0f});  // 3
-    model3.addTriangle({0,1,2});
-    model3.addTriangle({0,2,3});
+    model3.AddVertex({-1.0f, -1.0f, 0.0f, 1.0f, 1.0f, 1.0f}); // 0
+    model3.AddVertex({-1.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f});  // 1
+    model3.AddVertex({1.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f});   // 2
+    model3.AddVertex({1.0f, -1.0f, 0.0f, 1.0f, 1.0f, 1.0f});  // 3
+    model3.AddTriangle({0,1,2});
+    model3.AddTriangle({0,2,3});
 
     //display.start();
     
     
-    while(!display.shouldClose())
+    while(!display.ShouldClose())
     {
-        display.paintFrame();
+        display.PaintFrame();
     } // end while
 
     return 0;
@@ -176,39 +176,39 @@ scene.setCamera(&camera);
 renderer.addScene(&scene);
 
 //Model model;
-//scene.addRenderable(&model);
+//scene.AddRenderable(&model);
 //model.loadModel("../src/render/models/teapot.obj");
 /*
-model.addVertex({-0.5f, -0.5f, -0.5f, 0.0f, 0.0f, 0.0f}); // 0
-model.addVertex({-0.5f, 0.5f, -0.5f, 0.0f, 0.0f, 0.0f});  // 1
-model.addVertex({0.5f, 0.5f, -0.5f, 0.0f, 0.0f, 0.0f});   // 2
-model.addVertex({0.5f, -0.5f, -0.5f, 0.0f, 0.0f, 0.0f});  // 3
-model.addVertex({-0.5f, -0.5f, 0.5f, 0.0f, 0.0f, 0.0f});  // 4
-model.addVertex({-0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 0.0f});   // 5
-model.addVertex({0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 0.0f});    // 6
-model.addVertex({0.5f, -0.5f, 0.5f, 0.0f, 0.0f, 0.0f});   // 7
-model.addTriangle({0,1,2});
-model.addTriangle({0,2,3});
-model.addTriangle({0,1,5});
-model.addTriangle({0,5,4});
-model.addTriangle({1,2,6});
-model.addTriangle({1,6,5});
-model.addTriangle({3,2,6});
-model.addTriangle({3,6,7});
-model.addTriangle({0,3,7});
-model.addTriangle({0,7,4});
-model.addTriangle({5,6,7});
-model.addTriangle({5,7,4});
+model.AddVertex({-0.5f, -0.5f, -0.5f, 0.0f, 0.0f, 0.0f}); // 0
+model.AddVertex({-0.5f, 0.5f, -0.5f, 0.0f, 0.0f, 0.0f});  // 1
+model.AddVertex({0.5f, 0.5f, -0.5f, 0.0f, 0.0f, 0.0f});   // 2
+model.AddVertex({0.5f, -0.5f, -0.5f, 0.0f, 0.0f, 0.0f});  // 3
+model.AddVertex({-0.5f, -0.5f, 0.5f, 0.0f, 0.0f, 0.0f});  // 4
+model.AddVertex({-0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 0.0f});   // 5
+model.AddVertex({0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 0.0f});    // 6
+model.AddVertex({0.5f, -0.5f, 0.5f, 0.0f, 0.0f, 0.0f});   // 7
+model.AddTriangle({0,1,2});
+model.AddTriangle({0,2,3});
+model.AddTriangle({0,1,5});
+model.AddTriangle({0,5,4});
+model.AddTriangle({1,2,6});
+model.AddTriangle({1,6,5});
+model.AddTriangle({3,2,6});
+model.AddTriangle({3,6,7});
+model.AddTriangle({0,3,7});
+model.AddTriangle({0,7,4});
+model.AddTriangle({5,6,7});
+model.AddTriangle({5,7,4});
 
 
 CoordinateSystem2D cs(-5, 5, -5, 5);
-scene.addRenderable(&cs);
+scene.AddRenderable(&cs);
 
 Rectangle rect(1.5f, 1.25f);
-scene.addRenderable(&rect);
+scene.AddRenderable(&rect);
 
 //Circle circle(2.5f);
-//scene.addRenderable(&circle);
+//scene.AddRenderable(&circle);
 
 // Use either a start method or have which ever component is using
 // the display update it.
@@ -235,38 +235,38 @@ return 0;
 /*
 Model model, model2, model3;
 
-scene.addRenderable(&model);
-scene.addRenderable(&model2);
-scene.addRenderable(&model3);
+scene.AddRenderable(&model);
+scene.AddRenderable(&model2);
+scene.AddRenderable(&model3);
 
-model.addVertex({-0.5f, -0.5f, -0.5f, 0.75f, 0.0f, 0.0f}); // 0
-model.addVertex({-0.5f, 0.5f, -0.5f, 0.0f, 0.75f, 0.0f});  // 1
-model.addVertex({0.5f, 0.5f, -0.5f, 0.75f, 0.0f, 0.0f});   // 2
-model.addVertex({0.5f, -0.5f, -0.5f, 0.0f, 0.75f, 0.0f});  // 3
-model.addVertex({-0.5f, -0.5f, 0.5f, 0.0f, 0.75f, 0.0f});  // 4
-model.addVertex({-0.5f, 0.5f, 0.5f, 0.75f, 0.0f, 0.0f});   // 5
-model.addVertex({0.5f, 0.5f, 0.5f, 0.0f, 0.75f, 0.0f});    // 6
-model.addVertex({0.5f, -0.5f, 0.5f, 0.75f, 0.0f, 0.0f});   // 7
-model.addTriangle({4,0,7});
-model.addTriangle({4,5,7});
-model.addTriangle({4,5,0});
-model.addTriangle({2,6,3});
-model.addTriangle({2,6,1});
-model.addTriangle({2,1,3});
-model.addTriangle({5,0,7});
-model.addTriangle({6,1,3});
+model.AddVertex({-0.5f, -0.5f, -0.5f, 0.75f, 0.0f, 0.0f}); // 0
+model.AddVertex({-0.5f, 0.5f, -0.5f, 0.0f, 0.75f, 0.0f});  // 1
+model.AddVertex({0.5f, 0.5f, -0.5f, 0.75f, 0.0f, 0.0f});   // 2
+model.AddVertex({0.5f, -0.5f, -0.5f, 0.0f, 0.75f, 0.0f});  // 3
+model.AddVertex({-0.5f, -0.5f, 0.5f, 0.0f, 0.75f, 0.0f});  // 4
+model.AddVertex({-0.5f, 0.5f, 0.5f, 0.75f, 0.0f, 0.0f});   // 5
+model.AddVertex({0.5f, 0.5f, 0.5f, 0.0f, 0.75f, 0.0f});    // 6
+model.AddVertex({0.5f, -0.5f, 0.5f, 0.75f, 0.0f, 0.0f});   // 7
+model.AddTriangle({4,0,7});
+model.AddTriangle({4,5,7});
+model.AddTriangle({4,5,0});
+model.AddTriangle({2,6,3});
+model.AddTriangle({2,6,1});
+model.AddTriangle({2,1,3});
+model.AddTriangle({5,0,7});
+model.AddTriangle({6,1,3});
 
-model2.addVertex({1.0f, -1.0f, 0.0f});
-model2.addVertex({1.0f, 1.0f, 0.0f});
-model2.addVertex({3.0f, 1.0f, 0.0f});
-model2.addVertex({3.0f, -1.0f, 0.0f});
-model2.addTriangle({0, 1, 2});
-model2.addTriangle({0, 2, 3});
+model2.AddVertex({1.0f, -1.0f, 0.0f});
+model2.AddVertex({1.0f, 1.0f, 0.0f});
+model2.AddVertex({3.0f, 1.0f, 0.0f});
+model2.AddVertex({3.0f, -1.0f, 0.0f});
+model2.AddTriangle({0, 1, 2});
+model2.AddTriangle({0, 2, 3});
 
-model3.addVertex({-1.0f, -1.0f, 0.0f, 1.0f, 1.0f, 1.0f}); // 0
-model3.addVertex({-1.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f});  // 1
-model3.addVertex({1.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f});   // 2
-model3.addVertex({1.0f, -1.0f, 0.0f, 1.0f, 1.0f, 1.0f});  // 3
-model3.addTriangle({0,1,2});
-model3.addTriangle({0,2,3});
+model3.AddVertex({-1.0f, -1.0f, 0.0f, 1.0f, 1.0f, 1.0f}); // 0
+model3.AddVertex({-1.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f});  // 1
+model3.AddVertex({1.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f});   // 2
+model3.AddVertex({1.0f, -1.0f, 0.0f, 1.0f, 1.0f, 1.0f});  // 3
+model3.AddTriangle({0,1,2});
+model3.AddTriangle({0,2,3});
 */

@@ -69,7 +69,7 @@ class Model : public Renderable {
     void Upload();
 
     // A flag indicating whether the model has changed and need to be reuploaded to the GPU.
-    bool hasChanged_;
+    bool has_changed_;
 };
 
 #endif

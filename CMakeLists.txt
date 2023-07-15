@@ -28,23 +28,23 @@ add_executable(Science
     include/render/third-parties/include/imgui/imgui_impl_glfw.cpp
     include/render/third-parties/include/imgui/imgui_draw.cpp
     include/render/third-parties/include/imgui/imgui_demo.cpp
-    src/render/Camera2D.cpp
-    src/render/Circle.cpp
-    src/render/Controller2D.cpp
-    src/render/Display.cpp
-    src/render/ElementBufferObject.cpp
-    src/render/FirstPersonController.cpp
-    src/render/FlyCamera.cpp
+    src/render/camera_2d.cc
+    src/render/circle.cc
+    src/render/controller_2d.cc
+    src/render/display.cc
+    src/render/element_buffer_object.cc
+    src/render/first_person_controller.cc
+    src/render/fly_camera.cc
     src/render/glad.c
-    src/render/Line.cpp
-    src/render/Model.cpp
-    src/render/Rectangle.cpp
-    src/render/Renderer.cpp
-    src/render/Scene.cpp
-    src/render/Shader.cpp
-    src/render/VertexArrayObject.cpp
-    src/render/VertexBufferObject.cpp
-    src/render/CoordinateSystem2D.cpp
+    src/render/line.cc
+    src/render/model.cc
+    src/render/rectangle.cc
+    src/render/renderer.cc
+    src/render/scene.cc
+    src/render/shader.cc
+    src/render/vertex_array_object.cc
+    src/render/vertex_buffer_object.cc
+    src/render/coordinate_system_2d.cc
     src/physics/periodic_table.cc
     src/physics/atom.cc
     src/physics/particle.cc

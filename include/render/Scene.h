@@ -30,7 +30,7 @@ class Scene {
     // @param[in] renderable 
     // @return true 
     // @return false 
-    bool AddRenderable(Renderable//renderable);
+    bool AddRenderable(Renderable* renderable);
 
     // 
     // 
@@ -42,7 +42,7 @@ class Scene {
     // Set the camera
     // 
     // @param[in] camera 
-    void set_camera(Camera//camera);
+    void set_camera(Camera* camera);
 
     // Get the view matrix
     // 
@@ -51,12 +51,12 @@ class Scene {
 
     // Get the renderables
     // 
-    // @return std::vector<Renderable//>& 
-    std::vector<Renderable//> & get_renderables();
+    // @return std::vector<Renderable*>& 
+    std::vector<Renderable*> & get_renderables();
   private:
-    std::vector<Renderable//> renderables_;
+    std::vector<Renderable*> renderables_;
 
-    Camera//camera_;
+    Camera* camera_;
 };
 
 #endif
