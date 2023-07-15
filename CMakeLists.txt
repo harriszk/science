@@ -20,7 +20,7 @@ include_directories(${PROJECT_SOURCE_DIR}/include/render/third-parties/include
     ${PROJECT_SOURCE_DIR}/include/physics/third-parties/include)
 
 add_executable(Science 
-    driver.cpp 
+    driver.cc
     include/render/third-parties/include/imgui/imgui.cpp
     include/render/third-parties/include/imgui/imgui_widgets.cpp
     include/render/third-parties/include/imgui/imgui_tables.cpp
