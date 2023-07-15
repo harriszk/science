@@ -1,47 +1,43 @@
-/**
- * @file Renderer.h
- * Created on 01/29/2023
- * 
- * This class is responsible for rendering scenes and images on a display.
- * 
- * © 2023 by Zachary Harris (zacharykeatonharris@gmail.com)
- */
+// @file renderer.h
+// Created on 01/29/2023
+// 
+// This class is responsible for rendering scenes and images on a display.
+// 
+// © 2023 by Zachary Harris (zacharykeatonharris@gmail.com)
 #ifndef _RENDERER_H_
 #define _RENDERER_H_
 
-#include "Shader.h"
-#include "Scene.h"
-#include "Model.h"
+#include "shader.h"
+#include "scene.h"
+#include "model.h"
 
 class Renderer {
-    public:
-        /**
-         * Default constructor.
-         * 
-         * @param[in] shader 
-         */
-        Renderer(Shader &shader);
+  public:
+    // Default constructor.
+    // 
+    // @param[in] shader
+    Renderer(Shader &shader);
 
-        // Destructor.
-        ~Renderer();
+    // Destructor.
+    ~Renderer();
 
-        // Renders the scene.
-        void render();
+    // Renders the scene.
+    void Render();
 
-        void addScene(Scene *scene);
+    void AddScene(Scene *scene);
 
-        void setWidth(int width);
+    void set_width(int width);
 
-        void setHeight(int height);
-    private:
-        // Array of scenes
-        std::vector<Scene*> m_scenes;
+    void set_height(int height);
+  private:
+    // Array of scenes
+    std::vector<Scene*> scenes_;
 
-        Shader &m_shader;
+    Shader &shader_;
 
-        int m_width;
+    int width_;
 
-        int m_height;
-}; // end Renderer class
+    int height_;
+};
 
 #endif

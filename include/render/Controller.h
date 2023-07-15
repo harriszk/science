@@ -1,60 +1,60 @@
-/**
- * @file Controller.h
- * Created on 02/01/2023
- * 
- * 
- * 
- * © 2023 by Zachary Harris (zacharykeatonharris@gmail.com)
- */
+// @file controller.h
+// Created on 02/01/2023
+// 
+// 
+// 
+// © 2023 by Zachary Harris (zacharykeatonharris@gmail.com)
 #ifndef _CONTROLLER_H_
 #define _CONTROLLER_H_
 
-#include "Camera.h"
 #include <GLFW/glfw3.h>
 
+#include "camera.h"
+
 class Controller {
-    public:
-        // Destructor
-        virtual ~Controller()
-        {
+  public:
+    // Destructor.
+    virtual ~Controller() {};
 
-        };
+    // Process input from the user.
+    // 
+    // @param[in] window Pointer to the GLFW window being used.
+    virtual void ProcessKeyboardInput(GLFWwindow* window) = 0;
 
-        /**
-         * Process input from the user.
-         * 
-         * @param[in] window Pointer to the GLFW window being used.
-         */
-        virtual void processKeyboardInput(GLFWwindow *window) = 0;
+    // 
+    // 
+    // @param[in] x 
+    // @param[in] y 
+    virtual void ProcessMouseMovement(float x, float y) = 0;
 
-        virtual void processMouseMovement(float x, float y) = 0;
+    // 
+    // 
+    // @param[in] dy 
+    virtual void ProcessMouseScroll(float dy) = 0;
 
-        virtual void processMouseScroll(float dy) = 0;
+    // 
+    // 
+    // @param[in] dt 
+    virtual void UpdateCamera(float dt) = 0;
 
-        /**
-         * Update the camera based on user input/the current state.
-         * 
-         * @param[in] camera Pointer to the camera object being updated.
-         * @param[in] dt The change in time since the last frame.
-         */
-        //Camera *camera, 
-        virtual void updateCamera(float dt) = 0;
-    protected:
-        // Flag to indicate to move the camera forward
-        bool m_forward = false;
+  protected:
+    // Flag to indicate to move the camera forward.
+    bool forward_ = false;
 
-        // Flag to indicate to move the camera backward
-        bool m_backward = false;
+    // Flag to indicate to move the camera backward.
+    bool backward_ = false;
 
-        // Flag to indicate to move the camera left
-        bool m_left = false;
+    // Flag to indicate to move the camera left.
+    bool left_ = false;
 
-        // Flag to indicate to move the camera right
-        bool m_right = false;
+    // Flag to indicate to move the camera right.
+    bool right_ = false;
 
-        bool m_up = false;
+    // Flag to indicate to move the camera up.
+    bool up_ = false;
 
-        bool m_down = false;
-}; // end Controller class
+    // Flag to indicate to move the camera down.
+    bool down_ = false;
+};
 
 #endif

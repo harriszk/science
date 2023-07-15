@@ -1,27 +1,25 @@
-/**
- * @file Circle.h
- * Created on 03/15/2023
- * 
- * 
- * 
- * © 2023 by Zachary Harris (zacharykeatonharris@gmail.com)
- */
+// @file circle.h
+// Created on 03/15/2023
+// 
+// 
+// 
+// © 2023 by Zachary Harris (zacharykeatonharris@gmail.com)
 #ifndef _CIRCLE_H_
 #define _CIRCLE_H_
 
-#include "Renderable2D.h"
+#include "renderable_2d.h"
 
 class Circle : public Renderable2D {
-    public:
-        Circle(float radius);
+  public:
+    Circle(float radius);
 
-        ~Circle();
+    ~Circle();
 
-        void render() override;
+    void Render() override;
 
-        void updateModelMatrix();
-    private:
-        float m_radius;
-}; // end Circle class
+    void UpdateModelMatrix();
+  private:
+    float radius_;
+};
 
 #endif

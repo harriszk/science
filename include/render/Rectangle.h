@@ -1,34 +1,47 @@
-/**
- * @file Rectangle.h
- * Created on 03/15/2023
- * 
- * 
- * 
- * © 2023 by Zachary Harris (zacharykeatonharris@gmail.com)
- */
+// @file rectangle.h
+// Created on 03/15/2023
+// 
+// 
+// 
+// © 2023 by Zachary Harris (zacharykeatonharris@gmail.com)
 #ifndef _RECTANGLE_H_
 #define _RECTANGLE_H_
 
-#include "Renderable2D.h"
+#include "renderable_2d.h"
 
 class Rectangle : public Renderable2D {
-    public:
-        Rectangle(float width, float height);
+  public:
+    // Default constructor.
+    // 
+    // @param[in] width 
+    // @param[in] height 
+    Rectangle(float width, float height);
 
-        ~Rectangle();
+    // Destructor.
+    ~Rectangle();
 
-        void setWidth(float width);
+    // Set the width
+    // 
+    // @param[in] width 
+    void set_width(float width);
 
-        void setHeight(float height);
+    // Set the height
+    // 
+    // @param[in] height 
+    void set_height(float height);
 
-        void render() override;
+    // 
+    void Render() override;
 
-    private:
-        void updateModelMatrix();
+  private:
+    // 
+    void UpdateModelMatrix();
 
-        float m_width;
+    // 
+    float width_;
 
-        float m_height;
-}; // end Rectangle class
+    // 
+    float height_;
+};
 
 #endif

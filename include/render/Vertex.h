@@ -1,5 +1,5 @@
 /**
- * @file Vertex.h
+ * @file vertex.h
  * Created on 01/25/2023
  * 
  * 
@@ -9,18 +9,17 @@
 #ifndef _VERTEX_H_
 #define _VERTEX_H_
 
-struct Vertex
-{
-    float x;
-    float y;
-    float z;
-    float r;
-    float g;
-    float b;
-    /*
-    float s;
-    float t;
-    */
-}; // end Vertex struct
+struct Vertex {
+  float x;
+  float y;
+  float z;
+  float r;
+  float g;
+  float b;
+  /*
+  float s;
+  float t;
+  */
+};
 
 #endif
