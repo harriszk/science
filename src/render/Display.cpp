@@ -11,7 +11,7 @@
 
 #include "../../include/render/third-parties/include/imgui/imgui.h"
 #include "../../include/render/third-parties/include/imgui/imgui_impl_glfw.h"
-#include "../../include/render/third-parties/include/imgui//imgui_impl_opengl3.h"
+#include "../../include/render/third-parties/include/imgui/imgui_impl_opengl3.h"
 #include <stdio.h>
 
 Display::Display(int width, int height, const char *title):
@@ -144,6 +144,30 @@ void Display::paintFrame()
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
+        ImGui::DockSpaceOverViewport(ImGui::GetMainViewport());
+
+        if(ImGui::BeginMainMenuBar()) {
+          if(ImGui::BeginMenu("File")) {
+            ImGui::EndMenu();
+          }
+
+          if(ImGui::BeginMenu("Edit")) {
+            ImGui::EndMenu();
+          }
+
+          ImGui::EndMainMenuBar();
+        }
+
+        ImGui::Begin("Elements");
+        ImGui::End();
+
+        ImGui::Begin("Console");
+        ImGui::End();
+
+        ImGui::Begin("Log");
+        ImGui::End();
+
+        
 
         //ImGui::ShowDemoWindow();
         // ImGui UI logic and rendering goes here
@@ -151,7 +175,7 @@ void Display::paintFrame()
         // Add ImGui components for your simulation controls, dropdown menus, etc.
 
         const float window_width = ImGui::GetContentRegionAvail().x;
-		const float window_height = ImGui::GetContentRegionAvail().y;
+		    const float window_height = ImGui::GetContentRegionAvail().y;
 
         ImVec2 pos = ImGui::GetCursorScreenPos();
         
@@ -167,6 +191,8 @@ void Display::paintFrame()
 
 
         ImGui::End();
+
+
         // Render ImGui
         ImGui::Render();
 
@@ -225,6 +251,10 @@ void Display::destroy()
     ImGui_ImplOpenGL3_Shutdown();
     ImGui_ImplGlfw_Shutdown();
     ImGui::DestroyContext();
+
+    glDeleteFramebuffers(1, &m_FBO);
+    glDeleteTextures(1, &m_texture_id);
+    glDeleteRenderbuffers(1, &m_RBO);
 
     glfwDestroyWindow(m_window);
     glfwTerminate();

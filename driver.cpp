@@ -26,8 +26,8 @@
 #include <cstdio>
 #include <iostream>
 
-#include "include/physics/PeriodicTable.h"
-#include "include/physics/Particle.h"
+#include "include/physics/periodic_table.h"
+#include "include/physics/particle.h"
 
 #include "include/render/third-parties/include/imgui/imgui.h"
 #include "include/render/third-parties/include/imgui/imgui_impl_glfw.h"
@@ -35,11 +35,13 @@
 
 int main(int argc, char * argv[])
 {
-    FlyCamera camera(glm::vec3(0.0f, 0.0f, -1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
-   
+    //FlyCamera camera(glm::vec3(0.0f, 0.0f, -1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
 
-    //Camera2D camera;
-    FirstPersonController controller(&camera);
+
+
+    Camera2D camera;
+    Controller2D controller(&camera);
+    //FirstPersonController controller(&camera);
 
     Display display(1000, 1000, "Hello World!");
     Shader shader("../src/render/shaders/vertexShaderSource.glsl", "../src/render/shaders/fragmentShaderSource.glsl");

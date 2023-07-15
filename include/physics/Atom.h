@@ -1,98 +1,81 @@
-/**
- * @file Atom.h
- * Created on 05/16/2023
- * 
- * This class represents an atom in the periodic table with the properties
- * of that atom. These include things such as atomic number, symbol, boiling
- * point, etc. This is a read-only class.
- * 
- * © 2023 by Zachary Harris (zacharykeatonharris@gmail.com)
- */
+// @file atom.h
+// Created on 05/16/2023
+// 
+// This class represents an atom in the periodic table with the properties
+// of that atom. These include things such as atomic number, symbol, boiling
+// point, etc. This is a read-only class.
+// 
+// © 2023 by Zachary Harris (zacharykeatonharris@gmail.com)
 #ifndef _ATOM_H_
 #define _ATOM_H_
 
 #include <string>
 
 class Atom {
-    public:
-        friend class PeriodicTable;
+  public:
+    friend class PeriodicTable;
 
-        // Destructor
-        ~Atom();
+    // Destructor
+    ~Atom();
 
-        /**
-         * Gets the name of the atom.
-         * 
-         * @return std::string The name of the atom.
-         */
-        std::string getName();
+    // Gets the name of the atom.
+    // 
+    // @return std::string The name of the atom.
+    std::string get_name();
 
-        /**
-         * Gets the symbol of the atom.
-         * 
-         * @return std::string The symbol of the atom.
-         */
-        std::string getSymbol();
+    // Gets the symbol of the atom.
+    // 
+    // @return std::string The symbol of the atom.
+    std::string get_symbol();
 
-        /**
-         * Gets the atmoic number of the atom.
-         * 
-         * @return int The atomic number of the atom.
-         */
-        int getAtomicNumber();
+    // Gets the atomic number of the atom.
+    // 
+    // @return int The atomic number of the atom.
+    int get_atomic_number();
 
-        /**
-         * Gets the atomic mass of the atom.
-         * 
-         * @return double The atomic mass of the atom.
-         */
-        double getAtomicMass();
-    private:
-        // Default constructor
-        Atom();
+    // Gets the atomic mass of the atom.
+    // 
+    // @return double The atomic mass of the atom.
+    double get_atomic_mass();
 
-        // Initializing constructor
-        Atom(std::string name, std::string symbol, int atomicNumber, double atomicMass);
+  private:
+    // Default constructor
+    Atom();
 
-        /**
-         * Sets the name of the atom.
-         * 
-         * @param[in] name Name of the atom.
-         */
-        void setName(std::string name);
+    // Initializing constructor
+    Atom(std::string name, std::string symbol, int atomic_number, double atomic_mass);
 
-        /**
-         * Sets the symbol of the atom.
-         * 
-         * @param[in] symbol Symbol of the atom.
-         */
-        void setSymbol(std::string symbol);
+    // Sets the name of the atom.
+    // 
+    // @param[in] name Name of the atom.
+    void set_name(std::string name);
 
-        /**
-         * Sets the atomic number of the atom.
-         * 
-         * @param[in] number Atomic number of the atom.
-         */
-        void setAtomicNumber(int number);
+    // Sets the symbol of the atom.
+    // 
+    // @param[in] symbol Symbol of the atom.
+    void set_symbol(std::string symbol);
 
-        /**
-         * Sets the atomic mass of the atom.
-         * 
-         * @param[in] mass Atomic mass of the atom.
-         */
-        void setAtomicMass(double mass);
+    // Sets the atomic number of the atom.
+    // 
+    // @param[in] number Atomic number of the atom.
+    void set_atomic_number(int number);
 
-        // The name of the atom.
-        std::string m_name;
+    // Sets the atomic mass of the atom.
+    // 
+    // @param[in] mass Atomic mass of the atom.
+    void set_atomic_mass(double mass);
 
-        // The symbol of the atom.
-        std::string m_symbol;
+    // The name of the atom.
+    std::string name_;
 
-        // The atomic number of the atom.
-        int m_atomicNumber;
-        
-        // The atmoic mass of the atom.
-        double m_atomicMass;
+    // The symbol of the atom.
+    std::string symbol_;
+
+    // The atomic number of the atom.
+    int atomic_number_;
+    
+    // The atomic mass of the atom.
+    double atomic_mass_;
 }; // end Atom class
 
 #endif

@@ -7,6 +7,12 @@ enable_testing()
 find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)
 
+SET(PROJECT_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/..")
+
+INCLUDE_DIRECTORIES(
+  ${PROJECT_ROOT}
+)
+
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_FLAGS "-fdiagnostics-color=always -Wall -g")
 
@@ -39,10 +45,12 @@ add_executable(Science
     src/render/VertexArrayObject.cpp
     src/render/VertexBufferObject.cpp
     src/render/CoordinateSystem2D.cpp
-    src/physics/PeriodicTable.cpp
-    src/physics/Atom.cpp
-    src/physics/Particle.cpp
+    src/physics/periodic_table.cc
+    src/physics/atom.cc
+    src/physics/particle.cc
     )
+
+target_include_directories(Science PRIVATE "${CMAKE_SOURCE_DIR}/include")
 
 find_library(OPENGL_LIBRARY OpenGL)
 find_library(COCOA_LIBRARY Cocoa)

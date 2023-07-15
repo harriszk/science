@@ -1,34 +1,34 @@
-/**
- * @file Particle.h
- * Created on 05/16/2023
- * 
- * 
- * 
- * © 2023 by Zachary Harris (zacharykeatonharris@gmail.com)
- */
+// @file particle.h
+// Created on 05/16/2023
+// 
+// 
+// 
+// © 2023 by Zachary Harris (zacharykeatonharris@gmail.com)
 #ifndef _PARTICLE_H_
 #define _PARTICLE_H_
 
-#include "glm/glm.hpp"
 #include <vector>
 
+#include "glm/glm.hpp"
+
 class Particle {
-    public:
-        // Default constructor
-        Particle();
+  public:
+    // Default constructor
+    Particle();
 
-        // Destructor
-        ~Particle();
+    // Destructor
+    ~Particle();
 
-        void update(float dt);
-    private:
-        std::vector<glm::vec2> m_externalForces;
+    void update(float dt);
 
-        glm::vec2 m_position;
+  private:
+    std::vector<glm::vec2> external_forces_;
 
-        glm::vec2 m_velocity;
+    glm::vec2 position_;
 
-        float m_mass;
+    glm::vec2 velocity_;
+
+    float mass_;
 }; // end Particle class
 
 #endif

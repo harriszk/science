@@ -62,7 +62,7 @@ void Controller2D::updateCamera(float dt)
 {
     if(m_up)
     {
-        //std::cout << "Move Upd\n";
+        //std::cout << "Move up\n";
         m_camera->processKeyboard(Movement::UP, dt);
     } // end if
 
