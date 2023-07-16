@@ -10,9 +10,9 @@
 
 #include <cmath>
 
-#include "render/third-parties/include/imgui/imgui.h"
-#include "render/third-parties/include/imgui/imgui_impl_glfw.h"
-#include "render/third-parties/include/imgui/imgui_impl_opengl3.h"
+#include "imgui/imgui.h"
+#include "imgui/imgui_impl_glfw.h"
+#include "imgui/imgui_impl_opengl3.h"
 
 Display::Display(int width, int height, const char* title)
     : renderer_(nullptr),

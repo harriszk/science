@@ -16,18 +16,18 @@ INCLUDE_DIRECTORIES(
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_FLAGS "-fdiagnostics-color=always -Wall -g")
 
-include_directories(${PROJECT_SOURCE_DIR}/include/render/third-parties/include
+include_directories(${PROJECT_SOURCE_DIR}/third-parties/include
     ${PROJECT_SOURCE_DIR}/include/physics/third-parties/include)
 
 add_executable(science 
     driver.cc
-    include/render/third-parties/include/imgui/imgui.cpp
-    include/render/third-parties/include/imgui/imgui_widgets.cpp
-    include/render/third-parties/include/imgui/imgui_tables.cpp
-    include/render/third-parties/include/imgui/imgui_impl_opengl3.cpp
-    include/render/third-parties/include/imgui/imgui_impl_glfw.cpp
-    include/render/third-parties/include/imgui/imgui_draw.cpp
-    include/render/third-parties/include/imgui/imgui_demo.cpp
+    third-parties/include/imgui/imgui.cpp
+    third-parties/include/imgui/imgui_widgets.cpp
+    third-parties/include/imgui/imgui_tables.cpp
+    third-parties/include/imgui/imgui_impl_opengl3.cpp
+    third-parties/include/imgui/imgui_impl_glfw.cpp
+    third-parties/include/imgui/imgui_draw.cpp
+    third-parties/include/imgui/imgui_demo.cpp
     src/application.cc
     src/render/camera_2d.cc
     src/render/circle.cc
@@ -49,9 +49,12 @@ add_executable(science
     src/physics/periodic_table.cc
     src/physics/atom.cc
     src/physics/particle.cc
-    )
+)
 
 target_include_directories(science PRIVATE "${CMAKE_SOURCE_DIR}/include")
+
+# Add include directory for imgui
+target_include_directories(science PRIVATE "${CMAKE_SOURCE_DIR}/third-parties/include")
 
 find_library(OPENGL_LIBRARY OpenGL)
 find_library(COCOA_LIBRARY Cocoa)
