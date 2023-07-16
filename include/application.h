@@ -37,8 +37,9 @@ class Application {
 
     // 
     // 
-    Display display_;
+    //Display display_;
 
+    /*
     Camera2D camera_;
     Controller2D controller_;
     Shader shader_;
@@ -47,6 +48,9 @@ class Application {
     Model model; 
     Model model2;
     Model model3;
+    */
 };
+
+Application* CreateApplication();
 
 #endif

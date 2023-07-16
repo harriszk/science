@@ -6,11 +6,14 @@
 // © 2023 by Zachary Harris (zacharykeatonharris@gmail.com)
 #include "application.h"
 
+#include "logger.h"
+
 Application::Application()
+/*
     : display_(1150, 800, "Science Simulations"),
       controller_(&camera_),
       shader_("../src/render/shaders/vertexShaderSource.glsl", "../src/render/shaders/fragmentShaderSource.glsl"),
-      renderer_(shader_) {
+      renderer_(shader_) */{
   Initialize();
 }
 
@@ -19,12 +22,16 @@ Application::~Application() {
 }
 
 void Application::Run() {
+  LOG_INFO("Main run method called.");
+  /*
   while (!display_.ShouldClose()) {
     display_.PaintFrame();
   } // end while
+  */
 }
 
 void Application::Initialize() {
+  /*
   display_.set_renderer(&renderer_);
   display_.set_controller(&controller_);
   scene_.set_camera(&camera_);
@@ -64,4 +71,5 @@ void Application::Initialize() {
   model3.AddVertex({1.0f, -1.0f, 0.0f, 1.0f, 1.0f, 1.0f});  // 3
   model3.AddTriangle({0,1,2});
   model3.AddTriangle({0,2,3});
+  */
 }

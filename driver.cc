@@ -1,15 +1,16 @@
-#include "application.h"
-#include "logger.h"
+#include "entry_point.h"
 
-int main(int argc, char * argv[])
-{
-//    Application app = Application();
-//    app.Run(); 
+class Driver : public Application {
+  public:
+    Driver() : Application() {
 
-  Logger::Initialize();
+    }
 
-  LOG_WARN("Initialized logger!");
-  LOG_ERROR("This is an error message!");
+    ~Driver() {
 
-  return 0;
-} // end main
+    }
+};
+
+Application* CreateApplication() {
+  return new Driver();
+}
