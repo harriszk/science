@@ -130,6 +130,8 @@ class Display {
 
     // 
     GLuint texture_id_;
+
+    std::vector<std::string> event_log_;
 };
 
 #endif

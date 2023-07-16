@@ -59,6 +59,8 @@ Display::Display(int width, int height, const char* title)
   glBindTexture(GL_TEXTURE_2D, 0);
   glBindRenderbuffer(GL_RENDERBUFFER, 0);
 
+  glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
 
 
   // Initialize ImGui
@@ -73,6 +75,8 @@ Display::Display(int width, int height, const char* title)
   // Initialize ImGui backend for GLFW and OpenGL
   ImGui_ImplGlfw_InitForOpenGL(window_, true);
   ImGui_ImplOpenGL3_Init("#version 330");
+
+  glEnable(GL_DEPTH_TEST);  
 } // end default constructor
 
 Display::~Display() {
@@ -147,13 +151,68 @@ void Display::PaintFrame() {
       ImGui::EndMainMenuBar();
     }
 
-    ImGui::Begin("Elements");
+    //ImGui::ShowDebugLogWindow();
+
+    ImGui::Begin("Elements Tree");
+    ImGui::End();
+
+    ImGui::Begin("Properties");
     ImGui::End();
 
     ImGui::Begin("Console");
     ImGui::End();
 
     ImGui::Begin("Log");
+
+    // Display mouse position
+    const ImVec2& mouse_delta = ImGui::GetIO().MouseDelta;
+
+    if (mouse_delta.x != 0 || mouse_delta.y != 0) {
+      // Create a buffer to store the formatted message
+      char buffer[100]; // Adjust the buffer size as needed
+
+      // Use sprintf to format the message and store it in the buffer
+      std::sprintf(buffer, "[io] Mouse captured: (%.4f, %.4f)", ImGui::GetIO().MousePos.x, ImGui::GetIO().MousePos.y);
+
+      // Convert the buffer to a std::string if needed
+      std::string message(buffer);
+      event_log_.push_back(message);
+    }
+
+    ImGui::BeginChild("##log", ImVec2(0.0f, 0.0f), true, ImGuiWindowFlags_AlwaysVerticalScrollbar | ImGuiWindowFlags_AlwaysHorizontalScrollbar);
+
+    for (const auto& event : event_log_) {
+        ImGui::TextUnformatted(event.c_str());
+    }
+
+    if (ImGui::GetScrollY() >= ImGui::GetScrollMaxY()) {
+        ImGui::SetScrollHereY(1.0f);
+    }
+
+    ImGui::EndChild();
+
+    /*
+    ImGui::Text("Mouse Position: (%.1f, %.1f)", ImGui::GetIO().MousePos.x, ImGui::GetIO().MousePos.y);
+
+    // Display mouse button states
+    ImGui::Text("Mouse Buttons:");
+    ImGui::Text("Left: %s", ImGui::GetIO().MouseDown[0] ? "Down" : "Up");
+    ImGui::Text("Right: %s", ImGui::GetIO().MouseDown[1] ? "Down" : "Up");
+    ImGui::Text("Middle: %s", ImGui::GetIO().MouseDown[2] ? "Down" : "Up");
+
+    ImGui::GetIO().
+
+    // Display keyboard key states (you can add more keys as needed)
+    ImGui::Text("Keyboard Keys:");
+    ImGui::Text("A: %s", ImGui::GetIO().KeysDown[ImGuiKey_A] ? "Down" : "Up");
+    ImGui::Text("B: %s", ImGui::GetIO().KeysDown[ImGuiKey_B] ? "Down" : "Up");
+    ImGui::Text("C: %s", ImGui::GetIO().KeysDown[ImGuiKey_C] ? "Down" : "Up");
+    // Add more key states as needed
+    */
+
+    ImGui::End();
+
+    ImGui::Begin("Project");
     ImGui::End();
 
     

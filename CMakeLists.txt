@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.0)
-project(Science VERSION 0.1.0)
+project(science VERSION 0.1.0)
 
 include(CTest)
 enable_testing()
@@ -19,7 +19,7 @@ set(CMAKE_CXX_FLAGS "-fdiagnostics-color=always -Wall -g")
 include_directories(${PROJECT_SOURCE_DIR}/include/render/third-parties/include
     ${PROJECT_SOURCE_DIR}/include/physics/third-parties/include)
 
-add_executable(Science 
+add_executable(science 
     driver.cc
     include/render/third-parties/include/imgui/imgui.cpp
     include/render/third-parties/include/imgui/imgui_widgets.cpp
@@ -28,6 +28,7 @@ add_executable(Science
     include/render/third-parties/include/imgui/imgui_impl_glfw.cpp
     include/render/third-parties/include/imgui/imgui_draw.cpp
     include/render/third-parties/include/imgui/imgui_demo.cpp
+    src/application.cc
     src/render/camera_2d.cc
     src/render/circle.cc
     src/render/controller_2d.cc
@@ -50,7 +51,7 @@ add_executable(Science
     src/physics/particle.cc
     )
 
-target_include_directories(Science PRIVATE "${CMAKE_SOURCE_DIR}/include")
+target_include_directories(science PRIVATE "${CMAKE_SOURCE_DIR}/include")
 
 find_library(OPENGL_LIBRARY OpenGL)
 find_library(COCOA_LIBRARY Cocoa)
@@ -58,7 +59,7 @@ find_library(IOKIT_LIBRARY IOKit)
 find_library(COREVIDEO_LIBRARY CoreVideo)
 find_library(COREFOUNDATION_LIBRARY CoreFoundation)
 
-target_link_libraries(Science 
+target_link_libraries(science 
     ${OPENGL_LIBRARY} 
     ${COCOA_LIBRARY} 
     ${IOKIT_LIBRARY} 
@@ -66,11 +67,11 @@ target_link_libraries(Science
     ${COREFOUNDATION_LIBRARY}
 )
 
-set_target_properties(Science PROPERTIES 
+set_target_properties(science PROPERTIES 
     LINK_FLAGS "-Wno-deprecated"
 )
 
-target_link_libraries(Science glfw)
+target_link_libraries(science glfw)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
