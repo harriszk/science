@@ -14,6 +14,8 @@
 #include "imgui/imgui_impl_glfw.h"
 #include "imgui/imgui_impl_opengl3.h"
 
+// dependencies 
+
 Display::Display(int width, int height, const char* title)
     : renderer_(nullptr),
       controller_(nullptr),
