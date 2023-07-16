@@ -29,6 +29,7 @@ add_executable(science
     third-parties/include/imgui/imgui_draw.cpp
     third-parties/include/imgui/imgui_demo.cpp
     src/application.cc
+    src/logger.cc
     src/render/camera_2d.cc
     src/render/circle.cc
     src/render/controller_2d.cc
