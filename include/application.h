@@ -7,15 +7,6 @@
 #ifndef _APPLICATION_H_
 #define _APPLICATION_H_
 
-#include "render/display.h"
-
-#include "render/renderer.h"
-#include "render/scene.h"
-#include "render/shader.h"
-#include "render/camera_2d.h"
-#include "render/controller_2d.h"
-#include "render/model.h"
-
 class Application {
   public:
     // Default constructor.

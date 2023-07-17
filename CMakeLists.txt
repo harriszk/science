@@ -21,35 +21,12 @@ include_directories(${PROJECT_SOURCE_DIR}/third-parties/include
 
 add_executable(science 
     driver.cc
-    third-parties/include/imgui/imgui.cpp
-    third-parties/include/imgui/imgui_widgets.cpp
-    third-parties/include/imgui/imgui_tables.cpp
-    third-parties/include/imgui/imgui_impl_opengl3.cpp
-    third-parties/include/imgui/imgui_impl_glfw.cpp
-    third-parties/include/imgui/imgui_draw.cpp
-    third-parties/include/imgui/imgui_demo.cpp
     src/application.cc
     src/logger.cc
-    src/render/camera_2d.cc
-    src/render/circle.cc
-    src/render/controller_2d.cc
-    src/render/display.cc
-    src/render/element_buffer_object.cc
-    src/render/first_person_controller.cc
-    src/render/fly_camera.cc
-    src/render/glad.c
-    src/render/line.cc
-    src/render/model.cc
-    src/render/rectangle.cc
-    src/render/renderer.cc
-    src/render/scene.cc
-    src/render/shader.cc
-    src/render/vertex_array_object.cc
-    src/render/vertex_buffer_object.cc
-    src/render/coordinate_system_2d.cc
-    src/physics/periodic_table.cc
-    src/physics/atom.cc
-    src/physics/particle.cc
+    src/events/key_event.cc
+    src/events/key_pressed_event.cc
+    src/events/key_released_event.cc
+    src/events/key_typed_event.cc
 )
 
 target_include_directories(science PRIVATE "${CMAKE_SOURCE_DIR}/include")
