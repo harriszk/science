@@ -7,7 +7,7 @@
 #include "events/mouse_event.h"
 
 MouseEvent::MouseEvent(Modifier modifier, EventType type) 
-    : Event(type, EventCategory::MouseEvent),
+    : Event(type, EventCategory::Mouse),
       modifier_(modifier) {
 
 }

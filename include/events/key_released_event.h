@@ -12,7 +12,7 @@
 class KeyReleasedEvent : public KeyboardEvent {
   public:
     // Default constructor.
-    KeyReleasedEvent(KeyCode key_code);
+    KeyReleasedEvent(KeyCode key_code, Modifier mod);
 
     // 
     // 

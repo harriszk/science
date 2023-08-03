@@ -8,8 +8,8 @@
 
 #include "utility.h"
 
-KeyPressedEvent::KeyPressedEvent(KeyCode key_code, bool is_repeat)
-    : KeyboardEvent(key_code, Modifier::None, EventType::KeyPressedEvent),
+KeyPressedEvent::KeyPressedEvent(KeyCode key_code, Modifier mod, bool is_repeat)
+    : KeyboardEvent(key_code, mod, EventType::KeyPressed),
       is_repeat_(is_repeat) {
 }
 

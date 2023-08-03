@@ -7,7 +7,7 @@
 #include "events/mouse_scrolled_event.h"
 
 MouseScrolledEvent::MouseScrolledEvent(float dy)
-    : MouseEvent(Modifier::None, EventType::MouseScrolledEvent),
+    : MouseEvent(Modifier::None, EventType::MouseScrolled),
       dy_(dy) {
 
 }

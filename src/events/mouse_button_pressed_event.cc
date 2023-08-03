@@ -9,7 +9,7 @@
 #include "utility.h"
 
 MouseButtonPressedEvent::MouseButtonPressedEvent(MouseButton button)
-    : MouseButtonEvent(button, EventType::MouseButtonPressedEvent) {
+    : MouseButtonEvent(button, EventType::MouseButtonPressed) {
 
 }
 

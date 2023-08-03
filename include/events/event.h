@@ -11,25 +11,25 @@
 
 enum class EventType {
   None = 0,
-  KeyPressedEvent,
-  KeyReleasedEvent,
-  MouseMovedEvent,
-  MouseScrolledEvent,
-  MouseButtonPressedEvent,
-  MouseButtonReleasedEvent,
-  WindowResizedEvent,
-  WindowClosedEvent,
-  WindowMovedEvent,
-  WindowMinimizedEvent,
-  WindowFocusChangedEvent
+  KeyPressed,
+  KeyReleased,
+  MouseMoved,
+  MouseScrolled,
+  MouseButtonPressed,
+  MouseButtonReleased,
+  WindowResized,
+  WindowClosed,
+  WindowMoved,
+  WindowMinimized,
+  WindowFocusChanged
 };
 
 enum class EventCategory {
   None = 0,
-  KeyboardEvent,
-  MouseEvent,
-  GUIEvent,
-  WindowEvent
+  Keyboard,
+  Mouse,
+  GUI,
+  Window
 };
 
 class Event {
@@ -51,12 +51,16 @@ class Event {
     // Get the event type
     // 
     // @return EventType 
-    //virtual EventType get_event_type() = 0;
+    EventType get_event_type() {
+      return type_;
+    }
 
     // Get the event category
     // 
     // @return EventCategory 
-    //virtual EventCategory get_event_category() = 0;
+    EventCategory get_event_category() {
+      return category_;
+    }
 
     // 
     // 

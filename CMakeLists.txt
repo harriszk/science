@@ -97,6 +97,7 @@ enable_testing()
 add_executable("${ProjectName}-test"
   # Source files
   test/sanity_test.cc
+  test/events_test.cc
 
   # Head files
 )

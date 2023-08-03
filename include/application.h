@@ -7,6 +7,10 @@
 #ifndef _APPLICATION_H_
 #define _APPLICATION_H_
 
+#include "events/event.h"
+
+int main(int argc, char * argv[]);
+
 class Application {
   public:
     // Default constructor.
@@ -19,12 +23,17 @@ class Application {
 
     // 
     // 
-    void Run();
+    // @param[in] event 
+    void OnEvent(Event& event);
 
   private:
     // 
     // 
     void Initialize();
+
+    // 
+    // 
+    void Run();
 
     // 
     // 
@@ -40,6 +49,8 @@ class Application {
     Model model2;
     Model model3;
     */
+
+    friend int ::main(int argc, char * argv[]);
 };
 
 Application* CreateApplication();

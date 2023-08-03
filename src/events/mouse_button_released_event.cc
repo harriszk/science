@@ -9,7 +9,7 @@
 #include "utility.h"
 
 MouseButtonReleasedEvent::MouseButtonReleasedEvent(MouseButton button)
-    : MouseButtonEvent(button, EventType::MouseButtonReleasedEvent) {
+    : MouseButtonEvent(button, EventType::MouseButtonReleased) {
 
 }
 

@@ -7,7 +7,7 @@
 #include "events/mouse_moved_event.h"
 
 MouseMovedEvent::MouseMovedEvent(float x, float y)
-    : MouseEvent(Modifier::None, EventType::MouseMovedEvent), 
+    : MouseEvent(Modifier::None, EventType::MouseMoved), 
       x_(x), 
       y_(y) {
 

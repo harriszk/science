@@ -12,7 +12,7 @@
 class KeyPressedEvent : public KeyboardEvent {
   public:
     // Default constructor.
-    KeyPressedEvent(KeyCode key_code, bool is_repeat);
+    KeyPressedEvent(KeyCode key_code, Modifier mod, bool is_repeat);
 
     // 
     // 

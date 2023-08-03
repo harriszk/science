@@ -7,8 +7,6 @@
 #include "application.h"
 
 #include "logger.h"
-#include "events/key_pressed_event.h"
-#include "events/mouse_button_pressed_event.h"
 
 Application::Application() {
   Initialize();
@@ -18,16 +16,14 @@ Application::~Application() {
 
 }
 
-void Application::Run() {
-  LOG_TRACE("Application run method called.");
+void Application::OnEvent(Event& event) {
+  LOG_INFO(event.ToString());
 }
 
 void Application::Initialize() {
   LOG_TRACE("Initializing application.");
+}
 
-  KeyPressedEvent e1(KeyCode::D, false);
-  MouseButtonPressedEvent e2(MouseButton::MOUSE_LEFT);
-
-  LOG_INFO(e1.ToString());
-  LOG_INFO(e2.ToString());
+void Application::Run() {
+  LOG_TRACE("Application run method called.");
 }

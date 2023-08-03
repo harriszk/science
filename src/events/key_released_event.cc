@@ -8,8 +8,8 @@
 
 #include "utility.h"
 
-KeyReleasedEvent::KeyReleasedEvent(KeyCode key_code) 
-    : KeyboardEvent(key_code, Modifier::None, EventType::KeyReleasedEvent) {
+KeyReleasedEvent::KeyReleasedEvent(KeyCode key_code, Modifier mod) 
+    : KeyboardEvent(key_code, mod, EventType::KeyReleased) {
 
 }
 

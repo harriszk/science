@@ -7,7 +7,7 @@
 #include "events/keyboard_event.h"
 
 KeyboardEvent::KeyboardEvent(KeyCode key_code, Modifier modifier, EventType type)
-    : Event(type, EventCategory::KeyboardEvent),
+    : Event(type, EventCategory::Keyboard),
       key_code_(key_code),
       modifier_(modifier) {
 
