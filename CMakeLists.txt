@@ -103,6 +103,7 @@ add_executable("${ProjectName}-test"
   # Source files
   test/sanity_test.cc
   test/events_test.cc
+  test/event_manager_test.cc
 
   # Head files
 )
