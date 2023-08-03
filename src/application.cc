@@ -8,15 +8,9 @@
 
 #include "logger.h"
 #include "events/key_pressed_event.h"
-#include "events/key_released_event.h"
-#include "events/key_typed_event.h"
+#include "events/mouse_button_pressed_event.h"
 
-Application::Application()
-/*
-    : display_(1150, 800, "Science Simulations"),
-      controller_(&camera_),
-      shader_("../src/render/shaders/vertexShaderSource.glsl", "../src/render/shaders/fragmentShaderSource.glsl"),
-      renderer_(shader_) */{
+Application::Application() {
   Initialize();
 }
 
@@ -31,6 +25,9 @@ void Application::Run() {
 void Application::Initialize() {
   LOG_TRACE("Initializing application.");
 
-  KeyReleasedEvent event(G);
-  LOG_INFO(event.ToString());
+  KeyPressedEvent e1(KeyCode::D, false);
+  MouseButtonPressedEvent e2(MouseButton::MOUSE_LEFT);
+
+  LOG_INFO(e1.ToString());
+  LOG_INFO(e2.ToString());
 }
