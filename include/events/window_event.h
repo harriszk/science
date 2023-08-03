@@ -15,6 +15,9 @@ class WindowEvent : public Event {
     bool IsFullScreen();
 
   protected:
+    // Default constructor.
+    WindowEvent(EventType type);
+
     // 
     bool is_full_screen_;
 };

@@ -54,6 +54,11 @@ add_library("${ProjectName}" STATIC
   src/events/mouse_button_event.cc
   src/events/mouse_button_pressed_event.cc
   src/events/mouse_button_released_event.cc
+  src/events/window_event.cc
+  src/events/window_closed_event.cc
+  src/events/window_resized_event.cc
+  src/events/window_moved_event.cc
+  src/events/window_focus_changed_event.cc
 )
 
 target_compile_definitions("${ProjectName}" PRIVATE PROJECT_NAMESPACE=${ProjectNamespace})

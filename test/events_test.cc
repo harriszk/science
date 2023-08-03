@@ -12,6 +12,10 @@
 #include "events/mouse_button_released_event.h"
 #include "events/mouse_moved_event.h"
 #include "events/mouse_scrolled_event.h"
+#include "events/window_closed_event.h"
+#include "events/window_focus_changed_event.h"
+#include "events/window_moved_event.h"
+#include "events/window_resized_event.h"
 
 TEST(EventSystemTest, KeyPressedEventTest) {
   KeyCode key = KeyCode::SPACE;
@@ -124,14 +128,14 @@ TEST(EventSystemTest, WindowClosedEventTest) {
 }
 
 TEST(EventSystemTest, WindowMovedEventTest) {
-  int x = 100;
-  int y = 200;
+  float x = 100;
+  float y = 200;
   WindowMovedEvent event(x, y);
 
   EXPECT_EQ(event.get_event_type(), EventType::WindowMoved);
   EXPECT_EQ(event.get_event_category(), EventCategory::Window);
-  EXPECT_EQ(event.get_x_pos(), x);
-  EXPECT_EQ(event.get_y_pos(), y);
+  EXPECT_EQ(event.get_x(), x);
+  EXPECT_EQ(event.get_y(), y);
   EXPECT_FALSE(event.IsHandled());
 
   event.set_handled();
