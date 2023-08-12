@@ -11,7 +11,7 @@ WindowClosedEvent::WindowClosedEvent() : WindowEvent(EventType::WindowClosed) {
 }
 
 std::string WindowClosedEvent::ToString() const {
-  std::string output = std::string("WindowClosedEvent:");
+  std::string output = std::string("WindowClosedEvent");
 
   return output;
 }

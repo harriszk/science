@@ -51,14 +51,14 @@ class Event {
     // Get the event type
     // 
     // @return EventType 
-    EventType get_event_type() {
+    EventType get_event_type() const {
       return type_;
     }
 
     // Get the event category
     // 
     // @return EventCategory 
-    EventCategory get_event_category() {
+    EventCategory get_event_category() const {
       return category_;
     }
 
@@ -77,7 +77,7 @@ class Event {
     EventType type_;
 
     // 
-    EventCategory category_{};
+    EventCategory category_;
 
     // 
     bool handled_ = false;

@@ -45,6 +45,8 @@ add_library("${ProjectName}" STATIC
   src/application.cc
   src/logger.cc
   src/utility.cc
+  src/display.cc
+  src/event_manager.cc
   src/events/keyboard_event.cc
   src/events/key_pressed_event.cc
   src/events/key_released_event.cc
@@ -104,6 +106,7 @@ add_executable("${ProjectName}-test"
   test/sanity_test.cc
   test/events_test.cc
   test/event_manager_test.cc
+  test/display_test.cc
 
   # Head files
 )
@@ -111,6 +114,7 @@ add_executable("${ProjectName}-test"
 target_link_libraries("${ProjectName}-test"
   gtest_main
   "${ProjectName}"
+  glfw
 )
 
 include(GoogleTest)

@@ -8,13 +8,14 @@
 
 #include "utility.h"
 
-MouseButtonReleasedEvent::MouseButtonReleasedEvent(MouseButton button)
-    : MouseButtonEvent(button, EventType::MouseButtonReleased) {
+MouseButtonReleasedEvent::MouseButtonReleasedEvent(MouseButton button, Modifier modifier)
+    : MouseButtonEvent(button, modifier, EventType::MouseButtonReleased) {
 
 }
 
 std::string MouseButtonReleasedEvent::ToString() const {
-  std::string output = std::string("MouseButtonReleasedEvent: ") + MouseButtonToString(button_);
+  std::string output = std::string("MouseButtonReleasedEvent: ") + MouseButtonToString(button_) + 
+  ", Modifier = " + ModifierToString(modifier_);;
   
   return output;
 }

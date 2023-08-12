@@ -64,11 +64,13 @@ TEST(EventSystemTest, MouseMovedEventTest) {
 
 TEST(EventSystemTest, MouseButtonPressedEventTest) {
   MouseButton button = MouseButton::MOUSE_LEFT;
-  MouseButtonPressedEvent event(button);
+  Modifier mod = Modifier::SHIFT_MOD;
+  MouseButtonPressedEvent event(button, mod);
 
   EXPECT_EQ(event.get_event_type(), EventType::MouseButtonPressed);
   EXPECT_EQ(event.get_event_category(), EventCategory::Mouse);
   EXPECT_EQ(event.get_button(), button);
+  EXPECT_EQ(event.get_modifier(), mod);
   EXPECT_FALSE(event.IsHandled());
 
   event.set_handled();
@@ -77,11 +79,13 @@ TEST(EventSystemTest, MouseButtonPressedEventTest) {
 
 TEST(EventSystemTest, MouseButtonReleasedEventTest) {
   MouseButton button = MouseButton::MOUSE_LEFT;
-  MouseButtonReleasedEvent event(button);
+  Modifier mod = Modifier::CAPS_LOCK_MOD;
+  MouseButtonReleasedEvent event(button, mod);
 
   EXPECT_EQ(event.get_event_type(), EventType::MouseButtonReleased);
   EXPECT_EQ(event.get_event_category(), EventCategory::Mouse);
   EXPECT_EQ(event.get_button(), button);
+  EXPECT_EQ(event.get_modifier(), mod);
   EXPECT_FALSE(event.IsHandled());
 
   event.set_handled();

@@ -17,7 +17,7 @@ std::string KeyReleasedEvent::ToString() const {
   std::string output = std::string("KeyReleasedEvent: ") +
     "Key code = " + std::to_string(static_cast<int>(key_code_)) +
     " (" + KeyCodeToString(key_code_) + "), " +
-    "Modifier = " + std::to_string(static_cast<int>(modifier_));
+    "Modifier = " + ModifierToString(modifier_);
   
   return output;
 }

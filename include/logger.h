@@ -17,6 +17,10 @@ class Logger {
     // 
     static void Initialize();
 
+    // 
+    // 
+    static void Shutdown();
+
     // Get the logger
     // 
     // @return std::shared_ptr<spdlog::logger>& 

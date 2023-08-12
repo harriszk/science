@@ -10,8 +10,8 @@
 #include "mouse_event.h"
 
 enum MouseButton {
-  MOUSE_LEFT = 1,
-  MOUSE_RIGHT = 2
+  MOUSE_LEFT = 0,
+  MOUSE_RIGHT = 1
 };
 
 class MouseButtonEvent : public MouseEvent {
@@ -23,7 +23,7 @@ class MouseButtonEvent : public MouseEvent {
 
   protected:
     // Default constructor
-    MouseButtonEvent(MouseButton button, EventType type);
+    MouseButtonEvent(MouseButton button, Modifier modifier, EventType type);
 
     // 
     MouseButton button_;

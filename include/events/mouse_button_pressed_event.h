@@ -12,7 +12,7 @@
 class MouseButtonPressedEvent : public MouseButtonEvent {
   public:
     // Default constructor.
-    MouseButtonPressedEvent(MouseButton button);
+    MouseButtonPressedEvent(MouseButton button, Modifier modifier);
 
     // 
     // 

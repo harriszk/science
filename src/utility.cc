@@ -140,3 +140,16 @@ std::string MouseButtonToString(MouseButton button) {
     default: return "UNKNOWN";
   }
 }
+
+std::string ModifierToString(Modifier mod) {
+  switch (mod) {
+    case Modifier::None: return "None";
+    case Modifier::SHIFT_MOD: return "Shift";
+    case Modifier::CONTROL_MOD: return "Control";
+    case Modifier::ALT_MOD: return "Alt";
+    case Modifier::SUPER_MOD: return "Super";
+    case Modifier::CAPS_LOCK_MOD : return "Caps Lock";
+    case Modifier::NUM_LOCK_MOD: return "Num Lock";
+    default: return "UNKNOWN";
+  }
+}

@@ -6,8 +6,8 @@
 // © 2023 by Zachary Harris (zacharykeatonharris@gmail.com)
 #include "events/mouse_button_event.h"
 
-MouseButtonEvent::MouseButtonEvent(MouseButton button, EventType type)
-    : MouseEvent(Modifier::None, type),
+MouseButtonEvent::MouseButtonEvent(MouseButton button, Modifier modifier, EventType type)
+    : MouseEvent(modifier, type),
       button_(button) {
 
 }

@@ -18,3 +18,10 @@ void Logger::Initialize() {
   LOG_TRACE("Initialized logger!");
 }
 
+void Logger::Shutdown() {
+  if (logger_) {
+    LOG_TRACE("Shutting down logger...");
+    spdlog::shutdown();
+    logger_ = nullptr;
+  }
+}

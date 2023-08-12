@@ -7,7 +7,9 @@
 #ifndef _APPLICATION_H_
 #define _APPLICATION_H_
 
+#include "display.h"
 #include "events/event.h"
+#include "events/window_closed_event.h"
 
 int main(int argc, char * argv[]);
 
@@ -20,12 +22,6 @@ class Application {
     // Destructor.
     // 
     ~Application();
-
-    // 
-    // 
-    // @param[in] event 
-    void OnEvent(Event& event);
-
   private:
     // 
     // 
@@ -37,7 +33,15 @@ class Application {
 
     // 
     // 
-    //Display display_;
+    void OnWindowClose();
+
+    // 
+    // 
+    Display display_;
+
+    // 
+    // 
+    bool running_ = true;
 
     /*
     Camera2D camera_;

@@ -10,10 +10,13 @@
 #include <string>
 
 #include "key_code.h"
+#include "modifier.h"
 #include "events/mouse_button_event.h"
 
 std::string KeyCodeToString(KeyCode keyCode);
 
 std::string MouseButtonToString(MouseButton button);
+
+std::string ModifierToString(Modifier mod);
 
 #endif

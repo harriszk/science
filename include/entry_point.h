@@ -20,6 +20,8 @@ int main(int argc, char * argv[])
   app->Run();
 	delete app;
 
+  Logger::Shutdown();
+
   return 0;
 } // end main
 
