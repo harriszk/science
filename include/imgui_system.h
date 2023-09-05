@@ -7,8 +7,12 @@
 #ifndef _IMGUI_SYSTEM_H_
 #define _IMGUI_SYSTEM_H_
 
+#include <vector>
+
 #include "system.h"
 #include "event_listener.h"
+
+#include "editor/panel.h"
 
 class ImGuiSystem : public System, public EventListener {
   public:
@@ -19,6 +23,11 @@ class ImGuiSystem : public System, public EventListener {
     // Destructor.
     // 
     ~ImGuiSystem();
+
+    // 
+    // 
+    // @param[in] panel 
+    void AddPanel(Panel* panel);
 
     // 
     // 
@@ -38,6 +47,8 @@ class ImGuiSystem : public System, public EventListener {
     // 
     // @param[in] event 
     void OnKeyboardEvent(const Event& event);
+
+    std::vector<Panel*> panels_;
 
     // 
     // 

@@ -32,6 +32,11 @@ class Application : public EventListener {
 
     // 
     // 
+    // @param[in] system 
+    void AddSystem(System* system);
+
+    // 
+    // 
     // @param[in] event 
     void OnEvent(const Event& event) override;
   private:
@@ -62,7 +67,7 @@ class Application : public EventListener {
     std::vector<System*> systems_;
 
     ImGuiSystem imgui_system_;
-
+    
     // 
     // 
     bool running_ = true;

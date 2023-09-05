@@ -11,13 +11,22 @@
 #include "events/window_resized_event.h"
 #include "event_manager.h"
 #include "logger.h"
+#include "editor/menu_bar_panel.h"
+#include "editor/scene_panel.h"
 
-Application::Application() : display_("Science Application", 800, 550) {
+Application::Application() : display_("Science Application", 1200, 725) {
   Initialize();
+}
+
+void Application::AddSystem(System* system) {
+  systems_.push_back(system);
 }
 
 void Application::Initialize() {
   LOG_TRACE("Initializing application.");
+
+  imgui_system_.AddPanel(new MenuBarPanel());
+  imgui_system_.AddPanel(new ScenePanel());
 
   systems_.push_back(&imgui_system_);
 

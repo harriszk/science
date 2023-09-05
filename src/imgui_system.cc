@@ -28,6 +28,8 @@ ImGuiSystem::ImGuiSystem() {
 
   ImGuiIO& io = ImGui::GetIO(); (void)io;
   io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
+  io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
+  io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
 
   io.KeyMap[ImGuiKey_Backspace] = KeyCode::BACKSPACE;
   io.KeyMap[ImGuiKey_LeftArrow] = KeyCode::KEY_LEFT;
@@ -45,10 +47,13 @@ ImGuiSystem::ImGuiSystem() {
   io.KeyMap[ImGuiKey_Tab] = KeyCode::TAB;
   io.KeyMap[ImGuiKey_LeftSuper] = KeyCode::LEFT_SUPER;
   io.KeyMap[ImGuiKey_RightSuper] = KeyCode::RIGHT_SUPER;
+  io.KeyMap[ImGuiKey_Space] = KeyCode::SPACE;
   io.KeyMap[ImGuiKey_A] = KeyCode::A;
   io.KeyMap[ImGuiKey_C] = KeyCode::C;
   io.KeyMap[ImGuiKey_V] = KeyCode::V;
   io.KeyMap[ImGuiKey_X] = KeyCode::X;
+
+  io.DisplaySize = ImVec2(0.0f, 0.0f);
 
   //ImGui_ImplGlfw_InitForOpenGL(window, true);
   ImGui_ImplOpenGL3_Init("#version 330");
@@ -64,20 +69,63 @@ ImGuiSystem::ImGuiSystem() {
 }
 
 ImGuiSystem::~ImGuiSystem() {
+  for (Panel* panel : panels_) {
+    delete panel;
+  }
+
   ImGui_ImplOpenGL3_Shutdown();
   //ImGui_ImplGlfw_Shutdown();
   ImGui::DestroyContext();
 }
 
-void ImGuiSystem::OnUpdate() {
-  ImGui_ImplOpenGL3_NewFrame();
-  //ImGui_ImplGlfw_NewFrame();
-  ImGui::NewFrame();
+void ImGuiSystem::AddPanel(Panel* panel) {
+  panels_.push_back(panel);
+}
 
+void ImGuiSystem::OnUpdate() {
   ImGuiIO& io = ImGui::GetIO(); (void)io;
   float time = (float)glfwGetTime();
   io.DeltaTime = time - time_;
   time_ = time;
+
+  ImGui_ImplOpenGL3_NewFrame();
+  //ImGui_ImplGlfw_NewFrame();
+  ImGui::NewFrame();
+
+  ImGui::DockSpaceOverViewport(ImGui::GetMainViewport());
+
+  for(Panel* panel : panels_) {
+    panel->Render();
+  }
+
+  // TEMP: These panels should be put into their own file
+  // and then we render them from a list of panels that can be 
+  // changed depending on what interface we want to use.
+  /*
+  if (ImGui::BeginMainMenuBar()) {
+    if (ImGui::BeginMenu("File")) {
+      ImGui::EndMenu();
+    }
+
+    if (ImGui::BeginMenu("Edit")) {
+      ImGui::EndMenu();
+    }
+
+    ImGui::EndMainMenuBar();
+  }
+
+  //ImGui::ShowDebugLogWindow();
+
+  ImGui::Begin("Elements Tree");
+  ImGui::End();
+
+  ImGui::Begin("Properties");
+  ImGui::End();
+
+  ImGui::Begin("Console");
+  ImGui::End();
+  */
+  // TEMP: End
 
   static bool show = true;
   ImGui::ShowDemoWindow(&show);
