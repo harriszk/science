@@ -17,12 +17,12 @@ class MouseMovedEvent : public MouseEvent {
     // Get the x
     // 
     // @return float 
-    float get_x();
+    float get_x() const;
 
     // Get the y
     // 
     // @return float 
-    float get_y();
+    float get_y() const;
 
     // 
     // 

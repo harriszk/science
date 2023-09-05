@@ -7,13 +7,20 @@
 #ifndef _APPLICATION_H_
 #define _APPLICATION_H_
 
+#include <vector>
+
 #include "display.h"
+#include "system.h"
+#include "event_listener.h"
 #include "events/event.h"
 #include "events/window_closed_event.h"
+#include "events/key_pressed_event.h"
+
+#include "imgui_system.h"
 
 int main(int argc, char * argv[]);
 
-class Application {
+class Application : public EventListener {
   public:
     // Default constructor.
     // 
@@ -21,7 +28,12 @@ class Application {
 
     // Destructor.
     // 
-    ~Application();
+    virtual ~Application() = default;
+
+    // 
+    // 
+    // @param[in] event 
+    void OnEvent(const Event& event) override;
   private:
     // 
     // 
@@ -37,7 +49,19 @@ class Application {
 
     // 
     // 
+    // @param[in] event 
+    void OnKeyPressed(const KeyPressedEvent& event);
+
+
+    // 
+    // 
     Display display_;
+
+    // 
+    // 
+    std::vector<System*> systems_;
+
+    ImGuiSystem imgui_system_;
 
     // 
     // 

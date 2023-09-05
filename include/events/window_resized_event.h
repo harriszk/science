@@ -20,12 +20,12 @@ class WindowResizedEvent : public WindowEvent {
     // Get the width
     // 
     // @return int 
-    int get_width();
+    int get_width() const;
 
     // Get the height
     // 
     // @return int 
-    int get_height();
+    int get_height() const;
 
     // 
     // 

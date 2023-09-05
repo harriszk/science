@@ -6,36 +6,68 @@
 // © 2023 by Zachary Harris (zacharykeatonharris@gmail.com)
 #include "application.h"
 
+#include <functional>
+
+#include "events/window_resized_event.h"
+#include "event_manager.h"
 #include "logger.h"
 
 Application::Application() : display_("Science Application", 800, 550) {
   Initialize();
 }
 
-Application::~Application() {
-
-}
-
 void Application::Initialize() {
   LOG_TRACE("Initializing application.");
 
-  display_.set_event_callback([this](const Event& event) {
-    //event_manager_.Notify(event);
-  });
+  systems_.push_back(&imgui_system_);
+
+  display_.set_event_callback(std::bind(&EventManager::Dispatch, EventManager::Get(), std::placeholders::_1));
+
+  EventManager::Get()->Subscribe(this, EventType::WindowClosed);
+  EventManager::Get()->Subscribe(this, EventType::KeyPressed);
+
+  WindowResizedEvent event(display_.get_width(), display_.get_height());
+  EventManager::Get()->Dispatch(event);
 }
 
 void Application::Run() {
   LOG_TRACE("Application run method called.");
 
-  if (display_.get_window() == NULL) {
+  if (display_.get_window() == nullptr) {
     running_ = false;
   }
 
   while (running_) {
+    glClearColor(173.0f/255.0f, 216.0f/255.0f, 230.0f/255.0f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    
+    for (System* system : systems_) {
+      system->OnUpdate();
+    }
+
     display_.Update();
+  }
+}
+
+void Application::OnEvent(const Event& event) {
+  switch (event.get_event_type()) {
+    case EventType::WindowClosed:
+      OnWindowClose();
+      break;
+    case EventType::KeyPressed:
+      OnKeyPressed(static_cast<const KeyPressedEvent&>(event));
+      break;
+    default:
+      break;
   }
 }
 
 void Application::OnWindowClose() {
   running_ = false;
+}
+
+void Application::OnKeyPressed(const KeyPressedEvent& event) {
+  if (event.get_key_code() == KeyCode::ESCAPE) {
+    OnWindowClose();
+  }
 }

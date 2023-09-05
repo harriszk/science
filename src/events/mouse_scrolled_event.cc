@@ -12,7 +12,7 @@ MouseScrolledEvent::MouseScrolledEvent(float dy)
 
 }
 
-float MouseScrolledEvent::get_dy() {
+float MouseScrolledEvent::get_dy() const {
   return dy_;
 }
 

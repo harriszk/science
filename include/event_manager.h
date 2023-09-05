@@ -16,9 +16,9 @@
 
 class EventManager {
   public:
-    EventManager();
+    EventManager(const EventManager& manager) = delete;
 
-    ~EventManager();
+    static EventManager* Get();
 
     bool Subscribe(EventListener* observer, EventType type);
 
@@ -28,7 +28,13 @@ class EventManager {
 
     void Dispatch(const Event& event);
   private:
-    std::unordered_map<EventType, std::vector<EventListener*>> observers_;
+    EventManager();
+
+    ~EventManager();
+
+    static EventManager* instance_;
+
+    std::unordered_map<EventType, std::vector<EventListener*>> listeners_;
 };
 
 #endif

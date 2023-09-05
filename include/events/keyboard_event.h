@@ -16,12 +16,12 @@ class KeyboardEvent : public Event {
     // Get the key code
     // 
     // @return KeyCode 
-    KeyCode get_key_code();
+    KeyCode get_key_code() const;
 
     // Get the modifier
     // 
     // @return Modifier 
-    Modifier get_modifier();
+    Modifier get_modifier() const;
   
   protected:
     // Default constructor.

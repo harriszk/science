@@ -12,6 +12,6 @@ MouseButtonEvent::MouseButtonEvent(MouseButton button, Modifier modifier, EventT
 
 }
 
-MouseButton MouseButtonEvent::get_button() {
+MouseButton MouseButtonEvent::get_button() const {
   return button_;
 }

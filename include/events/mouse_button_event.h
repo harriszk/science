@@ -19,7 +19,7 @@ class MouseButtonEvent : public MouseEvent {
     // Get the button
     // 
     // @return MouseButton 
-    MouseButton get_button();
+    MouseButton get_button() const;
 
   protected:
     // Default constructor

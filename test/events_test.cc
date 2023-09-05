@@ -8,6 +8,7 @@
 
 #include "events/key_pressed_event.h"
 #include "events/key_released_event.h"
+#include "events/key_typed_event.h"
 #include "events/mouse_button_pressed_event.h"
 #include "events/mouse_button_released_event.h"
 #include "events/mouse_moved_event.h"
@@ -41,6 +42,19 @@ TEST(EventSystemTest, KeyReleasedEventTest) {
   EXPECT_EQ(event.get_event_category(), EventCategory::Keyboard);
   EXPECT_EQ(event.get_key_code(), key);
   EXPECT_EQ(event.get_modifier(), mod);
+  EXPECT_FALSE(event.IsHandled());
+
+  event.set_handled();
+  EXPECT_TRUE(event.IsHandled());
+}
+
+TEST(EventSystemTest, KeyTypedEventTest) {
+  KeyCode key = KeyCode::W;
+  KeyTypedEvent event(key);
+
+  EXPECT_EQ(event.get_event_type(), EventType::KeyTyped);
+  EXPECT_EQ(event.get_event_category(), EventCategory::Keyboard);
+  EXPECT_EQ(event.get_key_code(), key);
   EXPECT_FALSE(event.IsHandled());
 
   event.set_handled();

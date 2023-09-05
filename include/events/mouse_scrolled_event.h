@@ -17,7 +17,7 @@ class MouseScrolledEvent : public MouseEvent {
     // Get the dy
     // 
     // @return float 
-    float get_dy();
+    float get_dy() const;
 
     // 
     // 

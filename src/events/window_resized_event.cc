@@ -13,11 +13,11 @@ WindowResizedEvent::WindowResizedEvent(int width, int height)
 
 }
 
-int WindowResizedEvent::get_width() {
+int WindowResizedEvent::get_width() const {
   return width_;
 }
 
-int WindowResizedEvent::get_height() {
+int WindowResizedEvent::get_height() const {
   return height_;
 }
 

@@ -8,18 +8,30 @@
 
 #include <algorithm>
 
+#include "logger.h"
+
+EventManager* EventManager::instance_ = nullptr;
+
 EventManager::EventManager() {
 
 }
 
 EventManager::~EventManager() {
-  
+  delete instance_;
+}
+
+EventManager* EventManager::Get() {
+  if (instance_ == nullptr) {
+    instance_ = new EventManager();
+  }
+
+  return instance_;
 }
 
 bool EventManager::Subscribe(EventListener* observer, EventType type) {
-  auto iter = observers_.find(type);
-  if (iter == observers_.end()) {
-    observers_[type] = {observer};
+  auto iter = listeners_.find(type);
+  if (iter == listeners_.end()) {
+    listeners_[type] = {observer};
     return true;
   }
 
@@ -35,8 +47,8 @@ bool EventManager::Subscribe(EventListener* observer, EventType type) {
 }
 
 bool EventManager::Unsubscribe(EventListener* observer, EventType type) {
-  auto iter = observers_.find(type);
-  if (iter == observers_.end()) {
+  auto iter = listeners_.find(type);
+  if (iter == listeners_.end()) {
     return false;
   }
 
@@ -52,13 +64,15 @@ bool EventManager::Unsubscribe(EventListener* observer, EventType type) {
 }
 
 bool EventManager::UnsubscribeAll() {
-  observers_.clear();
+  listeners_.clear();
   return true;
 }
 
 void EventManager::Dispatch(const Event& event) {
-  auto iter = observers_.find(event.get_event_type());
-  if (iter == observers_.end()) {
+  LOG_INFO("Dispatching: {0}", event.ToString());
+
+  auto iter = listeners_.find(event.get_event_type());
+  if (iter == listeners_.end()) {
     return;
   }
 

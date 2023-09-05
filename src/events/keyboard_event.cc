@@ -13,10 +13,10 @@ KeyboardEvent::KeyboardEvent(KeyCode key_code, Modifier modifier, EventType type
 
 }
 
-KeyCode KeyboardEvent::get_key_code() {
+KeyCode KeyboardEvent::get_key_code() const {
   return key_code_;
 }
 
-Modifier KeyboardEvent::get_modifier() {
+Modifier KeyboardEvent::get_modifier() const {
   return modifier_;
 }

@@ -13,11 +13,11 @@ MouseMovedEvent::MouseMovedEvent(float x, float y)
 
 }
 
-float MouseMovedEvent::get_x() {
+float MouseMovedEvent::get_x() const {
   return x_;
 }
 
-float MouseMovedEvent::get_y() {
+float MouseMovedEvent::get_y() const {
   return y_;
 }
 

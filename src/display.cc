@@ -9,6 +9,7 @@
 #include "logger.h"
 #include "events/key_pressed_event.h"
 #include "events/key_released_event.h"
+#include "events/key_typed_event.h"
 #include "events/mouse_button_pressed_event.h"
 #include "events/mouse_button_released_event.h"
 #include "events/mouse_moved_event.h"
@@ -58,6 +59,11 @@ void Display::Initialize() {
   LOG_INFO("Successfully created GLFW window!");
 
   glfwMakeContextCurrent(window_);
+
+  if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
+    LOG_ERROR("Failed to initialize GLAD!");
+  }
+
   glfwSetWindowUserPointer(window_, &data_);
 
   SetCallbacks();
@@ -124,6 +130,12 @@ void Display::SetCallbacks() {
         break;
       }
     }
+  });
+
+  glfwSetCharCallback(window_, [](GLFWwindow* window, uint32_t character) {
+    DisplayData& data = *(DisplayData*)glfwGetWindowUserPointer(window);
+    KeyTypedEvent event((KeyCode)character);
+    data.event_callback_(event);
   });
 
   glfwSetMouseButtonCallback(window_, [](GLFWwindow* window, int button, int action, int mod)

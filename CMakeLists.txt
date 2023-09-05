@@ -42,14 +42,15 @@ include_directories(${CMAKE_SOURCE_DIR}/third-parties/include)
 
 add_library("${ProjectName}" STATIC
   # Source files
-  src/application.cc
   src/logger.cc
   src/utility.cc
   src/display.cc
   src/event_manager.cc
+  src/imgui_system.cc
   src/events/keyboard_event.cc
   src/events/key_pressed_event.cc
   src/events/key_released_event.cc
+  src/events/key_typed_event.cc
   src/events/mouse_event.cc
   src/events/mouse_moved_event.cc
   src/events/mouse_scrolled_event.cc
@@ -61,6 +62,16 @@ add_library("${ProjectName}" STATIC
   src/events/window_resized_event.cc
   src/events/window_moved_event.cc
   src/events/window_focus_changed_event.cc
+
+  # Third party source files
+  third-parties/include/glad/glad.c
+  third-parties/include/imgui/imgui.cpp
+  third-parties/include/imgui/imgui_widgets.cpp
+  third-parties/include/imgui/imgui_tables.cpp
+  third-parties/include/imgui/imgui_impl_opengl3.cpp
+  third-parties/include/imgui/imgui_impl_glfw.cpp
+  third-parties/include/imgui/imgui_demo.cpp
+  third-parties/include/imgui/imgui_draw.cpp
 )
 
 target_compile_definitions("${ProjectName}" PRIVATE PROJECT_NAMESPACE=${ProjectNamespace})
@@ -68,7 +79,7 @@ target_compile_definitions("${ProjectName}" PRIVATE PROJECT_NAMESPACE=${ProjectN
 add_executable("${ProjectName}-main"
   # Source files
   driver.cc
-  src/logger.cc
+  src/application.cc
 
   # Header files
 )
@@ -108,7 +119,7 @@ add_executable("${ProjectName}-test"
   test/event_manager_test.cc
   test/display_test.cc
 
-  # Head files
+  # Header files
 )
 
 target_link_libraries("${ProjectName}-test"
