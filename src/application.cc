@@ -13,6 +13,7 @@
 #include "logger.h"
 #include "editor/menu_bar_panel.h"
 #include "editor/scene_panel.h"
+#include "editor/asset_panel.h"
 
 Application::Application() : display_("Science Application", 1200, 725) {
   Initialize();
@@ -27,16 +28,18 @@ void Application::Initialize() {
 
   imgui_system_.AddPanel(new MenuBarPanel());
   imgui_system_.AddPanel(new ScenePanel());
+  imgui_system_.AddPanel(new AssetPanel());
 
   systems_.push_back(&imgui_system_);
 
   display_.set_event_callback(std::bind(&EventManager::Dispatch, EventManager::Get(), std::placeholders::_1));
 
-  EventManager::Get()->Subscribe(this, EventType::WindowClosed);
-  EventManager::Get()->Subscribe(this, EventType::KeyPressed);
+  EventManager* manager = EventManager::Get();
+  manager->Subscribe(this, EventType::WindowClosed);
+  manager->Subscribe(this, EventType::KeyPressed);
 
   WindowResizedEvent event(display_.get_width(), display_.get_height());
-  EventManager::Get()->Dispatch(event);
+  manager->Dispatch(event);
 }
 
 void Application::Run() {

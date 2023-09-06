@@ -64,6 +64,7 @@ add_library("${ProjectName}" STATIC
   src/events/window_focus_changed_event.cc
   src/editor/menu_bar_panel.cc
   src/editor/scene_panel.cc
+  src/editor/asset_panel.cc
 
   # Third party source files
   third-parties/include/glad/glad.c

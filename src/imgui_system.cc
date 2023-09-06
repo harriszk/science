@@ -26,7 +26,8 @@ ImGuiSystem::ImGuiSystem() {
   IMGUI_CHECKVERSION();
   ImGui::CreateContext();
 
-  ImGuiIO& io = ImGui::GetIO(); (void)io;
+  ImGuiIO& io = ImGui::GetIO(); 
+  (void)io;
   io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
   io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
   io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
@@ -58,14 +59,15 @@ ImGuiSystem::ImGuiSystem() {
   //ImGui_ImplGlfw_InitForOpenGL(window, true);
   ImGui_ImplOpenGL3_Init("#version 330");
 
-  EventManager::Get()->Subscribe(this, EventType::WindowResized);
-  EventManager::Get()->Subscribe(this, EventType::MouseButtonPressed);
-  EventManager::Get()->Subscribe(this, EventType::MouseButtonReleased);
-  EventManager::Get()->Subscribe(this, EventType::MouseMoved);
-  EventManager::Get()->Subscribe(this, EventType::MouseScrolled);
-  EventManager::Get()->Subscribe(this, EventType::KeyPressed);
-  EventManager::Get()->Subscribe(this, EventType::KeyReleased);
-  EventManager::Get()->Subscribe(this, EventType::KeyTyped);
+  EventManager* manager = EventManager::Get();
+  manager->Subscribe(this, EventType::WindowResized);
+  manager->Subscribe(this, EventType::MouseButtonPressed);
+  manager->Subscribe(this, EventType::MouseButtonReleased);
+  manager->Subscribe(this, EventType::MouseMoved);
+  manager->Subscribe(this, EventType::MouseScrolled);
+  manager->Subscribe(this, EventType::KeyPressed);
+  manager->Subscribe(this, EventType::KeyReleased);
+  manager->Subscribe(this, EventType::KeyTyped);
 }
 
 ImGuiSystem::~ImGuiSystem() {
