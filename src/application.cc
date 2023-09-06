@@ -38,7 +38,12 @@ void Application::Initialize() {
   manager->Subscribe(this, EventType::WindowClosed);
   manager->Subscribe(this, EventType::KeyPressed);
 
+  int monitor_width, monitor_height;
+  glfwGetFramebufferSize(display_.get_window(), &monitor_width, &monitor_height);
+
   WindowResizedEvent event(display_.get_width(), display_.get_height());
+  event.set_monitor_width(monitor_width);
+  event.set_monitor_height(monitor_height);
   manager->Dispatch(event);
 }
 

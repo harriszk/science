@@ -122,12 +122,18 @@ TEST(EventSystemTest, MouseScrolledEventTest) {
 TEST(EventSystemTest, WindowResizedEventTest) {
   int width = 800;
   int height = 600;
+  int monitor_width = 1920;
+  int monitor_height = 1080;
   WindowResizedEvent event(width, height);
+  event.set_monitor_width(monitor_width);
+  event.set_monitor_height(monitor_height);
 
   EXPECT_EQ(event.get_event_type(), EventType::WindowResized);
   EXPECT_EQ(event.get_event_category(), EventCategory::Window);
   EXPECT_EQ(event.get_width(), width);
   EXPECT_EQ(event.get_height(), height);
+  EXPECT_EQ(event.get_monitor_width(), monitor_width);
+  EXPECT_EQ(event.get_monitor_height(), monitor_height);
   EXPECT_FALSE(event.IsHandled());
 
   event.set_handled();

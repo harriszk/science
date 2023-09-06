@@ -22,6 +22,8 @@
 #include "events/key_typed_event.h"
 #include "event_manager.h"
 
+#include "logger.h"
+
 ImGuiSystem::ImGuiSystem() {
   IMGUI_CHECKVERSION();
   ImGui::CreateContext();
@@ -55,12 +57,14 @@ ImGuiSystem::ImGuiSystem() {
   io.KeyMap[ImGuiKey_X] = KeyCode::X;
 
   io.DisplaySize = ImVec2(0.0f, 0.0f);
+  io.DisplayFramebufferScale = ImVec2(1.0f, 1.0f);
 
   //ImGui_ImplGlfw_InitForOpenGL(window, true);
   ImGui_ImplOpenGL3_Init("#version 330");
 
   EventManager* manager = EventManager::Get();
   manager->Subscribe(this, EventType::WindowResized);
+  manager->Subscribe(this, EventType::WindowMoved);
   manager->Subscribe(this, EventType::MouseButtonPressed);
   manager->Subscribe(this, EventType::MouseButtonReleased);
   manager->Subscribe(this, EventType::MouseMoved);
@@ -134,6 +138,9 @@ void ImGuiSystem::OnUpdate() {
 
   ImGui::Render();
   ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
+  //ImGui::UpdatePlatformWindows();
+  //ImGui::RenderPlatformWindowsDefault();
 }
 
 void ImGuiSystem::OnEvent(const Event& event) {
@@ -148,8 +155,12 @@ void ImGuiSystem::OnEvent(const Event& event) {
       if (event.get_event_type() == EventType::WindowResized) {
         const WindowResizedEvent& window_event = static_cast<const WindowResizedEvent&>(event);
 
+        float x_ratio = window_event.get_monitor_width() / window_event.get_width();
+        float y_ratio = window_event.get_monitor_height() / window_event.get_height();
+
         ImGuiIO& io = ImGui::GetIO();
         io.DisplaySize = ImVec2(window_event.get_width(), window_event.get_height());
+        io.DisplayFramebufferScale = ImVec2(x_ratio, y_ratio);
       }
       break;
     default:
