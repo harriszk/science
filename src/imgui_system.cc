@@ -6,6 +6,8 @@
 // © 2023 by Zachary Harris (zacharykeatonharris@gmail.com)
 #include "imgui_system.h"
 
+// WE REALLY DON'T WANT GLAD OR GLFW HERE 
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
 #include "imgui/imgui.h"
@@ -24,16 +26,23 @@
 
 #include "logger.h"
 
-ImGuiSystem::ImGuiSystem() {
+// HACKY JUST TO SEE RESULTS!!!
+void ImGuiSystem::test(unsigned int t) {
+  frame_buffer_object_ = t;
+}
+// END HACKY!!!
+
+ImGuiSystem::ImGuiSystem(unsigned int frame_buffer_object)
+    : frame_buffer_object_(frame_buffer_object) {
   IMGUI_CHECKVERSION();
   ImGui::CreateContext();
 
   ImGuiIO& io = ImGui::GetIO(); 
   (void)io;
+  io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
   io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
   io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
-  io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
-
+  
   io.KeyMap[ImGuiKey_Backspace] = KeyCode::BACKSPACE;
   io.KeyMap[ImGuiKey_LeftArrow] = KeyCode::KEY_LEFT;
   io.KeyMap[ImGuiKey_RightArrow] = KeyCode::KEY_RIGHT;
@@ -88,7 +97,8 @@ void ImGuiSystem::AddPanel(Panel* panel) {
 }
 
 void ImGuiSystem::OnUpdate() {
-  ImGuiIO& io = ImGui::GetIO(); (void)io;
+  ImGuiIO& io = ImGui::GetIO(); 
+  (void)io;
   float time = (float)glfwGetTime();
   io.DeltaTime = time - time_;
   time_ = time;
@@ -103,40 +113,21 @@ void ImGuiSystem::OnUpdate() {
     panel->Render();
   }
 
-  // TEMP: These panels should be put into their own file
-  // and then we render them from a list of panels that can be 
-  // changed depending on what interface we want to use.
-  /*
-  if (ImGui::BeginMainMenuBar()) {
-    if (ImGui::BeginMenu("File")) {
-      ImGui::EndMenu();
-    }
-
-    if (ImGui::BeginMenu("Edit")) {
-      ImGui::EndMenu();
-    }
-
-    ImGui::EndMainMenuBar();
-  }
-
-  //ImGui::ShowDebugLogWindow();
-
-  ImGui::Begin("Elements Tree");
-  ImGui::End();
-
-  ImGui::Begin("Properties");
-  ImGui::End();
-
-  ImGui::Begin("Console");
-  ImGui::End();
-  */
-  // TEMP: End
-
   static bool show = true;
   ImGui::ShowDemoWindow(&show);
 
   ImGui::Render();
   ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
+  // HACKY JUST TO SEE RESULTS!!!
+  glBindFramebuffer(GL_FRAMEBUFFER, frame_buffer_object_);
+
+  glClearColor(173.0f/255.0f, 216.0f/255.0f, 230.0f/255.0f, 1.0f);
+  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+  glBindFramebuffer(GL_FRAMEBUFFER, 0);
+  // END HACKY!!!
+
 
   //ImGui::UpdatePlatformWindows();
   //ImGui::RenderPlatformWindowsDefault();

@@ -18,7 +18,7 @@ class ImGuiSystem : public System, public EventListener {
   public:
     // Default constructor.
     // 
-    ImGuiSystem();
+    ImGuiSystem(unsigned int frame_buffer_object);
 
     // Destructor.
     // 
@@ -37,6 +37,10 @@ class ImGuiSystem : public System, public EventListener {
     // 
     // @param[in] event 
     void OnEvent(const Event& event) override;
+
+    // HACKY JUST TO SEE RESULTS!!!
+    void test(unsigned int t);
+    // END HACKY!!!
   private:
     // 
     // 
@@ -55,6 +59,10 @@ class ImGuiSystem : public System, public EventListener {
     // 
     // 
     float time_ = 1.0f / 60.0f;
+
+    // HACKY JUST TO SEE RESULTS!!!
+    unsigned int frame_buffer_object_;
+    // END HACKY!!!
 };
 
 #endif
