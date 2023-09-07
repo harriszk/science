@@ -64,7 +64,6 @@ ImGuiSystem::ImGuiSystem() {
 
   EventManager* manager = EventManager::Get();
   manager->Subscribe(this, EventType::WindowResized);
-  manager->Subscribe(this, EventType::WindowMoved);
   manager->Subscribe(this, EventType::MouseButtonPressed);
   manager->Subscribe(this, EventType::MouseButtonReleased);
   manager->Subscribe(this, EventType::MouseMoved);

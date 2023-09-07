@@ -100,16 +100,17 @@ void Display::SetCallbacks() {
     DisplayData& data = *(DisplayData*)glfwGetWindowUserPointer(window);
 
     int monitor_width, monitor_height;
-    int width, height;
     glfwGetFramebufferSize(window, &monitor_width, &monitor_height);
-    glfwGetWindowSize(window, &width, &height);
-
+    
     WindowMovedEvent moved_event(x_position, y_position);
     moved_event.set_monitor_width(monitor_width);
     moved_event.set_monitor_height(monitor_height);
     data.event_callback_(moved_event);
 
     // THIS IS HACKY AND SHOULD BE CHANGED!!!
+    int width, height;
+    glfwGetWindowSize(window, &width, &height);
+
     WindowResizedEvent resized_event(width, height);
     resized_event.set_monitor_width(monitor_width);
     resized_event.set_monitor_height(monitor_height);
