@@ -15,7 +15,7 @@ class ScenePanel : public Panel, public EventListener {
   public:
     // Default constructor.
     // 
-    ScenePanel(unsigned int texture_id);
+    ScenePanel();
 
     // Destructor.
     // 
@@ -35,7 +35,7 @@ class ScenePanel : public Panel, public EventListener {
 
     float y_pos_;
 
-    unsigned int texture_id_;
+    unsigned int texture_id_ = 0;
 };
 
 #endif

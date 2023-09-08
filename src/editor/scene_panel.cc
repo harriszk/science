@@ -9,7 +9,7 @@
 #include "event_manager.h"
 #include "events/mouse_moved_event.h"
 
-ScenePanel::ScenePanel(unsigned int texture_id) : texture_id_(texture_id) {
+ScenePanel::ScenePanel() {
   EventManager::Get()->Subscribe(this, EventType::MouseMoved);
 }
 

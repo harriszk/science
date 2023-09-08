@@ -1,7 +1,10 @@
 // @file key_code.h
 // Created on 07/16/2023
 // 
-// 
+// Enumeration of key codes for keyboard input. Key codes represent various
+// keys on a keyboard, including letters, numbers, and special characters.
+// Each key code corresponds to a specific key and is used to identify
+// keyboard input events.
 // 
 // © 2023 by Zachary Harris (zacharykeatonharris@gmail.com)
 #ifndef _KEY_CODE_H_

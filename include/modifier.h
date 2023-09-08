@@ -1,8 +1,9 @@
 // @file modifier.h
 // Created on 08/01/2023
 // 
-// 
-// 
+// Enumerations for keyboard modifier flags. Modifier enumerations represent
+// various keyboard modifiers, such as shifting.
+//
 // © 2023 by Zachary Harris (zacharykeatonharris@gmail.com)
 #ifndef _MODIFIER_H_
 #define _MODIFIER_H_

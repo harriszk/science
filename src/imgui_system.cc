@@ -26,14 +26,7 @@
 
 #include "logger.h"
 
-// HACKY JUST TO SEE RESULTS!!!
-void ImGuiSystem::test(unsigned int t) {
-  frame_buffer_object_ = t;
-}
-// END HACKY!!!
-
-ImGuiSystem::ImGuiSystem(unsigned int frame_buffer_object)
-    : frame_buffer_object_(frame_buffer_object) {
+ImGuiSystem::ImGuiSystem() {
   IMGUI_CHECKVERSION();
   ImGui::CreateContext();
 
@@ -118,16 +111,6 @@ void ImGuiSystem::OnUpdate() {
 
   ImGui::Render();
   ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-
-  // HACKY JUST TO SEE RESULTS!!!
-  glBindFramebuffer(GL_FRAMEBUFFER, frame_buffer_object_);
-
-  glClearColor(173.0f/255.0f, 216.0f/255.0f, 230.0f/255.0f, 1.0f);
-  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-  glBindFramebuffer(GL_FRAMEBUFFER, 0);
-  // END HACKY!!!
-
 
   //ImGui::UpdatePlatformWindows();
   //ImGui::RenderPlatformWindowsDefault();

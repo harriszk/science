@@ -12,6 +12,8 @@ class System {
     virtual ~System() {}
 
     virtual void OnUpdate() = 0;
+
+    //virtual void OnImGuiRender() = 0;
 };
 
 #endif
