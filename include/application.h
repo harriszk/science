@@ -22,6 +22,9 @@
 #include "events/window_closed_event.h"
 #include "events/key_pressed_event.h"
 
+#include "render_manager.h"
+#include "render/shader.h"
+
 int main(int argc, char * argv[]);
 
 class Application : public EventListener {
@@ -60,6 +63,8 @@ class Application : public EventListener {
     // Display used by the application.
     Display display_;
 
+    RenderManager render_manager_;
+
     // List of systems managed by the application.
     std::vector<System*> systems_;
     
@@ -69,13 +74,15 @@ class Application : public EventListener {
     /*
     Camera2D camera_;
     Controller2D controller_;
-    Shader shader_;
+    
     Renderer renderer_;
     Scene scene_;
     Model model; 
     Model model2;
     Model model3;
     */
+
+    //Shader shader_;
 
     friend int ::main(int argc, char * argv[]);
 };

@@ -22,7 +22,8 @@ enum class EventType {
   WindowClosed,
   WindowMoved,
   WindowMinimized,
-  WindowFocusChanged
+  WindowFocusChanged,
+  FrameBufferChanged
 };
 
 enum class EventCategory {

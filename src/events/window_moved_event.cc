@@ -13,11 +13,11 @@ WindowMovedEvent::WindowMovedEvent(float x, float y)
 
 }
 
-float WindowMovedEvent::get_x() {
+float WindowMovedEvent::get_x() const {
   return x_;
 }
 
-float WindowMovedEvent::get_y() {
+float WindowMovedEvent::get_y() const {
   return y_;
 }
 

@@ -11,11 +11,14 @@
 // Probably do not want GLFW here. Doesn't make sense!
 #include <GLFW/glfw3.h>
 
+#include <iostream>
+
 #include "events/window_resized_event.h"
+#include "events/frame_buffer_changed_event.h"
 #include "event_manager.h"
 #include "logger.h"
 
-Application::Application() : display_("Science Application", 1200, 725) {
+Application::Application() : display_("Science Application", 1200, 725), render_manager_(display_) {
   Initialize();
 }
 
@@ -37,23 +40,21 @@ void Application::Run() {
   }
 
   // This is just here because the ImGuiSystem 'needs' this initially.
-  // Should probably fix that and get rid of this code because it is really
-  // not necessary.
+  // Should probably fix that and get rid of this code because it really
+  // should not be necessary.
   EventManager* manager = EventManager::Get();
-  int monitor_width, monitor_height;
-  glfwGetFramebufferSize(display_.get_window(), &monitor_width, &monitor_height);
 
-  WindowResizedEvent event(display_.get_width(), display_.get_height());
-  event.set_monitor_width(monitor_width);
-  event.set_monitor_height(monitor_height);
-  manager->Dispatch(event);
+  int width, height;
+  glfwGetFramebufferSize(display_.get_window(), &width, &height);
+  FrameBufferChangedEvent frame_buffer_event(width, height);
+  manager->Dispatch(frame_buffer_event);
+
+  WindowResizedEvent window_event(display_.get_width(), display_.get_height());
+  manager->Dispatch(window_event);
+
+  glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
   while (running_) {
-    // TEMP: Move to where ever the scene is rendered.
-    glClearColor(173.0f/255.0f, 216.0f/255.0f, 230.0f/255.0f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    // END TEMP
-    
     for (System* system : systems_) {
       system->OnUpdate();
     }
@@ -65,6 +66,8 @@ void Application::Run() {
     }
     imgui_system_.End();
     */
+
+    render_manager_.Render();
 
     display_.Update();
   }
@@ -96,3 +99,5 @@ void Application::OnKeyPressed(const KeyPressedEvent& event) {
 void Application::OnWindowClose() {
   running_ = false;
 }
+
+/**/

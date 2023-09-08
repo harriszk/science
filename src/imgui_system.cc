@@ -15,6 +15,7 @@
 #include "imgui/imgui_impl_opengl3.h"
 
 #include "events/window_resized_event.h"
+#include "events/frame_buffer_changed_event.h"
 #include "events/mouse_button_pressed_event.h"
 #include "events/mouse_button_released_event.h"
 #include "events/mouse_moved_event.h"
@@ -66,6 +67,7 @@ ImGuiSystem::ImGuiSystem() {
 
   EventManager* manager = EventManager::Get();
   manager->Subscribe(this, EventType::WindowResized);
+  manager->Subscribe(this, EventType::FrameBufferChanged);
   manager->Subscribe(this, EventType::MouseButtonPressed);
   manager->Subscribe(this, EventType::MouseButtonReleased);
   manager->Subscribe(this, EventType::MouseMoved);
@@ -128,11 +130,21 @@ void ImGuiSystem::OnEvent(const Event& event) {
       if (event.get_event_type() == EventType::WindowResized) {
         const WindowResizedEvent& window_event = static_cast<const WindowResizedEvent&>(event);
 
-        float x_ratio = window_event.get_monitor_width() / window_event.get_width();
-        float y_ratio = window_event.get_monitor_height() / window_event.get_height();
+        float y_ratio = frame_buffer_height_ / window_event.get_height();
+        float x_ratio = frame_buffer_width_ / window_event.get_width();
 
         ImGuiIO& io = ImGui::GetIO();
         io.DisplaySize = ImVec2(window_event.get_width(), window_event.get_height());
+        io.DisplayFramebufferScale = ImVec2(x_ratio, y_ratio);
+      } else if (event.get_event_type() == EventType::FrameBufferChanged) {
+        const FrameBufferChangedEvent& frame_buffer_event = static_cast<const FrameBufferChangedEvent&>(event);
+
+        frame_buffer_width_ = frame_buffer_event.get_width();
+        frame_buffer_height_ = frame_buffer_event.get_height();
+
+        ImGuiIO& io = ImGui::GetIO();
+        float x_ratio = frame_buffer_width_ / io.DisplaySize.x;
+        float y_ratio = frame_buffer_height_ / io.DisplaySize.y;
         io.DisplayFramebufferScale = ImVec2(x_ratio, y_ratio);
       }
       break;

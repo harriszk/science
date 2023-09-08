@@ -45,8 +45,14 @@ add_library("${ProjectName}" STATIC
   src/logger.cc
   src/utility.cc
   src/display.cc
+  src/application.cc
   src/event_manager.cc
   src/imgui_system.cc
+  src/render_manager.cc
+
+  src/render/shader.cc
+  src/render/frame_buffer_object.cc
+
   src/events/keyboard_event.cc
   src/events/key_pressed_event.cc
   src/events/key_released_event.cc
@@ -62,6 +68,8 @@ add_library("${ProjectName}" STATIC
   src/events/window_resized_event.cc
   src/events/window_moved_event.cc
   src/events/window_focus_changed_event.cc
+  src/events/frame_buffer_changed_event.cc
+
   src/editor/menu_bar_panel.cc
   src/editor/scene_panel.cc
   src/editor/asset_panel.cc
@@ -77,12 +85,14 @@ add_library("${ProjectName}" STATIC
   third-parties/include/imgui/imgui_draw.cpp
 )
 
-target_compile_definitions("${ProjectName}" PRIVATE PROJECT_NAMESPACE=${ProjectNamespace})
+target_compile_definitions("${ProjectName}" PRIVATE 
+  PROJECT_NAMESPACE=${ProjectNamespace},
+  SHADER_BASE_DIRECTORY="${CMAKE_SOURCE_DIR}/assets/shaders/"
+)
 
 add_executable("${ProjectName}-main"
   # Source files
   driver.cc
-  src/application.cc
 
   # Header files
 )

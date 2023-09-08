@@ -54,6 +54,14 @@ class ImGuiSystem : public System, public EventListener {
 
     // 
     // 
+    float frame_buffer_width_;
+
+    // 
+    // 
+    float frame_buffer_height_;
+
+    // 
+    // 
     float time_ = 1.0f / 60.0f;
 };
 

@@ -35,7 +35,7 @@ class ScenePanel : public Panel, public EventListener {
 
     float y_pos_;
 
-    unsigned int texture_id_ = 0;
+    unsigned int texture_id_ = 1;
 };
 
 #endif

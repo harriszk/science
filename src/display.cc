@@ -18,6 +18,7 @@
 #include "events/window_focus_changed_event.h"
 #include "events/window_moved_event.h"
 #include "events/window_resized_event.h"
+#include "events/frame_buffer_changed_event.h"
 
 Display::Display(const char* title, int width, int height)
     : data_{title, width, height, nullptr} {
@@ -98,23 +99,9 @@ void Display::SetCallbacks() {
 
   glfwSetWindowPosCallback(window_, [](GLFWwindow* window, int x_position, int y_position) {
     DisplayData& data = *(DisplayData*)glfwGetWindowUserPointer(window);
-
-    int monitor_width, monitor_height;
-    glfwGetFramebufferSize(window, &monitor_width, &monitor_height);
     
     WindowMovedEvent moved_event(x_position, y_position);
-    moved_event.set_monitor_width(monitor_width);
-    moved_event.set_monitor_height(monitor_height);
     data.event_callback_(moved_event);
-
-    // THIS IS HACKY AND SHOULD BE CHANGED!!!
-    int width, height;
-    glfwGetWindowSize(window, &width, &height);
-
-    WindowResizedEvent resized_event(width, height);
-    resized_event.set_monitor_width(monitor_width);
-    resized_event.set_monitor_height(monitor_height);
-    data.event_callback_(resized_event);
   });
 
   glfwSetWindowSizeCallback(window_, [](GLFWwindow* window, int width, int height) {
@@ -122,12 +109,14 @@ void Display::SetCallbacks() {
     data.width_ = width;
     data.height_ = height;
 
-    int monitor_width, monitor_height;
-    glfwGetFramebufferSize(window, &monitor_width, &monitor_height);
-
     WindowResizedEvent event(width, height);
-    event.set_monitor_width(monitor_width);
-    event.set_monitor_height(monitor_height);
+    data.event_callback_(event);
+  });
+
+  glfwSetFramebufferSizeCallback(window_, [](GLFWwindow* window, int width, int height) {
+    DisplayData& data = *(DisplayData*)glfwGetWindowUserPointer(window);
+
+    FrameBufferChangedEvent event(width, height);
     data.event_callback_(event);
   });
 
